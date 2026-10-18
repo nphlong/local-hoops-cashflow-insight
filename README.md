@@ -6,7 +6,7 @@ As-of date for the POC is **2026-10-18**. Refresh resets the ledger. Status and 
 
 ## Getting started
 
-Requires Node.js 18+.
+Requires Node.js 20+ (Vite 8). If `npm install` hits a peer conflict, use `npm install --legacy-peer-deps`.
 
 ```bash
 npm install
@@ -30,11 +30,11 @@ The header is **Local Hoops financial dashboard**, with statement tabs and a **W
 | Month | month-to-date | same day span last month |
 | Year | year-to-date | same year-to-date last year |
 
-**Profit and Loss** — six compact KPI tiles for the selected period (income, gross / operating / net profit, court-hire mix, membership mix) beside a 12-month income, expense, and operating-margin chart. Below that: gross profit and margin, and an expense mix pie.
+**Profit and Loss** — six compact KPI tiles for the selected period (income, gross / operating / net profit, courts income mix, F&B mix) beside a 12-month income, expense, and operating-margin chart. Below that: gross profit and margin, and a 12-month cash-on-hand area chart (opening `$185,000` + net movements).
 
-**Cash flow** — period summary, income and expense tables tracked against the prior period (prior stands in for a budget), category donuts, and year-to-date monthly income vs expense bars.
+**Cash flow** — period summary, income and expense tables tracked against the prior period (prior stands in for a budget), green/orange category donuts (top 4 + Others + Total), and year-to-date monthly income vs expense bars.
 
-**Balance Sheet** — a tracking register, not a classic assets-and-liabilities sheet. Columns include date, type, category, amount, details, running balance, and effective day. Opening cash is `$185,000`. Search, recategorize, add a manual transaction, or load sample rows (the file is not parsed).
+**Balance Sheet** — a tracking register, not a classic assets-and-liabilities sheet. Columns include date, type, category, amount, details, running balance, and effective day. Opening cash is `$185,000`. Search, recategorize, paginate 100 rows at a time, add a manual transaction, or load sample rows (the file is not parsed).
 
 Court-hire count is the number of inflows tagged Basketball Courts Income (Net). Hire value is those dollars divided by that count. Occupancy and revenue per available hour are not shown: bank rows do not include booked hours.
 

@@ -31,9 +31,9 @@ Sources that shaped the KPI set:
 
 Bank statements do **not** contain booked hours, so occupancy / RevPAH are not invented. Proxies used:
 
-- **Court hires** = count of inflows tagged `court_rental`
-- **Hire / booking** = court-rental dollars ÷ hire count (not total inflow ÷ all txns)
-- **Court hire share** and **membership share** of inflow (recurring vs one-off hire)
+- **Court hires** = count of inflows tagged `basketball_courts` (Basketball Courts Income (Net))
+- **Hire / booking** = court-income dollars ÷ hire count (not total inflow ÷ all txns)
+- **Courts income mix** and **F&B mix** of inflow
 
 **Period compare**  
 Header grain `Week | Month | Year` (as of `2026-10-18`):
@@ -70,8 +70,9 @@ Vite 8 prebundled Zustand with a second React copy (`useRef` null). Bind `zustan
 - [`src/index.css`](src/index.css), [`src/App.tsx`](src/App.tsx), [`index.html`](index.html), [`vite.config.ts`](vite.config.ts)
 - Header, SummaryCards, Trend/Inflow/Outflow charts, TransactionTable, ImportSection, ManualEntryForm
 
-**Left untouched**
-- [`services/api.ts`](services/api.ts), [`services/server.ts`](services/server.ts), [`services/backend.ts`](services/backend.ts), [`types/cashflow.types.ts`](types/cashflow.types.ts)
+**Originally left untouched** (later revised in the 2026-10-18 chrome pass)
+- [`services/api.ts`](services/api.ts), [`services/server.ts`](services/server.ts) still unused
+- [`services/backend.ts`](services/backend.ts) and [`types/cashflow.types.ts`](types/cashflow.types.ts) now use the operator category set
 
 ---
 
@@ -116,6 +117,31 @@ Light paper UI (Newsreader + IBM Plex, navy/blue/gold) so the layout reads as a 
 Profit and Loss cards were stretching full width below the `xl` breakpoint and stacking with extra delta lines, so they looked oversized and stacked into each other. Tightened this tab only to match the QuickBooks reference: compact 2×3 KPI tiles (label + value, no delta), 12-month income/expense combo chart on the right from 960px up, two equal charts below. Shared `.card` radius reduced to 12px.
 
 Second pass: KPI tiles stretch in three equal rows beside the combo chart; dual-axis margin line on `%`; pie uses a fixed-height body with legend on the right so it stays circular; combo/line charts keep inside padding so the last months are not clipped.
+
+---
+
+## 2026-10-18 — Shared chrome and operator categories
+
+Aligned Cash flow and Balance Sheet to P&L card/KPI/chart chrome without changing what those tabs are for. Then refined mix, color, and the register.
+
+**Shared chrome**  
+`.page-title`, `.kpi-card` / `.kpi-row`, `.chart-card`, `.table-head`. Navy filled table headers dropped for paper headers. Import and manual entry sit in the same two-column card grid.
+
+**Categories** (operator set, in [`types/cashflow.types.ts`](types/cashflow.types.ts) and the mock ledger):
+
+- Income: Other Income, Basketball Courts Income (Net), F&B Income (Net), Misc
+- Expense: Misc, Renting, Tax, Inventory, Electricity, Employees, Water
+
+**Cash flow**  
+Income and expense table/donut pairs share a row height. Donuts are a fixed 220px plot so the rings line up. Green for income, orange for expenses; larger amounts use a darker shade. Tables and legends show top 4 + Others + Total. Yearly bars use the same green/orange.
+
+**Balance Sheet**  
+Register pages 100 filtered rows at a time (`1–100 of N`). Filter changes reset to page 1.
+
+**P&L**  
+Expense-by-account donut overlapped Cash flow mix, so it was replaced with a single-series area chart of month-end **cash on hand** (opening `$185,000` + net movements). Light green fill; one legend, centered under the plot. Combo and gross-profit charts stay blue / gold / red.
+
+Vite 8 needs Node 20+ (`npm install --legacy-peer-deps` on this machine).
 
 ---
 

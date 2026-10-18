@@ -42,30 +42,33 @@ for (const year of [2025, 2026]) {
   const s = yearScale(year)
   for (const month of [5, 6, 7, 8, 9, 10]) {
     if (year === 2026 && month > 10) continue
-    add(iso(year, month, 3), Math.round(1880 * s), `Facility lease & utilities — ${pad(month)}/${year}`, 'outflow', 'utilities_rent')
-    add(iso(year, month, 4), Math.round(780 * s), `Floor staff / court monitor — ${pad(month)}`, 'outflow', 'security_staffing')
-    add(iso(year, month, 6), Math.round(340 * s), `Court clean after peak sessions — ${pad(month)}`, 'outflow', 'cleaning_services')
-    add(iso(year, month, 8), Math.round(1600 * s), `Memberships — indoor club ${pad(month)}/${year}`, 'inflow', 'membership_fees')
-    add(iso(year, month, 5), Math.round(2400 * s), `Court hire — weekday league ${pad(month)}/${year}`, 'inflow', 'court_rental')
-    add(iso(year, month, 12), Math.round(2100 * s), `Court hire — weekend blocks ${pad(month)}/${year}`, 'inflow', 'court_rental')
-    add(iso(year, month, 19), Math.round(1950 * s), `Court hire — walk-in peak ${pad(month)}/${year}`, 'inflow', 'court_rental')
-    add(iso(year, month, 11), Math.round(1250 * s), `Skills academy block — ${pad(month)}/${year}`, 'inflow', 'training_programs')
-    add(iso(year, month, 15), Math.round(92 * s), `Card processing fees — ${pad(month)}/${year}`, 'outflow', 'payment_fees')
+    add(iso(year, month, 3), Math.round(1200 * s), `Court rent — ${pad(month)}/${year}`, 'outflow', 'renting')
+    add(iso(year, month, 3), Math.round(480 * s), `Electricity — ${pad(month)}/${year}`, 'outflow', 'electricity')
+    add(iso(year, month, 3), Math.round(200 * s), `Water — ${pad(month)}/${year}`, 'outflow', 'water')
+    add(iso(year, month, 4), Math.round(780 * s), `Floor staff / court monitor — ${pad(month)}`, 'outflow', 'employees')
+    add(iso(year, month, 6), Math.round(340 * s), `Court clean after peak sessions — ${pad(month)}`, 'outflow', 'employees')
+    add(iso(year, month, 8), Math.round(1600 * s), `Memberships — indoor club ${pad(month)}/${year}`, 'inflow', 'other_income')
+    add(iso(year, month, 5), Math.round(2400 * s), `Court hire — weekday league ${pad(month)}/${year}`, 'inflow', 'basketball_courts')
+    add(iso(year, month, 12), Math.round(2100 * s), `Court hire — weekend blocks ${pad(month)}/${year}`, 'inflow', 'basketball_courts')
+    add(iso(year, month, 19), Math.round(1950 * s), `Court hire — walk-in peak ${pad(month)}/${year}`, 'inflow', 'basketball_courts')
+    add(iso(year, month, 11), Math.round(1250 * s), `Skills academy block — ${pad(month)}/${year}`, 'inflow', 'other_income')
+    add(iso(year, month, 14), Math.round(640 * s), `Concession — court cafe ${pad(month)}/${year}`, 'inflow', 'fb_income')
+    add(iso(year, month, 15), Math.round(92 * s), `Card processing fees — ${pad(month)}/${year}`, 'outflow', 'expense_misc')
   }
-  add(iso(year, 5, 24), Math.round(2900 * s), `Spring indoor showcase`, 'inflow', 'event_hosting')
-  add(iso(year, 6, 16), Math.round(420 * s), `Ball cart & pump restock`, 'outflow', 'equipment_repairs')
-  add(iso(year, 6, 20), Math.round(390 * s), `Neighborhood indoor-court ads`, 'outflow', 'marketing_promotion')
-  add(iso(year, 7, 9), Math.round(3400 * s), `Summer indoor tournament`, 'inflow', 'event_hosting')
-  add(iso(year, 7, 3), Math.round(1180 * s), `Lighting / floor patch`, 'outflow', 'facility_maintenance')
-  add(iso(year, 7, 22), Math.round(1200 * s), `Baseline board sponsor`, 'inflow', 'sponsorships')
-  add(iso(year, 8, 10), Math.round(540 * s), `Rim and net replacement`, 'outflow', 'equipment_repairs')
-  add(iso(year, 8, 24), Math.round(980 * s), `Liability premium installment`, 'outflow', 'insurance_premiums')
-  add(iso(year, 8, 21), Math.round(680 * s), `Gear hire — tournament weekend`, 'inflow', 'equipment_rental')
-  add(iso(year, 9, 7), Math.round(4100 * s), `Holiday indoor classic`, 'inflow', 'event_hosting')
-  add(iso(year, 9, 18), Math.round(610 * s), `Booking software seat`, 'outflow', 'platform_subscriptions')
-  add(iso(year, 9, 21), Math.round(310 * s), `Sideline merch`, 'inflow', 'merchandise_sales')
-  add(iso(year, 10, 9), Math.round(1250 * s), `Fall skills clinic`, 'inflow', 'training_programs')
-  add(iso(year, 10, 16), Math.round(1500 * s), `Lounge cooler sponsor`, 'inflow', 'sponsorships')
+  add(iso(year, 5, 24), Math.round(2900 * s), `Spring indoor showcase`, 'inflow', 'other_income')
+  add(iso(year, 6, 16), Math.round(420 * s), `Ball cart & pump restock`, 'outflow', 'inventory')
+  add(iso(year, 6, 20), Math.round(390 * s), `Neighborhood indoor-court ads`, 'outflow', 'expense_misc')
+  add(iso(year, 7, 9), Math.round(3400 * s), `Summer indoor tournament`, 'inflow', 'other_income')
+  add(iso(year, 7, 3), Math.round(1180 * s), `Lighting / floor patch`, 'outflow', 'expense_misc')
+  add(iso(year, 7, 22), Math.round(1200 * s), `Baseline board sponsor`, 'inflow', 'other_income')
+  add(iso(year, 8, 10), Math.round(540 * s), `Rim and net replacement`, 'outflow', 'inventory')
+  add(iso(year, 8, 24), Math.round(980 * s), `Quarterly tax installment`, 'outflow', 'tax')
+  add(iso(year, 8, 21), Math.round(680 * s), `Gear hire — tournament weekend`, 'inflow', 'other_income')
+  add(iso(year, 9, 7), Math.round(4100 * s), `Holiday indoor classic`, 'inflow', 'other_income')
+  add(iso(year, 9, 18), Math.round(610 * s), `Booking software seat`, 'outflow', 'expense_misc')
+  add(iso(year, 9, 21), Math.round(310 * s), `Sideline snacks`, 'inflow', 'fb_income')
+  add(iso(year, 10, 9), Math.round(1250 * s), `Fall skills clinic`, 'inflow', 'other_income')
+  add(iso(year, 10, 16), Math.round(1500 * s), `Lounge cooler sales`, 'inflow', 'fb_income')
 }
 
 // Dense recent indoor hires so week-over-week has a real signal (as-of 18 Oct 2026).
@@ -97,14 +100,14 @@ const recentHires: Array<[string, number, string]> = [
 ]
 
 for (const [date, amount, description] of recentHires) {
-  add(date, amount, description, 'inflow', 'court_rental')
+  add(date, amount, description, 'inflow', 'basketball_courts')
 }
 
-add('2026-06-11', 240, 'TRANSFER / POS 4412', 'outflow', 'miscellaneous', true)
-add('2026-07-29', 175, 'ACH UNKNOWN VENDOR', 'outflow', 'miscellaneous', true)
-add('2026-09-29', 220, 'POS SETTLEMENT ADJ', 'inflow', 'court_rental', true)
-add('2026-10-18', 190, 'TRANSFER / MEMO BLANK', 'outflow', 'miscellaneous', true)
-add('2026-10-11', 64, 'VISA DES:FEE ID:8821', 'outflow', 'payment_fees', true)
+add('2026-06-11', 240, 'TRANSFER / POS 4412', 'outflow', 'expense_misc', true)
+add('2026-07-29', 175, 'ACH UNKNOWN VENDOR', 'outflow', 'expense_misc', true)
+add('2026-09-29', 220, 'POS SETTLEMENT ADJ', 'inflow', 'income_misc', true)
+add('2026-10-18', 190, 'TRANSFER / MEMO BLANK', 'outflow', 'expense_misc', true)
+add('2026-10-11', 64, 'VISA DES:FEE ID:8821', 'outflow', 'expense_misc', true)
 
 export const MOCK_TRANSACTIONS: LedgerTransaction[] = drafts.map((row, index) => ({
   ...row,
@@ -119,7 +122,7 @@ export const MOCK_IMPORT_BATCH: LedgerTransaction[] = [
     amount: 2100,
     description: 'Court hire — parsed from statement',
     categoryType: 'inflow',
-    categoryId: 'court_rental',
+    categoryId: 'basketball_courts',
     source: 'import',
   },
   {
@@ -128,7 +131,7 @@ export const MOCK_IMPORT_BATCH: LedgerTransaction[] = [
     amount: 64,
     description: 'VISA DES:FEE ID:8821',
     categoryType: 'outflow',
-    categoryId: 'payment_fees',
+    categoryId: 'expense_misc',
     needsReview: true,
     source: 'import',
   },
@@ -136,9 +139,9 @@ export const MOCK_IMPORT_BATCH: LedgerTransaction[] = [
     id: 'import-live-3',
     date: '2026-10-17',
     amount: 450,
-    description: 'Membership — walk-in conversion',
+    description: 'Concession — walk-in',
     categoryType: 'inflow',
-    categoryId: 'membership_fees',
+    categoryId: 'fb_income',
     source: 'import',
   },
 ]

@@ -8,18 +8,15 @@ import {
   PointElement,
   LineElement,
   LineController,
-  ArcElement,
   Filler,
   Tooltip,
   Legend,
 } from 'chart.js'
-import { Pie, Line } from 'react-chartjs-2'
-import { AS_OF_DATE } from '../data/mockCashflow'
+import { Line } from 'react-chartjs-2'
+import { AS_OF_DATE, OPENING_BALANCE } from '../data/mockCashflow'
 import {
-  categoryName,
   comparePeriods,
-  mixByCategory,
-  periodTransactions,
+  runningLedger,
   useCashflowStore,
 } from '../store/cashflowStore'
 import { lastTwelveMonths } from '../store/periods'
@@ -33,7 +30,6 @@ ChartJS.register(
   PointElement,
   LineElement,
   LineController,
-  ArcElement,
   Filler,
   Tooltip,
   Legend,
@@ -44,6 +40,22 @@ const legend = {
   position: 'top' as const,
   align: 'start' as const,
   labels: { color: '#5b6b7c', boxWidth: 8, boxHeight: 8, font: { family: 'IBM Plex Sans', size: 12 }, padding: 16, usePointStyle: true, pointStyle: 'circle' as const },
+}
+
+const monthCutoff = (key: string, asOf: string) => {
+  const [year, month] = key.split('-').map(Number)
+  const lastDay = new Date(year, month, 0).getDate()
+  const day = key === asOf.slice(0, 7) ? Math.min(Number(asOf.slice(8)), lastDay) : lastDay
+  return `${key}-${String(day).padStart(2, '0')}`
+}
+
+const balanceOn = (ledger: { date: string; balance: number }[], iso: string) => {
+  let balance = OPENING_BALANCE
+  for (const row of ledger) {
+    if (row.date > iso) break
+    balance = row.balance
+  }
+  return balance
 }
 
 const axisX = {
@@ -58,8 +70,14 @@ const ProfitAndLossPage: React.FC = () => {
   const { current } = comparePeriods(transactions, filters.grain)
 
   const series = lastTwelveMonths(transactions, AS_OF_DATE)
-  const mix = mixByCategory(periodTransactions(transactions, filters.grain, 'current'), 'outflow')
-  const mixIds = Object.keys(mix)
+  const ledger = runningLedger(transactions, OPENING_BALANCE)
+  const balanceSeries = series.map((point) => {
+    const cutoff = monthCutoff(point.key, AS_OF_DATE)
+    return {
+      label: point.label,
+      balance: balanceOn(ledger, cutoff),
+    }
+  })
 
   const combo = {
     labels: series.map((d) => d.label),
@@ -161,13 +179,18 @@ const ProfitAndLossPage: React.FC = () => {
     ],
   }
 
-  const doughnut = {
-    labels: mixIds.map((id) => categoryName(id)),
+  const balanceArea = {
+    labels: balanceSeries.map((point) => point.label),
     datasets: [
       {
-        data: mixIds.map((id) => mix[id]),
-        backgroundColor: ['#2f6fed', '#c0392b', '#f0c419', '#7b5ea7', '#1f8a4c', '#e67e22', '#16a085', '#5b6b7c'],
-        borderWidth: 0,
+        label: 'Actual balance',
+        data: balanceSeries.map((point) => point.balance),
+        borderColor: '#6bc98a',
+        backgroundColor: 'rgba(143, 212, 173, 0.45)',
+        fill: true,
+        tension: 0.3,
+        pointRadius: 0,
+        borderWidth: 2,
       },
     ],
   }
@@ -175,15 +198,15 @@ const ProfitAndLossPage: React.FC = () => {
   const kpis = [
     { label: 'Total Income', value: formatCompactCurrency(current.totalInflow) },
     { label: 'Total Gross Profit', value: formatCompactCurrency(current.netCashflow) },
-    { label: 'Court hire mix', value: formatPercentage(current.courtHireShare) },
+    { label: 'Courts income mix', value: formatPercentage(current.courtHireShare) },
     { label: 'Total Operating Profit', value: formatCompactCurrency(current.netCashflow) },
-    { label: 'Membership mix', value: formatPercentage(current.membershipShare) },
+    { label: 'F&B mix', value: formatPercentage(current.fbShare) },
     { label: 'Total Net Profit', value: formatCompactCurrency(current.netCashflow) },
   ]
 
   return (
     <div className="pnl">
-      <h2 className="pnl-title">Profit and Loss overview</h2>
+      <h2 className="page-title">Profit and Loss overview</h2>
 
       <div className="pnl-hero">
         <div className="kpi-grid">
@@ -243,25 +266,41 @@ const ProfitAndLossPage: React.FC = () => {
           </div>
         </article>
         <article className="chart-card">
-          <h3 className="chart-title">Expense by Account name as of today</h3>
-          <div className="chart-body chart-body-sm pie-body">
-            {mixIds.length === 0 ? (
-              <p className="empty">No expenses in this period.</p>
-            ) : (
-              <Pie
-                data={doughnut}
-                options={{
-                  responsive: true,
-                  maintainAspectRatio: false,
-                  plugins: {
-                    legend: {
-                      position: 'right',
-                      labels: { ...legend.labels, padding: 10 },
+          <h3 className="chart-title">Actual Balance Breakdown By Month</h3>
+          <div className="chart-body chart-body-sm">
+            <Line
+              data={balanceArea}
+              options={{
+                responsive: true,
+                maintainAspectRatio: false,
+                interaction: { mode: 'index', intersect: false },
+                plugins: {
+                  legend: { ...legend, position: 'bottom', align: 'center' },
+                  tooltip: {
+                    callbacks: {
+                      label: (ctx) => {
+                        const y = ctx.parsed.y
+                        if (y == null) return `${ctx.dataset.label}: —`
+                        return `${ctx.dataset.label}: ${formatCompactCurrency(y)}`
+                      },
                     },
                   },
-                }}
-              />
-            )}
+                },
+                scales: {
+                  x: axisX,
+                  y: {
+                    beginAtZero: false,
+                    grace: '8%',
+                    ticks: {
+                      ...tick,
+                      callback: (v) => `$${(Number(v) / 1000).toFixed(0)}.0K`,
+                    },
+                    grid: { color: '#eef2f6' },
+                    border: { display: false },
+                  },
+                },
+              }}
+            />
           </div>
         </article>
       </div>

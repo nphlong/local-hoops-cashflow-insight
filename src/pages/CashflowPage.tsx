@@ -27,57 +27,108 @@ import { formatCurrency, formatNumber, formatPercentage } from '../utils/currenc
 
 ChartJS.register(ArcElement, CategoryScale, LinearScale, BarElement, Tooltip, Legend)
 
+const tick = { color: '#6b7c8d', font: { size: 11, family: 'IBM Plex Sans' } }
+const legend = {
+  position: 'right' as const,
+  labels: {
+    color: '#5b6b7c',
+    boxWidth: 8,
+    boxHeight: 8,
+    font: { family: 'IBM Plex Sans', size: 12 },
+    padding: 10,
+    usePointStyle: true,
+    pointStyle: 'circle' as const,
+  },
+}
+
+const INCOME_SHADES = ['#0d6b3a', '#1f8a4c', '#4caf78', '#8fd4ad', '#d7f0e3']
+const EXPENSE_SHADES = ['#c56a00', '#e67e22', '#f0a04a', '#f6c98a', '#fbe6c8']
+
+const collapseTop = (rows: ReturnType<typeof categoryTrackRows>, limit = 4) => {
+  if (rows.length <= limit) return rows
+  const rest = rows.slice(limit)
+  const tracked = rest.reduce((sum, row) => sum + row.tracked, 0)
+  const budget = rest.reduce((sum, row) => sum + row.budget, 0)
+  const pct = budget === 0 ? (tracked === 0 ? 0 : 1) : tracked / budget
+  return [
+    ...rows.slice(0, limit),
+    {
+      id: 'others',
+      name: 'Others',
+      tracked,
+      budget,
+      pct,
+      remaining: Math.max(budget - tracked, 0),
+      excess: Math.max(tracked - budget, 0),
+    },
+  ]
+}
+
+const shadesFor = (amounts: number[], palette: string[]) => {
+  const colors = new Array<string>(amounts.length)
+  amounts
+    .map((amount, index) => ({ amount, index }))
+    .sort((a, b) => b.amount - a.amount)
+    .forEach((item, rank) => {
+      colors[item.index] = palette[Math.min(rank, palette.length - 1)]
+    })
+  return colors
+}
+
 const TrackTable: React.FC<{
   title: string
   rows: ReturnType<typeof categoryTrackRows>
-  accent: string
-}> = ({ title, rows, accent }) => {
+  colors: string[]
+}> = ({ title, rows, colors }) => {
   const tracked = rows.reduce((s, r) => s + r.tracked, 0)
   const budget = rows.reduce((s, r) => s + r.budget, 0)
   return (
-    <div className="overflow-x-auto">
-      <table className="w-full text-sm">
-        <thead>
-          <tr className="bg-[var(--navy)] text-left text-white">
-            <th className="px-3 py-2 font-medium">{title}</th>
-            <th className="px-3 py-2 text-right font-medium">Tracked</th>
-            <th className="px-3 py-2 text-right font-medium">Prior</th>
-            <th className="px-3 py-2 font-medium">% vs prior</th>
-            <th className="px-3 py-2 text-right font-medium">Remaining</th>
-            <th className="px-3 py-2 text-right font-medium">Excess</th>
-          </tr>
-        </thead>
-        <tbody>
-          {rows.map((row) => (
-            <tr key={row.id} className="border-b border-[var(--line)]">
-              <td className="px-3 py-2">{row.name}</td>
-              <td className="tabular px-3 py-2 text-right">{formatNumber(Math.round(row.tracked))}</td>
-              <td className="tabular px-3 py-2 text-right">{formatNumber(Math.round(row.budget))}</td>
-              <td className="px-3 py-2">
-                <div className="flex items-center gap-2">
-                  <div className="track-bar w-16">
-                    <span style={{ width: `${Math.min(row.pct * 100, 100)}%`, background: accent }} />
-                  </div>
-                  <span className={row.pct > 1 ? 'text-[var(--bad)]' : 'text-[var(--good)]'}>
-                    {formatPercentage(row.pct)}
-                  </span>
-                </div>
-              </td>
-              <td className="tabular px-3 py-2 text-right">{formatNumber(Math.round(row.remaining))}</td>
-              <td className="tabular px-3 py-2 text-right">{formatNumber(Math.round(row.excess))}</td>
+    <article className="chart-card chart-card-pad">
+      <h3 className="chart-title">{title}</h3>
+      <div className="overflow-x-auto">
+        <table className="data-table">
+          <thead>
+            <tr className="table-head">
+              <th>Category</th>
+              <th className="num">Tracked</th>
+              <th className="num">Prior</th>
+              <th>% vs prior</th>
+              <th className="num">Remaining</th>
+              <th className="num">Excess</th>
             </tr>
-          ))}
-          <tr className="font-semibold">
-            <td className="px-3 py-2">Total</td>
-            <td className="tabular px-3 py-2 text-right">{formatNumber(Math.round(tracked))}</td>
-            <td className="tabular px-3 py-2 text-right">{formatNumber(Math.round(budget))}</td>
-            <td className="px-3 py-2">{budget ? formatPercentage(tracked / budget) : '—'}</td>
-            <td className="tabular px-3 py-2 text-right">{formatNumber(Math.round(Math.max(budget - tracked, 0)))}</td>
-            <td className="tabular px-3 py-2 text-right">{formatNumber(Math.round(Math.max(tracked - budget, 0)))}</td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
+          </thead>
+          <tbody>
+            {rows.map((row, index) => (
+              <tr key={row.id}>
+                <td>{row.name}</td>
+                <td className="tabular num text-right">{formatNumber(Math.round(row.tracked))}</td>
+                <td className="tabular num text-right">{formatNumber(Math.round(row.budget))}</td>
+                <td>
+                  <div className="flex items-center gap-2">
+                    <div className="track-bar w-16">
+                      <span style={{ width: `${Math.min(row.pct * 100, 100)}%`, background: colors[index] }} />
+                    </div>
+                    <span className={row.pct > 1 ? 'text-[var(--bad)]' : 'text-[var(--good)]'}>
+                      {formatPercentage(row.pct)}
+                    </span>
+                  </div>
+                </td>
+                <td className="tabular text-right">{formatNumber(Math.round(row.remaining))}</td>
+                <td className="tabular text-right">{formatNumber(Math.round(row.excess))}</td>
+              </tr>
+            ))}
+            <tr className="font-semibold">
+              <td>Total</td>
+              <td className="tabular text-right">{formatNumber(Math.round(tracked))}</td>
+              <td className="tabular text-right">{formatNumber(Math.round(budget))}</td>
+              <td>{budget ? formatPercentage(tracked / budget) : '—'}</td>
+              <td className="tabular text-right">{formatNumber(Math.round(Math.max(budget - tracked, 0)))}</td>
+              <td className="tabular text-right">{formatNumber(Math.round(Math.max(tracked - budget, 0)))}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </article>
   )
 }
 
@@ -96,6 +147,10 @@ const CashflowPage: React.FC = () => {
     mixByCategory(priorRows, 'outflow'),
     DEFAULT_OUTFLOW_CATEGORIES,
   )
+  const incomeShown = collapseTop(incomeRows)
+  const expenseShown = collapseTop(expenseRows)
+  const incomeColors = shadesFor(incomeShown.map((row) => row.tracked), INCOME_SHADES)
+  const expenseColors = shadesFor(expenseShown.map((row) => row.tracked), EXPENSE_SHADES)
   const current = summarize(currentRows)
   const prior = summarize(priorRows)
   const savingsRate = current.totalInflow === 0 ? 0 : current.netCashflow / current.totalInflow
@@ -104,78 +159,143 @@ const CashflowPage: React.FC = () => {
     'month',
   )
 
-  const donut = (rows: typeof incomeRows, colors: string[]) => ({
-    labels: rows.map((r) => r.name),
-    datasets: [{ data: rows.map((r) => r.tracked), backgroundColor: colors, borderWidth: 1, borderColor: '#fff' }],
+  const donut = (rows: typeof incomeShown, colors: string[]) => ({
+    labels: rows.map((row) => row.name),
+    datasets: [{ data: rows.map((row) => row.tracked), backgroundColor: colors, borderWidth: 0 }],
   })
 
+  const donutOptions = {
+    responsive: true,
+    maintainAspectRatio: true,
+    cutout: '62%',
+    plugins: { legend: { display: false }, tooltip: { enabled: true } },
+  }
+
   return (
-    <div className="space-y-5">
-      <div className="grid grid-cols-1 gap-3 md:grid-cols-4">
-        <article className="card px-4 py-3">
-          <p className="text-xs text-[var(--muted)]">Selected period</p>
-          <p className="mt-1 font-medium text-[var(--navy)]">{compare.window.currentLabel}</p>
+    <div className="statement">
+      <h2 className="page-title">Cash flow overview</h2>
+
+      <div className="kpi-row">
+        <article className="kpi-card">
+          <p className="kpi-label">Selected period</p>
+          <p className="kpi-value">{compare.window.currentLabel.replace(/^This \w+ \(/, '').replace(/\)$/, '')}</p>
         </article>
-        <article className="card px-4 py-3">
-          <p className="text-xs text-[var(--muted)]">Period vs prior</p>
-          <p className="mt-1 font-medium text-[var(--navy)]">
-            {prior.totalInflow ? formatPercentage(current.totalInflow / prior.totalInflow) : '—'} of prior inflow
+        <article className="kpi-card">
+          <p className="kpi-label">Period vs prior</p>
+          <p className="kpi-value tabular">
+            {prior.totalInflow ? formatPercentage(current.totalInflow / prior.totalInflow) : '—'}
           </p>
+          <p className="kpi-hint">of prior inflow</p>
         </article>
-        <article className="card px-4 py-3">
-          <p className="text-xs text-[var(--muted)]">Period tracking balance</p>
-          <p className="tabular mt-1 font-medium text-[var(--navy)]">{formatCurrency(current.netCashflow)}</p>
-          <p className="text-xs text-[var(--muted)]">income left after expenses</p>
+        <article className="kpi-card">
+          <p className="kpi-label">Period tracking balance</p>
+          <p className="kpi-value tabular">{formatCurrency(current.netCashflow)}</p>
+          <p className="kpi-hint">income left after expenses</p>
         </article>
-        <article className="card px-4 py-3">
-          <p className="text-xs text-[var(--muted)]">Period savings rate</p>
-          <p className="mt-1 font-medium text-[var(--navy)]">{formatPercentage(savingsRate)} of income kept</p>
-        </article>
-      </div>
-
-      <div className="grid grid-cols-1 gap-5 xl:grid-cols-2">
-        <article className="card overflow-hidden">
-          <TrackTable title={`Income — ${filters.grain}`} rows={incomeRows} accent="#2f6fed" />
-        </article>
-        <article className="card p-4">
-          <h3 className="mb-2 text-sm font-medium text-[var(--navy)]">Income categories (tracked)</h3>
-          <div style={{ height: 220 }}>
-            <Doughnut data={donut(incomeRows, ['#2f6fed', '#1f8a4c', '#16a085', '#7b5ea7', '#e67e22', '#5dade2', '#e8b923'])} options={{ maintainAspectRatio: false, plugins: { legend: { position: 'right' } } }} />
-          </div>
-        </article>
-        <article className="card overflow-hidden">
-          <TrackTable title={`Expenses — ${filters.grain}`} rows={expenseRows} accent="#e8b923" />
-        </article>
-        <article className="card p-4">
-          <h3 className="mb-2 text-sm font-medium text-[var(--navy)]">Expense categories (tracked)</h3>
-          <div style={{ height: 220 }}>
-            <Doughnut data={donut(expenseRows, ['#c0392b', '#e67e22', '#e8b923', '#7b5ea7', '#5b6b7c', '#16a085', '#2f6fed', '#1f8a4c', '#95a5a6'])} options={{ maintainAspectRatio: false, plugins: { legend: { position: 'right' } } }} />
-          </div>
+        <article className="kpi-card">
+          <p className="kpi-label">Period savings rate</p>
+          <p className="kpi-value tabular">{formatPercentage(savingsRate)}</p>
+          <p className="kpi-hint">of income kept</p>
         </article>
       </div>
 
-      <article className="card p-5">
-        <h3 className="mb-3 text-sm font-medium text-[var(--navy)]">Summary — tracked income vs expenses this year</h3>
-        <div style={{ height: 260 }}>
+      <div className="pnl-bottom">
+        <TrackTable title={`Income — ${filters.grain}`} rows={incomeShown} colors={incomeColors} />
+        <article className="chart-card">
+          <h3 className="chart-title">Income categories (tracked)</h3>
+          <CategoryDonut rows={incomeShown} colors={incomeColors} empty="No income in this period." data={donut(incomeShown, incomeColors)} options={donutOptions} />
+        </article>
+        <TrackTable title={`Expenses — ${filters.grain}`} rows={expenseShown} colors={expenseColors} />
+        <article className="chart-card">
+          <h3 className="chart-title">Expense categories (tracked)</h3>
+          <CategoryDonut rows={expenseShown} colors={expenseColors} empty="No expenses in this period." data={donut(expenseShown, expenseColors)} options={donutOptions} />
+        </article>
+      </div>
+
+      <article className="chart-card">
+        <h3 className="chart-title">Summary — tracked income vs expenses this year</h3>
+        <div className="chart-body chart-body-sm">
           <Bar
             data={{
               labels: monthSeries.map((d) => d.label),
               datasets: [
-                { label: 'Income', data: monthSeries.map((d) => d.inflow), backgroundColor: '#2f6fed' },
-                { label: 'Expenses', data: monthSeries.map((d) => d.outflow), backgroundColor: '#e8b923' },
+                { label: 'Income', data: monthSeries.map((d) => d.inflow), backgroundColor: INCOME_SHADES[1], borderRadius: 2 },
+                { label: 'Expenses', data: monthSeries.map((d) => d.outflow), backgroundColor: EXPENSE_SHADES[1], borderRadius: 2 },
               ],
             }}
             options={{
               responsive: true,
               maintainAspectRatio: false,
+              plugins: {
+                legend: {
+                  position: 'top',
+                  align: 'start',
+                  labels: { ...legend.labels, padding: 16 },
+                },
+              },
               scales: {
-                x: { ticks: { color: '#5b6b7c' }, grid: { display: false } },
-                y: { ticks: { color: '#5b6b7c' }, grid: { color: '#eef2f6' } },
+                x: {
+                  ticks: { ...tick, autoSkip: true, maxRotation: 0, minRotation: 0, maxTicksLimit: 7 },
+                  grid: { display: false },
+                  border: { display: false },
+                },
+                y: {
+                  beginAtZero: true,
+                  ticks: {
+                    ...tick,
+                    callback: (v: string | number) => `$${(Number(v) / 1000).toFixed(0)}.0K`,
+                  },
+                  grid: { color: '#eef2f6' },
+                  border: { display: false },
+                },
               },
             }}
           />
         </div>
       </article>
+    </div>
+  )
+}
+
+function CategoryDonut({
+  rows,
+  colors,
+  empty,
+  data,
+  options,
+}: {
+  rows: ReturnType<typeof categoryTrackRows>
+  colors: string[]
+  empty: string
+  data: { labels: string[]; datasets: { data: number[]; backgroundColor: string[]; borderWidth: number }[] }
+  options: React.ComponentProps<typeof Doughnut>['options']
+}) {
+  if (rows.length === 0) {
+    return (
+      <div className="donut-row">
+        <p className="empty">{empty}</p>
+      </div>
+    )
+  }
+  return (
+    <div className="donut-row">
+      <div className="donut-plot">
+        <Doughnut data={data} options={options} />
+      </div>
+      <ul className="donut-legend">
+        {rows.map((row, index) => (
+          <li key={row.id}>
+            <span className="swatch" style={{ background: colors[index] }} />
+            <span className="name">{row.name}</span>
+            <span className="amt tabular">{formatNumber(Math.round(row.tracked))}</span>
+          </li>
+        ))}
+        <li className="total">
+          <span className="swatch" style={{ background: 'transparent' }} />
+          <span className="name">Total</span>
+          <span className="amt tabular">{formatNumber(Math.round(rows.reduce((sum, row) => sum + row.tracked, 0)))}</span>
+        </li>
+      </ul>
     </div>
   )
 }

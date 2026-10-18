@@ -1,141 +1,77 @@
-# 🏀 Basketball Court Booking Cashflow Insight
+# Local Hoops financial dashboard
 
-A comprehensive financial dashboard for tracking cash flow (inflows and outflows) specifically designed for basketball court booking businesses.
+Frontend proof of concept for an indoor basketball court rental business. It shows Profit and Loss, cash flow, and a transaction register from an in-memory mock ledger (2025–2026), with week, month, and year comparison against the prior period.
 
-![React](https://img.shields.io/badge/React-18.2-green.svg?style=for-the-badge&logo=react)
-![TypeScript](https://img.shields.io/badge/TypeScript-5-blue.svg?style=for-the-badge&logo=typescript)
-![Tailwind](https://img.shields.io/badge/Tailwind_CSS-3.4-blue.svg?style=for-the-badge&logo=tailwind-css)
+As-of date for the POC is **2026-10-18**. Refresh resets the ledger. Status and decisions live in [`JOURNEY_FRONTEND_POC.md`](JOURNEY_FRONTEND_POC.md).
 
-## 📊 What This Dashboard Does
+## Getting started
 
-- **Visualize Cashflow Trends**: See how money flows in and out of your business over time
-- **Track Revenue Sources**: Breakdown of court rentals, memberships, events, etc.
-- **Monitor Expenses**: Detailed tracking of maintenance, utilities, security, etc.
-- **Import Bank Statements**: Upload CSV bank statements for automatic processing
-- **Quick Data Entry**: Manually add transactions in seconds
-- **Real-time Dashboard**: Track inflows, outflows, net cashflow, and booking counts
-
-## 🚀 Getting Started
-
-### Prerequisites
-
-- Node.js 18+ installed
-- npm or pnpm package manager
-
-### Installation
+Requires Node.js 18+.
 
 ```bash
-# Install dependencies
 npm install
-
-# Start development server (runs both frontend and backend)
 npm run dev
-
-# Or start just the frontend
-npm run client
 ```
 
-## 📁 Project Structure
+Open http://localhost:3000/
 
-```
-Local-Hoops-Cashflow-Insight/
-├── src/
-│   ├── components/           # React components
-│   │   ├── Dashboard/        # SummaryCards, TransactionTable
-│   │   ├── Charts/           # TrendChart, InflowChart, OutflowChart
-│   │   ├── Forms/            # ImportSection, ManualEntryForm
-│   │   └── Layouts/          # Header
-│   ├── types/                # TypeScript interfaces
-│   ├── utils/                # Helper functions
-│   ├── App.tsx               # Main app component
-│   └── main.tsx              # Entry point
-├── services/
-│   ├── backend.ts            # Bank statement processor
-│   ├── server.ts             # Express API server
-│   └── api.ts                # Frontend API client
-├── public/                   # Static assets
-├── .github/workflows/        # CI/CD configs
-├── package.json              # Dependencies & scripts
-└── tsconfig.json             # TypeScript config
+```bash
+npm run build    # tsc && vite build
+npm run preview  # serve the production build
 ```
 
-## 📋 Cashflow Categories
+## What you see
 
-### Inflow Categories
-- **Court Rental Fees**: Direct court booking revenue
-- **Membership Subscriptions**: Monthly/annual member fees
-- **Event Hosting Fees**: Corporate events, tournaments, leagues
-- **Equipment Rental Income**: Basketball gear rental
-- **Training Program Sales**: Private/group training sessions
-- **Merchandise Sales**: Team kits, apparel sales
-- **Sponsorship & Advertising**: Court ads, sponsor partnerships
+The header is **Local Hoops financial dashboard**, with statement tabs and a **Week | Month | Year** filter.
 
-### Outflow Categories
-- **Facility Maintenance**: Court upkeep, resurfacing, repairs
-- **Security Staffing**: Guards/monitors for court safety
-- **Cleaning Services**: Daily cleaning supplies and staff
-- **Insurance Premiums**: Liability insurance
-- **Utilities & Rent**: Electricity, water, facility lease
-- **Equipment Repairs**: Hoops, boards, flooring repairs
-- **Payment Processing Fees**: Credit card/PayPal fees
-- **Marketing & Promotion**: Social ads, flyers, local marketing
+| Grain | Current window | Prior window |
+| --- | --- | --- |
+| Week | last 7 days | previous 7 days |
+| Month | month-to-date | same day span last month |
+| Year | year-to-date | same year-to-date last year |
 
-## 📊 Dashboard Features
+**Profit and Loss** — six compact KPI tiles for the selected period (income, gross / operating / net profit, court-hire mix, membership mix) beside a 12-month income, expense, and operating-margin chart. Below that: gross profit and margin, and an expense mix pie.
 
-### 1. Summary Cards (Top)
-- Total Inflow - Total money received
-- Total Outflow - Total money spent
-- Net Cashflow - Profit/loss for the period
-- Booking Count - Number of transactions
+**Cash flow** — period summary, income and expense tables tracked against the prior period (prior stands in for a budget), category donuts, and year-to-date monthly income vs expense bars.
 
-### 2. Charts Section
-- **Trend Chart**: Line graph showing inflow vs outflow over time
-- **Inflow Chart**: Pie chart breaking down revenue sources
-- **Outflow Chart**: Bar chart showing expense categories
+**Balance Sheet** — a tracking register, not a classic assets-and-liabilities sheet. Columns include date, type, category, amount, details, running balance, and effective day. Opening cash is `$185,000`. Search, recategorize, add a manual transaction, or load sample rows (the file is not parsed).
 
-### 3. Transaction Table
-- Full list of all transactions
-- Search functionality
-- Date, description, category, and amount columns
+Court-hire count is the number of inflows tagged Basketball Courts Income (Net). Hire value is those dollars divided by that count. Occupancy and revenue per available hour are not shown: bank rows do not include booked hours.
 
-### 4. Data Entry Section
-- **Import Bank Statement**: Drag & drop CSV files from your bank
-- **Quick Transaction Entry**: Manually add new transactions
+## Project structure
 
-## 🔄 Bank Statement Import
-
-The app processes raw bank statement CSV files and categorizes them automatically based on:
-- Transaction descriptions (e.g., "court rental booking" → Court Rental Fees)
-- Amounts (positive = inflow, negative = outflow)
-- Date extraction for monthly grouping
-
-### Supported CSV Format Example:
-```csv
-Date,Description,Credit,Debit,Balance
-01/2024-15,Court Rental - Team A,,2500.00,,
-01/2024-16,Membership Fee - John,,,1500.00,
+```
+src/
+├── pages/                  # ProfitAndLossPage, CashflowPage, BalanceSheetPage
+├── components/
+│   ├── Charts/             # Period, trend, inflow, and outflow charts
+│   ├── Dashboard/          # Summary cards, transaction table
+│   ├── Forms/              # Simulated import, manual entry
+│   └── Layouts/            # Header (title, tabs, period filter)
+├── store/
+│   ├── cashflowStore.ts    # In-memory Zustand store (vanilla + useSyncExternalStore)
+│   └── periods.ts          # Week / month / year windows
+├── data/mockCashflow.ts    # Mock ledger, as-of date, opening balance
+├── utils/                  # Currency and period-delta helpers
+├── App.tsx
+└── main.tsx
+types/cashflow.types.ts     # Category definitions
+services/                   # Earlier Express API — not used by this POC
 ```
 
-## 🛠️ API Endpoints (Backend)
+## Categories
 
-| Endpoint | Method | Description |
-|----------|--------|-------------|
-| `/api/statements/upload` | POST | Upload and process CSV bank statement |
-| `/api/statements` | GET | Get all processed statements |
-| `/api/summary` | GET | Get overall summary stats |
-| `/api/monthly` | GET | Get monthly breakdowns for charts |
-| `/api/export/csv` | GET | Export all transactions to CSV |
-| `/api/categories` | GET | Get available category definitions |
+**Income:** Other Income, Basketball Courts Income (Net), F&B Income (Net), Misc.
 
-## 🚧 Future Enhancements
+**Expense:** Misc, Renting, Tax, Inventory, Electricity, Employees, Water.
 
-- [ ] Multi-currency support
-- [ ] User authentication & multi-user support
-- [ ] Cloud database (Firebase/MongoDB) backend
-- [ ] Email notifications for low cashflow periods
-- [ ] Export to PDF reports
-- [ ] Mobile app version
+## Stack
 
----
+React 18, TypeScript, Vite, Tailwind CSS, Chart.js, Zustand. The store binds `zustand/vanilla` through the app’s React `useSyncExternalStore`, and Vite dedupes React, so the prebundled Zustand copy does not crash hooks.
 
-Built with ❤️ by Local-Hoops Team
+## Deferred
+
+- Occupancy and revenue per available hour (need booking-hour logs)
+- Real Excel or CSV import (sample rows only)
+- Persistence across refresh
+- Backend, SQLite, and the unused `services/` API

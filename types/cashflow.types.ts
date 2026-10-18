@@ -85,25 +85,18 @@ export interface MonthlySummary {
 
 // Default inflow category definitions
 export const DEFAULT_INFLOW_CATEGORIES: InflowCategory[] = [
-  { id: 'court_rental', name: 'Court Rental Fees', description: 'Direct court booking revenue' },
-  { id: 'membership_fees', name: 'Membership Subscriptions', description: 'Monthly/annual member fees' },
-  { id: 'event_hosting', name: 'Event Hosting Fees', description: 'Corporate events, tournaments, leagues' },
-  { id: 'equipment_rental', name: 'Equipment Rental Income', description: 'Basketball gear, jerseys rental' },
-  { id: 'training_programs', name: 'Training Program Sales', description: 'Private/group training sessions' },
-  { id: 'merchandise_sales', name: 'Merchandise Sales', description: 'Team kits, apparel sales' },
-  { id: 'sponsorships', name: 'Sponsorship & Advertising', description: 'Court ads, sponsor partnerships' },
+  { id: 'other_income', name: 'Other Income', description: 'Events, training, sponsorships, and other revenue' },
+  { id: 'basketball_courts', name: 'Basketball Courts Income (Net)', description: 'Net court hire revenue' },
+  { id: 'fb_income', name: 'F&B Income (Net)', description: 'Net food and beverage revenue' },
+  { id: 'income_misc', name: 'Misc', description: 'Unclassified income' },
 ];
 
-// Default outflow category definitions
 export const DEFAULT_OUTFLOW_CATEGORIES: OutflowCategory[] = [
-  { id: 'facility_maintenance', name: 'Facility Maintenance', description: 'Court upkeep, resurfacing, repairs' },
-  { id: 'security_staffing', name: 'Security Staffing', description: 'Guards/monitors for court safety' },
-  { id: 'cleaning_services', name: 'Cleaning Services', description: 'Daily cleaning supplies and staff' },
-  { id: 'insurance_premiums', name: 'Insurance Premiums', description: 'Liability insurance' },
-  { id: 'platform_subscriptions', name: 'Platform Subscriptions', description: 'Booking system software costs' },
-  { id: 'marketing_promotion', name: 'Marketing & Promotion', description: 'Social ads, flyers, local marketing' },
-  { id: 'utilities_rent', name: 'Utilities & Rent', description: 'Electricity, water, facility lease' },
-  { id: 'equipment_repairs', name: 'Equipment Repairs', description: 'Hoops, boards, flooring repairs' },
-  { id: 'payment_fees', name: 'Payment Processing Fees', description: 'Credit card/PayPal fees' },
-  { id: 'miscellaneous', name: 'Miscellaneous Expenses', description: 'Other operational costs' },
+  { id: 'expense_misc', name: 'Misc', description: 'Unclassified expenses' },
+  { id: 'renting', name: 'Renting', description: 'Facility lease' },
+  { id: 'tax', name: 'Tax', description: 'Tax installments' },
+  { id: 'inventory', name: 'Inventory', description: 'Gear, stock, and replacements' },
+  { id: 'electricity', name: 'Electricity', description: 'Power for the facility' },
+  { id: 'employees', name: 'Employees', description: 'Floor staff and cleaning' },
+  { id: 'water', name: 'Water', description: 'Water for the facility' },
 ];

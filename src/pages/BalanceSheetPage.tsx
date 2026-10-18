@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { AS_OF_DATE, OPENING_BALANCE } from '../data/mockCashflow'
 import {
   DEFAULT_INFLOW_CATEGORIES,
@@ -14,8 +14,11 @@ import { formatCurrency, formatNumber } from '../utils/currencyFormatter'
 import ImportSection from '../components/Forms/ImportSection'
 import ManualEntryForm from '../components/Forms/ManualEntryForm'
 
+const PAGE_SIZE = 100
+
 const BalanceSheetPage: React.FC = () => {
   const { transactions, filters, setFilters, updateCategory } = useCashflowStore()
+  const [page, setPage] = useState(1)
   const q = filters.search.trim().toLowerCase()
   const ledger = runningLedger(transactions, OPENING_BALANCE)
   const visible = [...ledger].reverse().filter((tx) => {
@@ -27,6 +30,13 @@ const BalanceSheetPage: React.FC = () => {
     }
     return true
   })
+  const pageCount = Math.max(1, Math.ceil(visible.length / PAGE_SIZE))
+  const currentPage = Math.min(page, pageCount)
+  const pageRows = visible.slice((currentPage - 1) * PAGE_SIZE, currentPage * PAGE_SIZE)
+
+  useEffect(() => {
+    setPage(1)
+  }, [filters.search, filters.type, filters.categoryId])
   const last = ledger[ledger.length - 1]
   const lastDate = last?.date ?? AS_OF_DATE
   const daysAgo = Math.max(
@@ -41,35 +51,37 @@ const BalanceSheetPage: React.FC = () => {
     filters.type === 'outflow' ? DEFAULT_OUTFLOW_CATEGORIES : DEFAULT_INFLOW_CATEGORIES
 
   return (
-    <div className="space-y-5">
-      <h2 className="text-lg font-medium text-[var(--navy)]">Balance Sheet — transaction register</h2>
-      <div className="grid grid-cols-1 gap-3 md:grid-cols-4">
-        <article className="card px-4 py-3">
-          <p className="text-xs text-[var(--muted)]">Date of today</p>
-          <p className="mt-1 font-medium">{AS_OF_DATE}</p>
+    <div className="statement">
+      <h2 className="page-title">Balance Sheet — transaction register</h2>
+      <div className="kpi-row">
+        <article className="kpi-card">
+          <p className="kpi-label">Date of today</p>
+          <p className="kpi-value">{AS_OF_DATE}</p>
         </article>
-        <article className="card px-4 py-3">
-          <p className="text-xs text-[var(--muted)]">Date of last record</p>
-          <p className="mt-1 font-medium">
-            {lastDate} {daysAgo ? `(${daysAgo} days ago)` : ''}
-          </p>
+        <article className="kpi-card">
+          <p className="kpi-label">Date of last record</p>
+          <p className="kpi-value">{lastDate}</p>
+          {daysAgo ? <p className="kpi-hint">{daysAgo} days ago</p> : null}
         </article>
-        <article className="card px-4 py-3">
-          <p className="text-xs text-[var(--muted)]">No. of tracked records</p>
-          <p className="mt-1 font-medium">
-            {formatNumber(transactions.length)} <span className="text-xs text-[var(--muted)]">({yearCount} this year)</span>
-          </p>
+        <article className="kpi-card">
+          <p className="kpi-label">No. of tracked records</p>
+          <p className="kpi-value tabular">{formatNumber(transactions.length)}</p>
+          <p className="kpi-hint">{yearCount} this year</p>
         </article>
-        <article className="card px-4 py-3">
-          <p className="text-xs text-[var(--muted)]">Total tracking balance</p>
-          <p className="tabular mt-1 font-medium">{formatCurrency(closing)}</p>
-          <p className="text-xs text-[var(--muted)]">opening {formatCurrency(OPENING_BALANCE)} + net movements</p>
+        <article className="kpi-card">
+          <p className="kpi-label">Total tracking balance</p>
+          <p className="kpi-value tabular">{formatCurrency(closing)}</p>
+          <p className="kpi-hint">opening {formatCurrency(OPENING_BALANCE)} + net movements</p>
         </article>
       </div>
 
-      <article className="card overflow-hidden">
-        <div className="flex flex-wrap items-end justify-between gap-3 border-b border-[var(--line)] px-4 py-3">
-          <p className="text-sm text-[var(--muted)]">{visible.length} rows</p>
+      <article className="chart-card chart-card-pad">
+        <div className="mb-3 flex flex-wrap items-end justify-between gap-3">
+          <p className="text-sm text-[var(--muted)]">
+            {visible.length === 0
+              ? '0 rows'
+              : `${(currentPage - 1) * PAGE_SIZE + 1}–${Math.min(currentPage * PAGE_SIZE, visible.length)} of ${visible.length}`}
+          </p>
           <div className="flex flex-wrap gap-2">
             <input
               type="search"
@@ -105,24 +117,24 @@ const BalanceSheetPage: React.FC = () => {
           </div>
         </div>
         <div className="overflow-x-auto">
-          <table className="w-full text-sm">
+          <table className="data-table">
             <thead>
-              <tr className="bg-[var(--navy)] text-left text-xs uppercase tracking-wide text-white">
-                <th className="px-3 py-2">Date</th>
-                <th className="px-3 py-2">Type</th>
-                <th className="px-3 py-2">Category</th>
-                <th className="px-3 py-2 text-right">Amount</th>
-                <th className="px-3 py-2">Details</th>
-                <th className="px-3 py-2 text-right">Balance</th>
-                <th className="px-3 py-2">Effective day</th>
+              <tr className="table-head">
+                <th>Date</th>
+                <th>Type</th>
+                <th>Category</th>
+                <th className="num">Amount</th>
+                <th>Details</th>
+                <th className="num">Balance</th>
+                <th>Effective day</th>
               </tr>
             </thead>
             <tbody>
-              {visible.map((tx, i) => (
+              {pageRows.map((tx, i) => (
                 <tr key={tx.id} className={i % 2 ? 'bg-[var(--chip)]' : 'bg-white'}>
-                  <td className="whitespace-nowrap px-3 py-2">{tx.date}</td>
-                  <td className="px-3 py-2">{tx.categoryType === 'inflow' ? 'Income' : 'Expenses'}</td>
-                  <td className="px-3 py-2">
+                  <td className="whitespace-nowrap">{tx.date}</td>
+                  <td>{tx.categoryType === 'inflow' ? 'Income' : 'Expenses'}</td>
+                  <td>
                     <select
                       value={tx.categoryId}
                       aria-label={`Recategorize ${tx.description}`}
@@ -143,23 +155,40 @@ const BalanceSheetPage: React.FC = () => {
                       <span className="ml-2 text-[10px] uppercase text-[var(--expense)]">Review</span>
                     )}
                   </td>
-                  <td className={`tabular px-3 py-2 text-right ${tx.signedAmount >= 0 ? 'amount-in' : 'amount-out'}`}>
+                  <td className={`tabular text-right ${tx.signedAmount >= 0 ? 'amount-in' : 'amount-out'}`}>
                     {formatCurrency(tx.signedAmount)}
                   </td>
-                  <td className="px-3 py-2">{tx.description}</td>
-                  <td className="tabular px-3 py-2 text-right">{formatCurrency(tx.balance)}</td>
-                  <td className="whitespace-nowrap px-3 py-2">{tx.date}</td>
+                  <td>{tx.description}</td>
+                  <td className="tabular text-right">{formatCurrency(tx.balance)}</td>
+                  <td className="whitespace-nowrap">{tx.date}</td>
                 </tr>
               ))}
             </tbody>
           </table>
           {visible.length === 0 && (
-            <p className="px-4 py-8 text-center text-sm text-[var(--muted)]">No transactions match this search.</p>
+            <p className="empty py-8">No transactions match this search.</p>
           )}
         </div>
+        {visible.length > 0 && (
+          <nav className="pager" aria-label="Register pages">
+            {Array.from({ length: pageCount }, (_, index) => {
+              const number = index + 1
+              return (
+                <button
+                  key={number}
+                  type="button"
+                  aria-current={number === currentPage ? 'page' : undefined}
+                  onClick={() => setPage(number)}
+                >
+                  {number}
+                </button>
+              )
+            })}
+          </nav>
+        )}
       </article>
 
-      <div className="grid grid-cols-1 gap-5 md:grid-cols-2">
+      <div className="pnl-bottom">
         <ImportSection />
         <ManualEntryForm />
       </div>

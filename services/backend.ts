@@ -117,19 +117,19 @@ export class BasketballCourtStatementProcessor implements StatementProcessor {
     for (const keyword of commonInflowKeywords) {
       if (normalizedDesc.includes(keyword)) {
         const category = DEFAULT_INFLOW_CATEGORIES.find(c => c.name.toLowerCase().includes(keyword.replace(/\s+/g, '')));
-        return { categoryId: category?.id || 'court_rental', categoryType: 'inflow' };
+        return { categoryId: category?.id || 'basketball_courts', categoryType: 'inflow' };
       }
     }
     
     for (const keyword of commonOutflowKeywords) {
       if (normalizedDesc.includes(keyword)) {
         const category = DEFAULT_OUTFLOW_CATEGORIES.find(c => c.name.toLowerCase().includes(keyword.replace(/\s+/g, '')));
-        return { categoryId: category?.id || 'utilities_rent', categoryType: 'outflow' };
+        return { categoryId: category?.id || 'expense_misc', categoryType: 'outflow' };
       }
     }
     
     return { 
-      categoryId: isCredit ? 'court_rental' : 'utilities_rent', 
+      categoryId: isCredit ? 'basketball_courts' : 'expense_misc', 
       categoryType: isCredit ? 'inflow' : 'outflow' 
     };
   }

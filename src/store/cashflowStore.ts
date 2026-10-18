@@ -26,7 +26,7 @@ export interface SummaryView {
   bookingCount: number
   revenuePerBooking: number
   courtHireShare: number
-  membershipShare: number
+  fbShare: number
   reviewCount: number
 }
 
@@ -141,11 +141,9 @@ export const summarize = (transactions: LedgerTransaction[]): SummaryView => {
   const outflows = transactions.filter((t) => t.categoryType === 'outflow')
   const totalInflow = inflows.reduce((sum, t) => sum + t.amount, 0)
   const totalOutflow = outflows.reduce((sum, t) => sum + t.amount, 0)
-  const courtHire = inflows.filter((t) => t.categoryId === 'court_rental')
+  const courtHire = inflows.filter((t) => t.categoryId === 'basketball_courts')
   const courtHireAmount = courtHire.reduce((sum, t) => sum + t.amount, 0)
-  const membershipAmount = inflows
-    .filter((t) => t.categoryId === 'membership_fees')
-    .reduce((sum, t) => sum + t.amount, 0)
+  const fbAmount = inflows.filter((t) => t.categoryId === 'fb_income').reduce((sum, t) => sum + t.amount, 0)
   const bookingCount = courtHire.length
   return {
     totalInflow,
@@ -154,7 +152,7 @@ export const summarize = (transactions: LedgerTransaction[]): SummaryView => {
     bookingCount,
     revenuePerBooking: bookingCount > 0 ? courtHireAmount / bookingCount : 0,
     courtHireShare: totalInflow > 0 ? courtHireAmount / totalInflow : 0,
-    membershipShare: totalInflow > 0 ? membershipAmount / totalInflow : 0,
+    fbShare: totalInflow > 0 ? fbAmount / totalInflow : 0,
     reviewCount: transactions.filter((t) => t.needsReview).length,
   }
 }

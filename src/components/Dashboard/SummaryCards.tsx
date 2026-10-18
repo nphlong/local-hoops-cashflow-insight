@@ -80,7 +80,7 @@ const SummaryCards: React.FC = () => {
         ))}
       </div>
       <p className="mt-3 text-xs text-[var(--muted)]">
-        Recurring membership share of inflow: {formatPercentage(current.membershipShare)}. Court hire
+        F&B share of inflow: {formatPercentage(current.fbShare)}. Courts income
         share: {formatPercentage(current.courtHireShare)}. Occupancy hours are not in bank data — hire
         count and mix stand in until booking logs are connected.
       </p>

@@ -29,10 +29,10 @@ const ManualEntryForm: React.FC = () => {
   }
 
   return (
-    <div className="card p-5">
-      <h2 className="text-lg font-medium text-[var(--navy)]">Manual entry</h2>
-      <p className="mb-4 text-xs text-[var(--muted)]">Post one cash movement</p>
-      <form onSubmit={handleSubmit} className="space-y-3">
+    <div className="chart-card chart-card-pad">
+      <h3 className="chart-title">Manual entry</h3>
+      <p className="kpi-hint mb-4">Post one cash movement</p>
+      <form onSubmit={handleSubmit} className="entry-form">
         <div className="grid grid-cols-2 gap-2">
           <button
             type="button"

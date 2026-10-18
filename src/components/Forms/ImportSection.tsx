@@ -27,9 +27,9 @@ const ImportSection: React.FC = () => {
   }[importStatus]
 
   return (
-    <div className="card p-5">
-      <h2 className="text-lg font-medium text-[var(--navy)]">Import statement</h2>
-      <p className="mb-4 text-xs text-[var(--muted)]">Excel · CSV · not parsed yet</p>
+    <div className="chart-card chart-card-pad">
+      <h3 className="chart-title">Import statement</h3>
+      <p className="kpi-hint mb-4">Excel · CSV · not parsed yet</p>
       <div
         onDragOver={(e) => {
           e.preventDefault()
@@ -37,7 +37,7 @@ const ImportSection: React.FC = () => {
         }}
         onDragLeave={() => setIsDragging(false)}
         onDrop={handleDrop}
-        className="rounded-lg border border-dashed px-6 py-8 text-center"
+        className="drop-zone rounded-lg border border-dashed px-6 py-8 text-center"
         style={{
           borderColor: isDragging || importStatus === 'success' ? 'var(--income)' : 'var(--line)',
           background: isDragging ? 'var(--chip)' : 'transparent',

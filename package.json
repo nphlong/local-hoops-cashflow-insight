@@ -203,7 +203,11 @@
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "pipeline:ingest": "services/pipeline/.venv/Scripts/python scripts/run_pipeline.py ingest",
+    "pipeline:export": "services/pipeline/.venv/Scripts/python scripts/run_pipeline.py export-pages",
+    "dev:api": "services/pipeline/.venv/Scripts/python scripts/run_api.py",
+    "dev:all": "concurrently \"npm run dev:api\" \"npm run dev\""
   },
   "keywords": [],
   "author": "",

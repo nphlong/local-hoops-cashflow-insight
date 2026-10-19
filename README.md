@@ -1,77 +1,60 @@
 # Local Hoops financial dashboard
 
-Frontend proof of concept for an indoor basketball court rental business. It shows Profit and Loss, cash flow, and a transaction register from an in-memory mock ledger (2025–2026), with week, month, and year comparison against the prior period.
-
-As-of date for the POC is **2026-10-18**. Refresh resets the ledger. Status and decisions live in [`JOURNEY_FRONTEND_POC.md`](JOURNEY_FRONTEND_POC.md).
+Indoor basketball court rental dashboard: Profit and Loss, cash flow, and a transaction register. Curated data comes from a Python pipeline that reads local MB Bank Excel statements into SQLite. The frontend fetches redacted tab JSON (VND). Status lives in [`JOURNEY_CURATED_PIPELINE.md`](JOURNEY_CURATED_PIPELINE.md); the mock-data POC is in [`JOURNEY_FRONTEND_POC.md`](JOURNEY_FRONTEND_POC.md).
 
 ## Getting started
 
-Requires Node.js 20+ (Vite 8). If `npm install` hits a peer conflict, use `npm install --legacy-peer-deps`.
+Requires Node.js 20+ and Python 3.11+. If `npm install` hits a peer conflict, use `npm install --legacy-peer-deps`.
 
 ```bash
-npm install
+npm install --legacy-peer-deps
+py -3 -m venv services/pipeline/.venv
+services/pipeline/.venv/Scripts/python -m pip install -r services/pipeline/requirements.txt
+copy .env.example .env
+```
+
+Drop MB Bank `.xlsx` files into `data/raw/` (gitignored), then:
+
+```bash
+npm run pipeline:ingest
+npm run pipeline:export
 npm run dev
 ```
 
 Open http://localhost:3000/
 
+Optional local API (full gold rows, including names — not for GitHub Pages):
+
+```bash
+npm run dev:api
+```
+
 ```bash
 npm run build    # tsc && vite build
-npm run preview  # serve the production build
+npm run preview
 ```
+
+## Data flow
+
+1. `data/raw/*.xlsx` — local MB Bank daily statements (never committed)
+2. `python` ingest — bronze / silver / gold tables in `data/curated/local_hoops.sqlite` (gitignored; Fernet-wrapped with `SQLITE_KEY` when set)
+3. `export-pages` — redacted JSON in `public/data/v1/` (`id`, `sourceId`, date, amount, category, channel)
+4. Frontend loads `/data/v1/*.json` (or `/api/v1/*` when `VITE_DATA_SOURCE=api`)
+
+Ledger JSON does **not** include counterparty, raw memo, or bank ref. Use `id` to join back to gold in SQLite.
 
 ## What you see
 
-The header is **Local Hoops financial dashboard**, with statement tabs and a **Week | Month | Year** filter.
+Floating black pill navbar: Local Hoops basketball mark, tabs **Profit and Loss** / **Cash flow** / **Balance Sheet**, **Week | Month | Year**, and a Log in / Log out placeholder. As-of date and opening cash come from gold meta (June–October 2026 MB Bank months, VND, as-of 2026-10-19).
 
-| Grain | Current window | Prior window |
-| --- | --- | --- |
-| Week | last 7 days | previous 7 days |
-| Month | month-to-date | same day span last month |
-| Year | year-to-date | same year-to-date last year |
-
-**Profit and Loss** — six compact KPI tiles for the selected period (income, gross / operating / net profit, courts income mix, F&B mix) beside a 12-month income, expense, and operating-margin chart. Below that: gross profit and margin, and a 12-month cash-on-hand area chart (opening `$185,000` + net movements).
-
-**Cash flow** — period summary, income and expense tables tracked against the prior period (prior stands in for a budget), green/orange category donuts (top 4 + Others + Total), and year-to-date monthly income vs expense bars.
-
-**Balance Sheet** — a tracking register, not a classic assets-and-liabilities sheet. Columns include date, type, category, amount, details, running balance, and effective day. Opening cash is `$185,000`. Search, recategorize, paginate 100 rows at a time, add a manual transaction, or load sample rows (the file is not parsed).
-
-Court-hire count is the number of inflows tagged Basketball Courts Income (Net). Hire value is those dollars divided by that count. Occupancy and revenue per available hour are not shown: bank rows do not include booked hours.
-
-## Project structure
-
-```
-src/
-├── pages/                  # ProfitAndLossPage, CashflowPage, BalanceSheetPage
-├── components/
-│   ├── Charts/             # Period, trend, inflow, and outflow charts
-│   ├── Dashboard/          # Summary cards, transaction table
-│   ├── Forms/              # Simulated import, manual entry
-│   └── Layouts/            # Header (title, tabs, period filter)
-├── store/
-│   ├── cashflowStore.ts    # In-memory Zustand store (vanilla + useSyncExternalStore)
-│   └── periods.ts          # Week / month / year windows
-├── data/mockCashflow.ts    # Mock ledger, as-of date, opening balance
-├── utils/                  # Currency and period-delta helpers
-├── App.tsx
-└── main.tsx
-types/cashflow.types.ts     # Category definitions
-services/                   # Earlier Express API — not used by this POC
-```
-
-## Categories
-
-**Income:** Other Income, Basketball Courts Income (Net), F&B Income (Net), Misc.
-
-**Expense:** Misc, Renting, Tax, Inventory, Electricity, Employees, Water.
+Income rules (credits): court rates 39/49/59k, F&B 10/15/25k and KiotViet leftovers, bank/MoMo/ZaloPay over ₫300k and under ₫20M as courts. Expense rules (debits): rent payee, inventory vendor, `tien dien` → electricity, memo `luong` / `phu cap` / `thuong` / `kpi` → employees.
 
 ## Stack
 
-React 18, TypeScript, Vite, Tailwind CSS, Chart.js, Zustand. The store binds `zustand/vanilla` through the app’s React `useSyncExternalStore`, and Vite dedupes React, so the prebundled Zustand copy does not crash hooks.
+React 18, TypeScript, Vite, Tailwind CSS, Chart.js, Zustand, Python (`openpyxl`, FastAPI), SQLite.
 
 ## Deferred
 
-- Occupancy and revenue per available hour (need booking-hour logs)
-- Real Excel or CSV import (sample rows only)
-- Persistence across refresh
-- Backend, SQLite, and the unused `services/` API
+- Login / authorization
+- Occupancy and RevPAH (need booking-hour logs)
+- Recategorize persistence on the server

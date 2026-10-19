@@ -9,7 +9,7 @@ import {
   Legend,
 } from 'chart.js'
 import { Bar, Doughnut } from 'react-chartjs-2'
-import { AS_OF_DATE } from '../data/mockCashflow'
+import { legendGap } from '../components/Charts/legendGap'
 import {
   DEFAULT_INFLOW_CATEGORIES,
   DEFAULT_OUTFLOW_CATEGORIES,
@@ -23,7 +23,7 @@ import {
   useCashflowStore,
 } from '../store/cashflowStore'
 import { bucketSeries, inRange } from '../store/periods'
-import { formatCurrency, formatNumber, formatPercentage } from '../utils/currencyFormatter'
+import { formatCompactCurrency, formatCurrency, formatNumber, formatPercentage } from '../utils/currencyFormatter'
 
 ChartJS.register(ArcElement, CategoryScale, LinearScale, BarElement, Tooltip, Legend)
 
@@ -75,13 +75,23 @@ const shadesFor = (amounts: number[], palette: string[]) => {
   return colors
 }
 
+const vsPriorClass = (pct: number, higherIsBetter: boolean) => {
+  if (!Number.isFinite(pct)) return 'tabular pct-even'
+  const percent = Math.round(pct * 1000) / 10
+  if (percent === 100) return 'tabular pct-even'
+  const better = higherIsBetter ? percent > 100 : percent < 100
+  return better ? 'tabular pct-good' : 'tabular pct-bad'
+}
+
 const TrackTable: React.FC<{
   title: string
   rows: ReturnType<typeof categoryTrackRows>
   colors: string[]
-}> = ({ title, rows, colors }) => {
+  higherIsBetter: boolean
+}> = ({ title, rows, colors, higherIsBetter }) => {
   const tracked = rows.reduce((s, r) => s + r.tracked, 0)
   const budget = rows.reduce((s, r) => s + r.budget, 0)
+  const totalPct = budget === 0 ? null : tracked / budget
   return (
     <article className="chart-card chart-card-pad">
       <h3 className="chart-title">{title}</h3>
@@ -108,20 +118,22 @@ const TrackTable: React.FC<{
                     <div className="track-bar w-16">
                       <span style={{ width: `${Math.min(row.pct * 100, 100)}%`, background: colors[index] }} />
                     </div>
-                    <span className={row.pct > 1 ? 'text-[var(--bad)]' : 'text-[var(--good)]'}>
-                      {formatPercentage(row.pct)}
-                    </span>
+                    <span className={vsPriorClass(row.pct, higherIsBetter)}>{formatPercentage(row.pct)}</span>
                   </div>
                 </td>
                 <td className="tabular text-right">{formatNumber(Math.round(row.remaining))}</td>
                 <td className="tabular text-right">{formatNumber(Math.round(row.excess))}</td>
               </tr>
             ))}
-            <tr className="font-semibold">
+            <tr className="row-total">
               <td>Total</td>
               <td className="tabular text-right">{formatNumber(Math.round(tracked))}</td>
               <td className="tabular text-right">{formatNumber(Math.round(budget))}</td>
-              <td>{budget ? formatPercentage(tracked / budget) : '—'}</td>
+              <td>
+                {totalPct == null ? '—' : (
+                  <span className={vsPriorClass(totalPct, higherIsBetter)}>{formatPercentage(totalPct)}</span>
+                )}
+              </td>
               <td className="tabular text-right">{formatNumber(Math.round(Math.max(budget - tracked, 0)))}</td>
               <td className="tabular text-right">{formatNumber(Math.round(Math.max(tracked - budget, 0)))}</td>
             </tr>
@@ -133,10 +145,10 @@ const TrackTable: React.FC<{
 }
 
 const CashflowPage: React.FC = () => {
-  const { transactions, filters } = useCashflowStore()
-  const compare = comparePeriods(transactions, filters.grain)
-  const currentRows = periodTransactions(transactions, filters.grain, 'current')
-  const priorRows = periodTransactions(transactions, filters.grain, 'prior')
+  const { transactions, filters, asOf } = useCashflowStore()
+  const compare = comparePeriods(transactions, filters.grain, asOf)
+  const currentRows = periodTransactions(transactions, filters.grain, 'current', asOf)
+  const priorRows = periodTransactions(transactions, filters.grain, 'prior', asOf)
   const incomeRows = categoryTrackRows(
     mixByCategory(currentRows, 'inflow'),
     mixByCategory(priorRows, 'inflow'),
@@ -155,7 +167,7 @@ const CashflowPage: React.FC = () => {
   const prior = summarize(priorRows)
   const savingsRate = current.totalInflow === 0 ? 0 : current.netCashflow / current.totalInflow
   const monthSeries = bucketSeries(
-    transactions.filter((tx) => inRange(tx.date, { start: `${AS_OF_DATE.slice(0, 4)}-01-01`, end: AS_OF_DATE })),
+    transactions.filter((tx) => inRange(tx.date, { start: `${asOf.slice(0, 4)}-01-01`, end: asOf })),
     'month',
   )
 
@@ -200,12 +212,12 @@ const CashflowPage: React.FC = () => {
       </div>
 
       <div className="pnl-bottom">
-        <TrackTable title={`Income — ${filters.grain}`} rows={incomeShown} colors={incomeColors} />
+        <TrackTable title={`Income — ${filters.grain}`} rows={incomeShown} colors={incomeColors} higherIsBetter />
         <article className="chart-card">
           <h3 className="chart-title">Income categories (tracked)</h3>
           <CategoryDonut rows={incomeShown} colors={incomeColors} empty="No income in this period." data={donut(incomeShown, incomeColors)} options={donutOptions} />
         </article>
-        <TrackTable title={`Expenses — ${filters.grain}`} rows={expenseShown} colors={expenseColors} />
+        <TrackTable title={`Expenses — ${filters.grain}`} rows={expenseShown} colors={expenseColors} higherIsBetter={false} />
         <article className="chart-card">
           <h3 className="chart-title">Expense categories (tracked)</h3>
           <CategoryDonut rows={expenseShown} colors={expenseColors} empty="No expenses in this period." data={donut(expenseShown, expenseColors)} options={donutOptions} />
@@ -216,6 +228,7 @@ const CashflowPage: React.FC = () => {
         <h3 className="chart-title">Summary — tracked income vs expenses this year</h3>
         <div className="chart-body chart-body-sm">
           <Bar
+            plugins={[legendGap]}
             data={{
               labels: monthSeries.map((d) => d.label),
               datasets: [
@@ -230,7 +243,7 @@ const CashflowPage: React.FC = () => {
                 legend: {
                   position: 'top',
                   align: 'start',
-                  labels: { ...legend.labels, padding: 16 },
+                  labels: { ...legend.labels, padding: 12 },
                 },
               },
               scales: {
@@ -243,7 +256,7 @@ const CashflowPage: React.FC = () => {
                   beginAtZero: true,
                   ticks: {
                     ...tick,
-                    callback: (v: string | number) => `$${(Number(v) / 1000).toFixed(0)}.0K`,
+                    callback: (v: string | number) => formatCompactCurrency(Number(v)),
                   },
                   grid: { color: '#eef2f6' },
                   border: { display: false },

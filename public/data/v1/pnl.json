@@ -1,0 +1,567 @@
+{
+  "meta": {
+    "asOf": "2026-10-19",
+    "currency": "VND",
+    "openingBalance": 0.0,
+    "closingBalance": 300153574.0,
+    "accountNo": "7789797968",
+    "transactionCount": 2552
+  },
+  "grains": {
+    "week": {
+      "kpis": {
+        "totalInflow": 28738782.0,
+        "totalOutflow": 117000.0,
+        "netCashflow": 28621782.0,
+        "bookingCount": 65,
+        "revenuePerBooking": 353942.3076923077,
+        "courtHireShare": 0.8005297510520801,
+        "fbShare": 0.19322322010724044,
+        "reviewCount": 3
+      },
+      "window": {
+        "grain": "week",
+        "current": {
+          "start": "2026-10-13",
+          "end": "2026-10-19"
+        },
+        "prior": {
+          "start": "2026-10-06",
+          "end": "2026-10-12"
+        },
+        "currentLabel": "This week (Oct 13 – Oct 19, 2026)",
+        "priorLabel": "Last week (Oct 6 – Oct 12, 2026)"
+      },
+      "lastTwelveMonths": [
+        {
+          "key": "2025-11",
+          "label": "Nov 25",
+          "inflow": 0.0,
+          "outflow": 0.0
+        },
+        {
+          "key": "2025-12",
+          "label": "Dec 25",
+          "inflow": 0.0,
+          "outflow": 0.0
+        },
+        {
+          "key": "2026-01",
+          "label": "Jan 26",
+          "inflow": 0.0,
+          "outflow": 0.0
+        },
+        {
+          "key": "2026-02",
+          "label": "Feb 26",
+          "inflow": 0.0,
+          "outflow": 0.0
+        },
+        {
+          "key": "2026-03",
+          "label": "Mar 26",
+          "inflow": 0.0,
+          "outflow": 0.0
+        },
+        {
+          "key": "2026-04",
+          "label": "Apr 26",
+          "inflow": 0.0,
+          "outflow": 0.0
+        },
+        {
+          "key": "2026-05",
+          "label": "May 26",
+          "inflow": 0.0,
+          "outflow": 0.0
+        },
+        {
+          "key": "2026-06",
+          "label": "Jun 26",
+          "inflow": 311000274.0,
+          "outflow": 101170000.0
+        },
+        {
+          "key": "2026-07",
+          "label": "Jul 26",
+          "inflow": 402775956.0,
+          "outflow": 541669505.0
+        },
+        {
+          "key": "2026-08",
+          "label": "Aug 26",
+          "inflow": 366879543.0,
+          "outflow": 182025947.0
+        },
+        {
+          "key": "2026-09",
+          "label": "Sep 26",
+          "inflow": 151349617.0,
+          "outflow": 98457296.0
+        },
+        {
+          "key": "2026-10",
+          "label": "Oct 26",
+          "inflow": 102115932.0,
+          "outflow": 110573000.0
+        }
+      ],
+      "cashOnHand": [
+        {
+          "key": "2025-11",
+          "label": "Nov 25",
+          "inflow": 0.0,
+          "outflow": 0.0,
+          "cashOnHand": 0.0
+        },
+        {
+          "key": "2025-12",
+          "label": "Dec 25",
+          "inflow": 0.0,
+          "outflow": 0.0,
+          "cashOnHand": 0.0
+        },
+        {
+          "key": "2026-01",
+          "label": "Jan 26",
+          "inflow": 0.0,
+          "outflow": 0.0,
+          "cashOnHand": 0.0
+        },
+        {
+          "key": "2026-02",
+          "label": "Feb 26",
+          "inflow": 0.0,
+          "outflow": 0.0,
+          "cashOnHand": 0.0
+        },
+        {
+          "key": "2026-03",
+          "label": "Mar 26",
+          "inflow": 0.0,
+          "outflow": 0.0,
+          "cashOnHand": 0.0
+        },
+        {
+          "key": "2026-04",
+          "label": "Apr 26",
+          "inflow": 0.0,
+          "outflow": 0.0,
+          "cashOnHand": 0.0
+        },
+        {
+          "key": "2026-05",
+          "label": "May 26",
+          "inflow": 0.0,
+          "outflow": 0.0,
+          "cashOnHand": 0.0
+        },
+        {
+          "key": "2026-06",
+          "label": "Jun 26",
+          "inflow": 311000274.0,
+          "outflow": 101170000.0,
+          "cashOnHand": 209830274.0
+        },
+        {
+          "key": "2026-07",
+          "label": "Jul 26",
+          "inflow": 402775956.0,
+          "outflow": 541669505.0,
+          "cashOnHand": 70936725.0
+        },
+        {
+          "key": "2026-08",
+          "label": "Aug 26",
+          "inflow": 366879543.0,
+          "outflow": 182025947.0,
+          "cashOnHand": 255790321.0
+        },
+        {
+          "key": "2026-09",
+          "label": "Sep 26",
+          "inflow": 151349617.0,
+          "outflow": 98457296.0,
+          "cashOnHand": 308682642.0
+        },
+        {
+          "key": "2026-10",
+          "label": "Oct 26",
+          "inflow": 102115932.0,
+          "outflow": 110573000.0,
+          "cashOnHand": 300225574.0
+        }
+      ]
+    },
+    "month": {
+      "kpis": {
+        "totalInflow": 102115932.0,
+        "totalOutflow": 110573000.0,
+        "netCashflow": -8457068.0,
+        "bookingCount": 203,
+        "revenuePerBooking": 410982.26600985223,
+        "courtHireShare": 0.8170066939211797,
+        "fbShare": 0.18035383548181297,
+        "reviewCount": 7
+      },
+      "window": {
+        "grain": "month",
+        "current": {
+          "start": "2026-10-01",
+          "end": "2026-10-19"
+        },
+        "prior": {
+          "start": "2026-09-01",
+          "end": "2026-09-19"
+        },
+        "currentLabel": "This month (Oct 1 – Oct 19, 2026)",
+        "priorLabel": "Last month (Sep 1 – Sep 19, 2026)"
+      },
+      "lastTwelveMonths": [
+        {
+          "key": "2025-11",
+          "label": "Nov 25",
+          "inflow": 0.0,
+          "outflow": 0.0
+        },
+        {
+          "key": "2025-12",
+          "label": "Dec 25",
+          "inflow": 0.0,
+          "outflow": 0.0
+        },
+        {
+          "key": "2026-01",
+          "label": "Jan 26",
+          "inflow": 0.0,
+          "outflow": 0.0
+        },
+        {
+          "key": "2026-02",
+          "label": "Feb 26",
+          "inflow": 0.0,
+          "outflow": 0.0
+        },
+        {
+          "key": "2026-03",
+          "label": "Mar 26",
+          "inflow": 0.0,
+          "outflow": 0.0
+        },
+        {
+          "key": "2026-04",
+          "label": "Apr 26",
+          "inflow": 0.0,
+          "outflow": 0.0
+        },
+        {
+          "key": "2026-05",
+          "label": "May 26",
+          "inflow": 0.0,
+          "outflow": 0.0
+        },
+        {
+          "key": "2026-06",
+          "label": "Jun 26",
+          "inflow": 311000274.0,
+          "outflow": 101170000.0
+        },
+        {
+          "key": "2026-07",
+          "label": "Jul 26",
+          "inflow": 402775956.0,
+          "outflow": 541669505.0
+        },
+        {
+          "key": "2026-08",
+          "label": "Aug 26",
+          "inflow": 366879543.0,
+          "outflow": 182025947.0
+        },
+        {
+          "key": "2026-09",
+          "label": "Sep 26",
+          "inflow": 151349617.0,
+          "outflow": 98457296.0
+        },
+        {
+          "key": "2026-10",
+          "label": "Oct 26",
+          "inflow": 102115932.0,
+          "outflow": 110573000.0
+        }
+      ],
+      "cashOnHand": [
+        {
+          "key": "2025-11",
+          "label": "Nov 25",
+          "inflow": 0.0,
+          "outflow": 0.0,
+          "cashOnHand": 0.0
+        },
+        {
+          "key": "2025-12",
+          "label": "Dec 25",
+          "inflow": 0.0,
+          "outflow": 0.0,
+          "cashOnHand": 0.0
+        },
+        {
+          "key": "2026-01",
+          "label": "Jan 26",
+          "inflow": 0.0,
+          "outflow": 0.0,
+          "cashOnHand": 0.0
+        },
+        {
+          "key": "2026-02",
+          "label": "Feb 26",
+          "inflow": 0.0,
+          "outflow": 0.0,
+          "cashOnHand": 0.0
+        },
+        {
+          "key": "2026-03",
+          "label": "Mar 26",
+          "inflow": 0.0,
+          "outflow": 0.0,
+          "cashOnHand": 0.0
+        },
+        {
+          "key": "2026-04",
+          "label": "Apr 26",
+          "inflow": 0.0,
+          "outflow": 0.0,
+          "cashOnHand": 0.0
+        },
+        {
+          "key": "2026-05",
+          "label": "May 26",
+          "inflow": 0.0,
+          "outflow": 0.0,
+          "cashOnHand": 0.0
+        },
+        {
+          "key": "2026-06",
+          "label": "Jun 26",
+          "inflow": 311000274.0,
+          "outflow": 101170000.0,
+          "cashOnHand": 209830274.0
+        },
+        {
+          "key": "2026-07",
+          "label": "Jul 26",
+          "inflow": 402775956.0,
+          "outflow": 541669505.0,
+          "cashOnHand": 70936725.0
+        },
+        {
+          "key": "2026-08",
+          "label": "Aug 26",
+          "inflow": 366879543.0,
+          "outflow": 182025947.0,
+          "cashOnHand": 255790321.0
+        },
+        {
+          "key": "2026-09",
+          "label": "Sep 26",
+          "inflow": 151349617.0,
+          "outflow": 98457296.0,
+          "cashOnHand": 308682642.0
+        },
+        {
+          "key": "2026-10",
+          "label": "Oct 26",
+          "inflow": 102115932.0,
+          "outflow": 110573000.0,
+          "cashOnHand": 300225574.0
+        }
+      ]
+    },
+    "year": {
+      "kpis": {
+        "totalInflow": 1334121322.0,
+        "totalOutflow": 1033895748.0,
+        "netCashflow": 300225574.0,
+        "bookingCount": 592,
+        "revenuePerBooking": 1058742.1452702703,
+        "courtHireShare": 0.46980386241064814,
+        "fbShare": 0.051553407374445664,
+        "reviewCount": 95
+      },
+      "window": {
+        "grain": "year",
+        "current": {
+          "start": "2026-01-01",
+          "end": "2026-10-19"
+        },
+        "prior": {
+          "start": "2025-01-01",
+          "end": "2025-10-19"
+        },
+        "currentLabel": "This year (Jan 1 – Oct 19, 2026)",
+        "priorLabel": "Last year (Jan 1 – Oct 19, 2025)"
+      },
+      "lastTwelveMonths": [
+        {
+          "key": "2025-11",
+          "label": "Nov 25",
+          "inflow": 0.0,
+          "outflow": 0.0
+        },
+        {
+          "key": "2025-12",
+          "label": "Dec 25",
+          "inflow": 0.0,
+          "outflow": 0.0
+        },
+        {
+          "key": "2026-01",
+          "label": "Jan 26",
+          "inflow": 0.0,
+          "outflow": 0.0
+        },
+        {
+          "key": "2026-02",
+          "label": "Feb 26",
+          "inflow": 0.0,
+          "outflow": 0.0
+        },
+        {
+          "key": "2026-03",
+          "label": "Mar 26",
+          "inflow": 0.0,
+          "outflow": 0.0
+        },
+        {
+          "key": "2026-04",
+          "label": "Apr 26",
+          "inflow": 0.0,
+          "outflow": 0.0
+        },
+        {
+          "key": "2026-05",
+          "label": "May 26",
+          "inflow": 0.0,
+          "outflow": 0.0
+        },
+        {
+          "key": "2026-06",
+          "label": "Jun 26",
+          "inflow": 311000274.0,
+          "outflow": 101170000.0
+        },
+        {
+          "key": "2026-07",
+          "label": "Jul 26",
+          "inflow": 402775956.0,
+          "outflow": 541669505.0
+        },
+        {
+          "key": "2026-08",
+          "label": "Aug 26",
+          "inflow": 366879543.0,
+          "outflow": 182025947.0
+        },
+        {
+          "key": "2026-09",
+          "label": "Sep 26",
+          "inflow": 151349617.0,
+          "outflow": 98457296.0
+        },
+        {
+          "key": "2026-10",
+          "label": "Oct 26",
+          "inflow": 102115932.0,
+          "outflow": 110573000.0
+        }
+      ],
+      "cashOnHand": [
+        {
+          "key": "2025-11",
+          "label": "Nov 25",
+          "inflow": 0.0,
+          "outflow": 0.0,
+          "cashOnHand": 0.0
+        },
+        {
+          "key": "2025-12",
+          "label": "Dec 25",
+          "inflow": 0.0,
+          "outflow": 0.0,
+          "cashOnHand": 0.0
+        },
+        {
+          "key": "2026-01",
+          "label": "Jan 26",
+          "inflow": 0.0,
+          "outflow": 0.0,
+          "cashOnHand": 0.0
+        },
+        {
+          "key": "2026-02",
+          "label": "Feb 26",
+          "inflow": 0.0,
+          "outflow": 0.0,
+          "cashOnHand": 0.0
+        },
+        {
+          "key": "2026-03",
+          "label": "Mar 26",
+          "inflow": 0.0,
+          "outflow": 0.0,
+          "cashOnHand": 0.0
+        },
+        {
+          "key": "2026-04",
+          "label": "Apr 26",
+          "inflow": 0.0,
+          "outflow": 0.0,
+          "cashOnHand": 0.0
+        },
+        {
+          "key": "2026-05",
+          "label": "May 26",
+          "inflow": 0.0,
+          "outflow": 0.0,
+          "cashOnHand": 0.0
+        },
+        {
+          "key": "2026-06",
+          "label": "Jun 26",
+          "inflow": 311000274.0,
+          "outflow": 101170000.0,
+          "cashOnHand": 209830274.0
+        },
+        {
+          "key": "2026-07",
+          "label": "Jul 26",
+          "inflow": 402775956.0,
+          "outflow": 541669505.0,
+          "cashOnHand": 70936725.0
+        },
+        {
+          "key": "2026-08",
+          "label": "Aug 26",
+          "inflow": 366879543.0,
+          "outflow": 182025947.0,
+          "cashOnHand": 255790321.0
+        },
+        {
+          "key": "2026-09",
+          "label": "Sep 26",
+          "inflow": 151349617.0,
+          "outflow": 98457296.0,
+          "cashOnHand": 308682642.0
+        },
+        {
+          "key": "2026-10",
+          "label": "Oct 26",
+          "inflow": 102115932.0,
+          "outflow": 110573000.0,
+          "cashOnHand": 300225574.0
+        }
+      ]
+    }
+  }
+}

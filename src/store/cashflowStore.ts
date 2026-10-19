@@ -5,7 +5,8 @@ import {
   DEFAULT_OUTFLOW_CATEGORIES,
   type TransactionType,
 } from '../../types/cashflow.types'
-import { MOCK_IMPORT_BATCH, MOCK_TRANSACTIONS, type LedgerTransaction } from '../data/mockCashflow'
+import { AS_OF_DATE, MOCK_IMPORT_BATCH, MOCK_TRANSACTIONS, OPENING_BALANCE, type LedgerTransaction } from '../data/mockCashflow'
+import { loadDashboard } from '../data/loadDashboard'
 import { type CompareGrain, inWindow, resolveWindow } from './periods'
 
 export type TypeFilter = 'all' | TransactionType
@@ -90,8 +91,14 @@ export const runningLedger = (transactions: LedgerTransaction[], opening: number
   })
 }
 
+export type DataStatus = 'idle' | 'loading' | 'ready' | 'fallback'
+
 interface CashflowState {
   transactions: LedgerTransaction[]
+  asOf: string
+  openingBalance: number
+  currency: string
+  dataStatus: DataStatus
   page: AppPage
   filters: CashflowFilters
   importStatus: ImportStatus
@@ -101,6 +108,7 @@ interface CashflowState {
   addTransaction: (input: Omit<LedgerTransaction, 'id' | 'source'>) => void
   updateCategory: (id: string, categoryId: string, categoryType: TransactionType) => void
   simulateImport: () => Promise<void>
+  hydrateFromCurated: () => Promise<void>
   clearToast: () => void
 }
 
@@ -117,7 +125,7 @@ export const filterTransactions = (
   filters: CashflowFilters,
 ): LedgerTransaction[] => {
   const q = filters.search.trim().toLowerCase()
-  const window = resolveWindow(filters.grain)
+  const window = resolveWindow(filters.grain, cashflowStore.getState().asOf)
   return transactions.filter((tx) => {
     if (!inWindow([tx], window.current).length) return false
     if (filters.type !== 'all' && tx.categoryType !== filters.type) return false
@@ -131,8 +139,13 @@ export const filterTransactions = (
 }
 
 /** Ledger list can show the selected period; charts use unfiltered-by-search period rows. */
-export const periodTransactions = (transactions: LedgerTransaction[], grain: CompareGrain, which: 'current' | 'prior') => {
-  const window = resolveWindow(grain)
+export const periodTransactions = (
+  transactions: LedgerTransaction[],
+  grain: CompareGrain,
+  which: 'current' | 'prior',
+  asOf?: string,
+) => {
+  const window = resolveWindow(grain, asOf ?? cashflowStore.getState().asOf)
   return inWindow(transactions, window[which])
 }
 
@@ -157,8 +170,12 @@ export const summarize = (transactions: LedgerTransaction[]): SummaryView => {
   }
 }
 
-export const comparePeriods = (transactions: LedgerTransaction[], grain: CompareGrain): PeriodCompare => {
-  const window = resolveWindow(grain)
+export const comparePeriods = (
+  transactions: LedgerTransaction[],
+  grain: CompareGrain,
+  asOf?: string,
+): PeriodCompare => {
+  const window = resolveWindow(grain, asOf ?? cashflowStore.getState().asOf)
   const current = summarize(inWindow(transactions, window.current))
   const prior = summarize(inWindow(transactions, window.prior))
   const delta = (a: number, b: number) => (b === 0 ? (a === 0 ? 0 : 1) : (a - b) / b)
@@ -182,7 +199,11 @@ export const mixByCategory = (transactions: LedgerTransaction[], type: Transacti
 }
 
 export const cashflowStore = createStore<CashflowState>((set, get) => ({
-  transactions: MOCK_TRANSACTIONS,
+  transactions: [],
+  asOf: AS_OF_DATE,
+  openingBalance: OPENING_BALANCE,
+  currency: 'VND',
+  dataStatus: 'idle',
   page: 'pnl',
   filters: {
     grain: 'month',
@@ -230,6 +251,30 @@ export const cashflowStore = createStore<CashflowState>((set, get) => ({
       importStatus: 'success',
       toast: `Imported ${fresh.length} sample rows (POC — file is not parsed).`,
     }))
+  },
+  hydrateFromCurated: async () => {
+    set({ dataStatus: 'loading' })
+    try {
+      const loaded = await loadDashboard()
+      if (!loaded.transactions.length) throw new Error('empty curated ledger')
+      set({
+        transactions: loaded.transactions,
+        asOf: loaded.meta.asOf,
+        openingBalance: loaded.meta.openingBalance,
+        currency: loaded.meta.currency,
+        dataStatus: 'ready',
+        toast: `Loaded ${loaded.transactions.length} curated rows.`,
+      })
+    } catch {
+      set({
+        transactions: MOCK_TRANSACTIONS,
+        asOf: AS_OF_DATE,
+        openingBalance: OPENING_BALANCE,
+        currency: 'USD',
+        dataStatus: 'fallback',
+        toast: 'Curated data unavailable — showing mock ledger.',
+      })
+    }
   },
   clearToast: () => set({ toast: null }),
 }))

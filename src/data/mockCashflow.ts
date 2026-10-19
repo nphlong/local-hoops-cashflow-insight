@@ -9,6 +9,8 @@ export interface LedgerTransaction {
   categoryId: string
   needsReview?: boolean
   source: 'import' | 'manual'
+  channel?: string
+  sourceId?: string
 }
 
 /** Dashboard “today” so week/month/year compares stay stable in the POC. */

@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react'
-import { AS_OF_DATE, OPENING_BALANCE } from '../data/mockCashflow'
 import {
   DEFAULT_INFLOW_CATEGORIES,
   DEFAULT_OUTFLOW_CATEGORIES,
@@ -10,18 +9,19 @@ import {
   runningLedger,
   useCashflowStore,
 } from '../store/cashflowStore'
+import { inRange, resolveWindow } from '../store/periods'
 import { formatCurrency, formatNumber } from '../utils/currencyFormatter'
-import ImportSection from '../components/Forms/ImportSection'
-import ManualEntryForm from '../components/Forms/ManualEntryForm'
 
 const PAGE_SIZE = 100
 
 const BalanceSheetPage: React.FC = () => {
-  const { transactions, filters, setFilters, updateCategory } = useCashflowStore()
+  const { transactions, filters, setFilters, updateCategory, asOf, openingBalance } = useCashflowStore()
   const [page, setPage] = useState(1)
   const q = filters.search.trim().toLowerCase()
-  const ledger = runningLedger(transactions, OPENING_BALANCE)
-  const visible = [...ledger].reverse().filter((tx) => {
+  const ledger = runningLedger(transactions, openingBalance)
+  const window = resolveWindow(filters.grain, asOf)
+  const inPeriod = ledger.filter((tx) => inRange(tx.date, window.current))
+  const visible = [...inPeriod].reverse().filter((tx) => {
     if (filters.type !== 'all' && tx.categoryType !== filters.type) return false
     if (filters.categoryId !== 'all' && tx.categoryId !== filters.categoryId) return false
     if (q) {
@@ -36,17 +36,17 @@ const BalanceSheetPage: React.FC = () => {
 
   useEffect(() => {
     setPage(1)
-  }, [filters.search, filters.type, filters.categoryId])
+  }, [filters.search, filters.type, filters.categoryId, filters.grain])
   const last = ledger[ledger.length - 1]
-  const lastDate = last?.date ?? AS_OF_DATE
+  const periodLast = inPeriod[inPeriod.length - 1]
+  const lastDate = periodLast?.date ?? last?.date ?? asOf
   const daysAgo = Math.max(
     0,
     Math.round(
-      (new Date(`${AS_OF_DATE}T12:00:00`).getTime() - new Date(`${lastDate}T12:00:00`).getTime()) / 86400000,
+      (new Date(`${asOf}T12:00:00`).getTime() - new Date(`${lastDate}T12:00:00`).getTime()) / 86400000,
     ),
   )
-  const yearCount = transactions.filter((t) => t.date.startsWith(AS_OF_DATE.slice(0, 4))).length
-  const closing = last?.balance ?? OPENING_BALANCE
+  const closing = last?.balance ?? openingBalance
   const categoryOptions =
     filters.type === 'outflow' ? DEFAULT_OUTFLOW_CATEGORIES : DEFAULT_INFLOW_CATEGORIES
 
@@ -56,7 +56,7 @@ const BalanceSheetPage: React.FC = () => {
       <div className="kpi-row">
         <article className="kpi-card">
           <p className="kpi-label">Date of today</p>
-          <p className="kpi-value">{AS_OF_DATE}</p>
+          <p className="kpi-value">{asOf}</p>
         </article>
         <article className="kpi-card">
           <p className="kpi-label">Date of last record</p>
@@ -65,13 +65,13 @@ const BalanceSheetPage: React.FC = () => {
         </article>
         <article className="kpi-card">
           <p className="kpi-label">No. of tracked records</p>
-          <p className="kpi-value tabular">{formatNumber(transactions.length)}</p>
-          <p className="kpi-hint">{yearCount} this year</p>
+          <p className="kpi-value tabular">{formatNumber(inPeriod.length)}</p>
+          <p className="kpi-hint">{window.currentLabel.replace(/^This \w+ \(/, '').replace(/\)$/, '')}</p>
         </article>
         <article className="kpi-card">
           <p className="kpi-label">Total tracking balance</p>
           <p className="kpi-value tabular">{formatCurrency(closing)}</p>
-          <p className="kpi-hint">opening {formatCurrency(OPENING_BALANCE)} + net movements</p>
+          <p className="kpi-hint">opening {formatCurrency(openingBalance)} + net movements</p>
         </article>
       </div>
 
@@ -135,25 +135,29 @@ const BalanceSheetPage: React.FC = () => {
                   <td className="whitespace-nowrap">{tx.date}</td>
                   <td>{tx.categoryType === 'inflow' ? 'Income' : 'Expenses'}</td>
                   <td>
-                    <select
-                      value={tx.categoryId}
-                      aria-label={`Recategorize ${tx.description}`}
-                      onChange={(e) => {
-                        const nextId = e.target.value
-                        const inflow = DEFAULT_INFLOW_CATEGORIES.some((c) => c.id === nextId)
-                        updateCategory(tx.id, nextId, inflow ? 'inflow' : 'outflow')
-                      }}
-                      className="max-w-[220px] px-2 py-1 text-xs"
-                    >
-                      {categoriesFor(tx.categoryType).map((c) => (
-                        <option key={c.id} value={c.id}>
-                          {c.name}
-                        </option>
-                      ))}
-                    </select>
-                    {tx.needsReview && (
-                      <span className="ml-2 text-[10px] uppercase text-[var(--expense)]">Review</span>
-                    )}
+                    <div className="flex items-center gap-8">
+                      <select
+                        value={tx.categoryId}
+                        aria-label={`Recategorize ${tx.description}`}
+                        onChange={(e) => {
+                          const nextId = e.target.value
+                          const inflow = DEFAULT_INFLOW_CATEGORIES.some((c) => c.id === nextId)
+                          updateCategory(tx.id, nextId, inflow ? 'inflow' : 'outflow')
+                        }}
+                        className="max-w-[220px] px-2 py-1 text-xs"
+                      >
+                        {categoriesFor(tx.categoryType).map((c) => (
+                          <option key={c.id} value={c.id}>
+                            {c.name}
+                          </option>
+                        ))}
+                      </select>
+                      {tx.needsReview && (
+                        <span className="pl-6 shrink-0 text-[10px] uppercase tracking-wide text-[var(--expense)]">
+                          Review
+                        </span>
+                      )}
+                    </div>
                   </td>
                   <td className={`tabular text-right ${tx.signedAmount >= 0 ? 'amount-in' : 'amount-out'}`}>
                     {formatCurrency(tx.signedAmount)}
@@ -187,11 +191,6 @@ const BalanceSheetPage: React.FC = () => {
           </nav>
         )}
       </article>
-
-      <div className="pnl-bottom">
-        <ImportSection />
-        <ManualEntryForm />
-      </div>
     </div>
   )
 }

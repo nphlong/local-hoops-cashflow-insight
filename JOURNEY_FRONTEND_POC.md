@@ -108,7 +108,7 @@ Adjusted the shell to match the user’s reference screens:
 2. **Cash flow** like the budget dashboard: period chips, income/expense tracked-vs-prior tables, donuts, monthly income vs expense bars. Prior period stands in for budget until a real budget table exists.
 3. **Balance Sheet** like the tracking register (not a classic assets/liabilities sheet): Date, Type, Category, Amount, Details, running Balance, Effective day, plus opening cash `$185,000`.
 
-Light paper UI (Newsreader + IBM Plex, navy/blue/gold) so the layout reads as a financial statement, not a night gym.
+Light paper UI (Syne + IBM Plex, navy/blue/gold) so the layout reads as a financial statement, not a night gym. Later chrome (2026-10-19) uses a floating black pill navbar and the Local Hoops mark; see [`JOURNEY_CURATED_PIPELINE.md`](JOURNEY_CURATED_PIPELINE.md).
 
 ---
 
@@ -125,7 +125,7 @@ Second pass: KPI tiles stretch in three equal rows beside the combo chart; dual-
 Aligned Cash flow and Balance Sheet to P&L card/KPI/chart chrome without changing what those tabs are for. Then refined mix, color, and the register.
 
 **Shared chrome**  
-`.page-title`, `.kpi-card` / `.kpi-row`, `.chart-card`, `.table-head`. Navy filled table headers dropped for paper headers. Import and manual entry sit in the same two-column card grid.
+`.page-title`, `.kpi-card` / `.kpi-row`, `.chart-card`, `.table-head`. Navy filled table headers dropped for paper headers. Import and manual-entry POC cards were removed once curated JSON replaced mock import.
 
 **Categories** (operator set, in [`types/cashflow.types.ts`](types/cashflow.types.ts) and the mock ledger):
 

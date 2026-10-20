@@ -1,22 +1,28 @@
 import { useEffect } from 'react'
+import SignInScreen from './components/Auth/SignInScreen'
 import Header from './components/Layouts/Header'
 import ProfitAndLossPage from './pages/ProfitAndLossPage'
 import CashflowPage from './pages/CashflowPage'
 import BalanceSheetPage from './pages/BalanceSheetPage'
+import { useAuthStore } from './store/authStore'
 import { cashflowStore, useCashflowStore } from './store/cashflowStore'
 
 function App() {
+  const { user } = useAuthStore()
   const { page, toast, clearToast, dataStatus } = useCashflowStore()
 
   useEffect(() => {
+    if (!user) return
     void cashflowStore.getState().hydrateFromCurated()
-  }, [])
+  }, [user])
 
   useEffect(() => {
     if (!toast) return
     const id = window.setTimeout(clearToast, 3200)
     return () => window.clearTimeout(id)
   }, [toast, clearToast])
+
+  if (!user) return <SignInScreen />
 
   return (
     <div className="min-h-screen bg-[var(--bg)]">

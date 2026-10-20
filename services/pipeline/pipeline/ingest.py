@@ -10,6 +10,29 @@ from pipeline.parse_mb_bank import parse_workbook
 from pipeline.paths import DATA_RAW
 
 
+def silver_keys(rows: list, sid: str) -> dict[int, str]:
+    """Silver/gold key per bronze seq.
+
+    MB Bank can post distinct legs under one bank_ref (e.g. a fee and its VAT).
+    The largest leg keeps the bare ref, so existing ids stay unchanged; other
+    distinct legs get direction + amount appended. Identical legs still collapse.
+    """
+    groups: dict[str, list] = {}
+    for row in rows:
+        ref = row.bank_ref or f"{sid}:{row.seq}:{row.booked_at}"
+        groups.setdefault(ref, []).append(row)
+    keys: dict[int, str] = {}
+    for ref, legs in groups.items():
+        top = max(legs, key=lambda r: abs(r.credit - r.debit))
+        for row in legs:
+            if (row.debit, row.credit) == (top.debit, top.credit):
+                keys[row.seq] = ref
+            else:
+                side = "D" if row.debit else "C"
+                keys[row.seq] = f"{ref}:{side}{int(round(row.debit or row.credit))}"
+    return keys
+
+
 def ingest_dir(raw_dir: Path | None = None) -> dict:
     folder = raw_dir or DATA_RAW
     files = sorted(folder.glob("*.xlsx"))
@@ -49,8 +72,10 @@ def ingest_dir(raw_dir: Path | None = None) -> dict:
                 ),
             )
             conn.execute("DELETE FROM bronze_rows WHERE source_id = ?", (sid,))
+            keys = silver_keys(bronze.rows, sid)
             for row in bronze.rows:
-                bank_ref = row.bank_ref or f"{sid}:{row.seq}:{row.booked_at}"
+                raw_ref = row.bank_ref or f"{sid}:{row.seq}:{row.booked_at}"
+                bank_ref = keys[row.seq]
                 conn.execute(
                     """
                     INSERT INTO bronze_rows (
@@ -68,7 +93,7 @@ def ingest_dir(raw_dir: Path | None = None) -> dict:
                         row.balance_after,
                         row.counterparty,
                         row.description,
-                        bank_ref,
+                        raw_ref,
                     ),
                 )
                 signed = row.credit - row.debit

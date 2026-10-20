@@ -5,10 +5,14 @@ import {
   CategoryScale,
   LinearScale,
   BarElement,
+  BarController,
+  PointElement,
+  LineElement,
+  LineController,
   Tooltip,
   Legend,
 } from 'chart.js'
-import { Bar, Doughnut } from 'react-chartjs-2'
+import { Chart, Doughnut } from 'react-chartjs-2'
 import { legendGap } from '../components/Charts/legendGap'
 import {
   DEFAULT_INFLOW_CATEGORIES,
@@ -25,21 +29,20 @@ import {
 import { bucketSeries, inRange } from '../store/periods'
 import { formatCompactCurrency, formatCurrency, formatNumber, formatPercentage } from '../utils/currencyFormatter'
 
-ChartJS.register(ArcElement, CategoryScale, LinearScale, BarElement, Tooltip, Legend)
+ChartJS.register(
+  ArcElement,
+  CategoryScale,
+  LinearScale,
+  BarElement,
+  BarController,
+  PointElement,
+  LineElement,
+  LineController,
+  Tooltip,
+  Legend,
+)
 
 const tick = { color: '#6b7c8d', font: { size: 11, family: 'IBM Plex Sans' } }
-const legend = {
-  position: 'right' as const,
-  labels: {
-    color: '#5b6b7c',
-    boxWidth: 8,
-    boxHeight: 8,
-    font: { family: 'IBM Plex Sans', size: 12 },
-    padding: 10,
-    usePointStyle: true,
-    pointStyle: 'circle' as const,
-  },
-}
 
 const INCOME_SHADES = ['#0d6b3a', '#1f8a4c', '#4caf78', '#8fd4ad', '#d7f0e3']
 const EXPENSE_SHADES = ['#c56a00', '#e67e22', '#f0a04a', '#f6c98a', '#fbe6c8']
@@ -146,9 +149,9 @@ const TrackTable: React.FC<{
 
 const CashflowPage: React.FC = () => {
   const { transactions, filters, asOf } = useCashflowStore()
-  const compare = comparePeriods(transactions, filters.grain, asOf)
-  const currentRows = periodTransactions(transactions, filters.grain, 'current', asOf)
-  const priorRows = periodTransactions(transactions, filters.grain, 'prior', asOf)
+  const compare = comparePeriods(transactions, filters, asOf)
+  const currentRows = periodTransactions(transactions, filters, 'current', asOf)
+  const priorRows = periodTransactions(transactions, filters, 'prior', asOf)
   const incomeRows = categoryTrackRows(
     mixByCategory(currentRows, 'inflow'),
     mixByCategory(priorRows, 'inflow'),
@@ -212,12 +215,12 @@ const CashflowPage: React.FC = () => {
       </div>
 
       <div className="pnl-bottom">
-        <TrackTable title={`Income — ${filters.grain}`} rows={incomeShown} colors={incomeColors} higherIsBetter />
+        <TrackTable title={`Income — ${filters.customRange ? 'custom' : filters.grain}`} rows={incomeShown} colors={incomeColors} higherIsBetter />
         <article className="chart-card">
           <h3 className="chart-title">Income categories (tracked)</h3>
           <CategoryDonut rows={incomeShown} colors={incomeColors} empty="No income in this period." data={donut(incomeShown, incomeColors)} options={donutOptions} />
         </article>
-        <TrackTable title={`Expenses — ${filters.grain}`} rows={expenseShown} colors={expenseColors} higherIsBetter={false} />
+        <TrackTable title={`Expenses — ${filters.customRange ? 'custom' : filters.grain}`} rows={expenseShown} colors={expenseColors} higherIsBetter={false} />
         <article className="chart-card">
           <h3 className="chart-title">Expense categories (tracked)</h3>
           <CategoryDonut rows={expenseShown} colors={expenseColors} empty="No expenses in this period." data={donut(expenseShown, expenseColors)} options={donutOptions} />
@@ -227,13 +230,54 @@ const CashflowPage: React.FC = () => {
       <article className="chart-card">
         <h3 className="chart-title">Summary — tracked income vs expenses this year</h3>
         <div className="chart-body chart-body-sm">
-          <Bar
+          <Chart
+            type="bar"
             plugins={[legendGap]}
             data={{
               labels: monthSeries.map((d) => d.label),
               datasets: [
-                { label: 'Income', data: monthSeries.map((d) => d.inflow), backgroundColor: INCOME_SHADES[1], borderRadius: 2 },
-                { label: 'Expenses', data: monthSeries.map((d) => d.outflow), backgroundColor: EXPENSE_SHADES[1], borderRadius: 2 },
+                {
+                  type: 'bar',
+                  label: 'Income',
+                  data: monthSeries.map((d) => d.inflow),
+                  backgroundColor: INCOME_SHADES[1],
+                  borderRadius: 2,
+                  order: 2,
+                  pointStyle: 'rect',
+                },
+                {
+                  type: 'bar',
+                  label: 'Expenses',
+                  data: monthSeries.map((d) => d.outflow),
+                  backgroundColor: EXPENSE_SHADES[1],
+                  borderRadius: 2,
+                  order: 2,
+                  pointStyle: 'rect',
+                },
+                {
+                  type: 'line',
+                  label: 'Income trend',
+                  data: monthSeries.map((d) => d.inflow),
+                  borderColor: INCOME_SHADES[0],
+                  backgroundColor: INCOME_SHADES[0],
+                  tension: 0.25,
+                  pointRadius: 3,
+                  borderWidth: 2,
+                  order: 1,
+                  pointStyle: 'line',
+                },
+                {
+                  type: 'line',
+                  label: 'Expenses trend',
+                  data: monthSeries.map((d) => d.outflow),
+                  borderColor: EXPENSE_SHADES[0],
+                  backgroundColor: EXPENSE_SHADES[0],
+                  tension: 0.25,
+                  pointRadius: 3,
+                  borderWidth: 2,
+                  order: 1,
+                  pointStyle: 'line',
+                },
               ],
             }}
             options={{
@@ -243,7 +287,14 @@ const CashflowPage: React.FC = () => {
                 legend: {
                   position: 'top',
                   align: 'start',
-                  labels: { ...legend.labels, padding: 12 },
+                  labels: {
+                    color: '#5b6b7c',
+                    boxWidth: 18,
+                    boxHeight: 8,
+                    font: { family: 'IBM Plex Sans', size: 12 },
+                    padding: 12,
+                    usePointStyle: true,
+                  },
                 },
               },
               scales: {

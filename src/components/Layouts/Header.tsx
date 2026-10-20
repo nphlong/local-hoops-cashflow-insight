@@ -1,6 +1,8 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
+import { useAuthStore } from '../../store/authStore'
 import { useCashflowStore, type AppPage } from '../../store/cashflowStore'
-import type { CompareGrain } from '../../store/periods'
+import type { CompareGrain, DateRange } from '../../store/periods'
+import DateRangePicker from './DateRangePicker'
 
 const MARK = '/brand/local-hoops-mark.jpg'
 
@@ -10,28 +12,43 @@ const pages: { id: AppPage; label: string }[] = [
   { id: 'ledger', label: 'Balance Sheet' },
 ]
 
-const grains: { id: CompareGrain; label: string }[] = [
-  { id: 'week', label: 'Week' },
-  { id: 'month', label: 'Month' },
-  { id: 'year', label: 'Year' },
-]
-
 const Header: React.FC = () => {
-  const { page, setPage, filters, setFilters } = useCashflowStore()
+  const { page, setPage, filters, setFilters, asOf } = useCashflowStore()
+  const { user, signOut } = useAuthStore()
   const [menuOpen, setMenuOpen] = useState(false)
-  const [signedIn, setSignedIn] = useState(false)
+  const headerRef = useRef<HTMLElement>(null)
+  const avatar = user?.picture || MARK
 
   useEffect(() => {
     setMenuOpen(false)
   }, [page])
+
+  useEffect(() => {
+    if (!menuOpen) return
+    const onDoc = (event: MouseEvent) => {
+      if (!headerRef.current?.contains(event.target as Node)) setMenuOpen(false)
+    }
+    const onKey = (event: KeyboardEvent) => {
+      if (event.key === 'Escape') setMenuOpen(false)
+    }
+    document.addEventListener('mousedown', onDoc)
+    document.addEventListener('keydown', onKey)
+    return () => {
+      document.removeEventListener('mousedown', onDoc)
+      document.removeEventListener('keydown', onKey)
+    }
+  }, [menuOpen])
 
   const go = (id: AppPage) => {
     setPage(id)
     setMenuOpen(false)
   }
 
+  const onGrain = (grain: CompareGrain) => setFilters({ grain, customRange: null })
+  const onCustomRange = (customRange: DateRange) => setFilters({ customRange })
+
   return (
-    <header className="site-header">
+    <header className="site-header" ref={headerRef}>
       <div className="site-nav">
         <a className="brand-lockup" href="#/" aria-label="Local Hoops financial dashboard">
           <img src={MARK} alt="" className="brand-mark" />
@@ -52,29 +69,19 @@ const Header: React.FC = () => {
         </nav>
 
         <div className="nav-actions">
-          <div className="grain-pills" role="group" aria-label="Time filter">
-            {grains.map((g) => (
-              <button
-                key={g.id}
-                type="button"
-                className="grain-pill"
-                aria-pressed={filters.grain === g.id}
-                onClick={() => setFilters({ grain: g.id })}
-              >
-                {g.label}
-              </button>
-            ))}
+          <div className="nav-date-desktop">
+            <DateRangePicker
+              asOf={asOf}
+              grain={filters.grain}
+              customRange={filters.customRange}
+              onGrain={onGrain}
+              onCustomRange={onCustomRange}
+            />
           </div>
-          {signedIn ? (
-            <button type="button" className="auth-chip" onClick={() => setSignedIn(false)}>
-              <img src={MARK} alt="" className="auth-avatar" />
-              <span>Log out</span>
-            </button>
-          ) : (
-            <button type="button" className="auth-chip auth-chip-primary" onClick={() => setSignedIn(true)}>
-              Log in
-            </button>
-          )}
+          <button type="button" className="auth-chip" onClick={signOut} title={user?.email}>
+            <img src={avatar} alt="" className="auth-avatar" referrerPolicy="no-referrer" />
+            <span>Log out</span>
+          </button>
           <button
             type="button"
             className="nav-toggle"
@@ -108,29 +115,18 @@ const Header: React.FC = () => {
               </button>
             ))}
           </nav>
-          <div className="grain-pills grain-pills-block" role="group" aria-label="Time filter">
-            {grains.map((g) => (
-              <button
-                key={g.id}
-                type="button"
-                className="grain-pill"
-                aria-pressed={filters.grain === g.id}
-                onClick={() => setFilters({ grain: g.id })}
-              >
-                {g.label}
-              </button>
-            ))}
-          </div>
-          {signedIn ? (
-            <button type="button" className="auth-chip drawer-auth" onClick={() => setSignedIn(false)}>
-              <img src={MARK} alt="" className="auth-avatar" />
-              Log out
-            </button>
-          ) : (
-            <button type="button" className="auth-chip auth-chip-primary drawer-auth" onClick={() => setSignedIn(true)}>
-              Log in
-            </button>
-          )}
+          <DateRangePicker
+            asOf={asOf}
+            grain={filters.grain}
+            customRange={filters.customRange}
+            onGrain={onGrain}
+            onCustomRange={onCustomRange}
+            compact
+          />
+          <button type="button" className="auth-chip drawer-auth" onClick={signOut} title={user?.email}>
+            <img src={avatar} alt="" className="auth-avatar" referrerPolicy="no-referrer" />
+            Log out
+          </button>
         </div>
       )}
     </header>

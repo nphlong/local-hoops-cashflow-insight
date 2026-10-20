@@ -7,7 +7,13 @@ import {
 } from '../../types/cashflow.types'
 import { AS_OF_DATE, MOCK_IMPORT_BATCH, MOCK_TRANSACTIONS, OPENING_BALANCE, type LedgerTransaction } from '../data/mockCashflow'
 import { loadDashboard } from '../data/loadDashboard'
-import { type CompareGrain, inWindow, resolveWindow } from './periods'
+import {
+  type CompareGrain,
+  type DateRange,
+  inWindow,
+  resolveActiveWindow,
+  type PeriodWindow,
+} from './periods'
 
 export type TypeFilter = 'all' | TransactionType
 export type ImportStatus = 'idle' | 'uploading' | 'success' | 'error'
@@ -15,6 +21,7 @@ export type AppPage = 'pnl' | 'cashflow' | 'ledger'
 
 export interface CashflowFilters {
   grain: CompareGrain
+  customRange: DateRange | null
   type: TypeFilter
   categoryId: string
   search: string
@@ -38,7 +45,7 @@ export interface PeriodCompare {
   outflowDelta: number
   netDelta: number
   bookingDelta: number
-  window: ReturnType<typeof resolveWindow>
+  window: PeriodWindow
 }
 
 export interface CategoryTrackRow {
@@ -125,7 +132,7 @@ export const filterTransactions = (
   filters: CashflowFilters,
 ): LedgerTransaction[] => {
   const q = filters.search.trim().toLowerCase()
-  const window = resolveWindow(filters.grain, cashflowStore.getState().asOf)
+  const window = resolveActiveWindow(filters, cashflowStore.getState().asOf)
   return transactions.filter((tx) => {
     if (!inWindow([tx], window.current).length) return false
     if (filters.type !== 'all' && tx.categoryType !== filters.type) return false
@@ -141,11 +148,13 @@ export const filterTransactions = (
 /** Ledger list can show the selected period; charts use unfiltered-by-search period rows. */
 export const periodTransactions = (
   transactions: LedgerTransaction[],
-  grain: CompareGrain,
+  filters: Pick<CashflowFilters, 'grain' | 'customRange'> | CompareGrain,
   which: 'current' | 'prior',
   asOf?: string,
 ) => {
-  const window = resolveWindow(grain, asOf ?? cashflowStore.getState().asOf)
+  const selection =
+    typeof filters === 'string' ? { grain: filters, customRange: null } : filters
+  const window = resolveActiveWindow(selection, asOf ?? cashflowStore.getState().asOf)
   return inWindow(transactions, window[which])
 }
 
@@ -172,10 +181,12 @@ export const summarize = (transactions: LedgerTransaction[]): SummaryView => {
 
 export const comparePeriods = (
   transactions: LedgerTransaction[],
-  grain: CompareGrain,
+  filters: Pick<CashflowFilters, 'grain' | 'customRange'> | CompareGrain,
   asOf?: string,
 ): PeriodCompare => {
-  const window = resolveWindow(grain, asOf ?? cashflowStore.getState().asOf)
+  const selection =
+    typeof filters === 'string' ? { grain: filters, customRange: null } : filters
+  const window = resolveActiveWindow(selection, asOf ?? cashflowStore.getState().asOf)
   const current = summarize(inWindow(transactions, window.current))
   const prior = summarize(inWindow(transactions, window.prior))
   const delta = (a: number, b: number) => (b === 0 ? (a === 0 ? 0 : 1) : (a - b) / b)
@@ -207,6 +218,7 @@ export const cashflowStore = createStore<CashflowState>((set, get) => ({
   page: 'pnl',
   filters: {
     grain: 'month',
+    customRange: null,
     type: 'all',
     categoryId: 'all',
     search: '',
@@ -219,6 +231,9 @@ export const cashflowStore = createStore<CashflowState>((set, get) => ({
       const next = { ...state.filters, ...patch }
       if (patch.type && patch.type !== state.filters.type) {
         next.categoryId = 'all'
+      }
+      if (patch.grain && patch.customRange === undefined) {
+        next.customRange = null
       }
       return { filters: next }
     }),

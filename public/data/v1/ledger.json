@@ -1,11 +1,11 @@
 {
   "meta": {
-    "asOf": "2026-10-19",
+    "asOf": "2026-10-20",
     "currency": "VND",
     "openingBalance": 0.0,
-    "closingBalance": 300153574.0,
+    "closingBalance": 302418574.0,
     "accountNo": "7789797968",
-    "transactionCount": 2552
+    "transactionCount": 2558
   },
   "transactions": [
     {
@@ -194,9 +194,9 @@
       "date": "2026-07-07",
       "amount": 295000000.0,
       "categoryType": "inflow",
-      "categoryId": "basketball_courts",
+      "categoryId": "other_income",
       "channel": "bank_transfer",
-      "needsReview": false
+      "needsReview": true
     },
     {
       "id": "fa2c43f9a43f416e2bdaa6dba72ff741be865866044f65925d569aff44109526",
@@ -6447,6 +6447,16 @@
       "categoryId": "fb_income",
       "channel": "kiotviet",
       "needsReview": false
+    },
+    {
+      "id": "3423d0ffdf72b483266c306e77026b5e491e7b52796f56f2b5d64850ee9d9166",
+      "sourceId": "7d40b00fcf9bc0d7983776d3c01145960c04484925b831ccd13e026be8a9868b",
+      "date": "2026-08-20",
+      "amount": 72000.0,
+      "categoryType": "outflow",
+      "categoryId": "expense_misc",
+      "channel": "bank_transfer",
+      "needsReview": true
     },
     {
       "id": "396ebfdcc872166b5512faedb3fdae375e79332b6de8c672f1038431910c18ef",
@@ -25059,6 +25069,16 @@
       "needsReview": false
     },
     {
+      "id": "1420a78f8e6ab7b380c9f04d002edfb9112b17899c08a58d0401e4b0c7577fac",
+      "sourceId": "ec96d0781e64d2e80cd706bfe9f0cb27ce05cdd961cbb42092aa833015751442",
+      "date": "2026-10-19",
+      "amount": 20000.0,
+      "categoryType": "inflow",
+      "categoryId": "fb_income",
+      "channel": "kiotviet",
+      "needsReview": false
+    },
+    {
       "id": "18c43f6464a9a577d5799fb8c2e437fd6078af0b5a4e8d5588577d2838da549d",
       "sourceId": "ec96d0781e64d2e80cd706bfe9f0cb27ce05cdd961cbb42092aa833015751442",
       "date": "2026-10-19",
@@ -25083,6 +25103,16 @@
       "sourceId": "ec96d0781e64d2e80cd706bfe9f0cb27ce05cdd961cbb42092aa833015751442",
       "date": "2026-10-19",
       "amount": 25000.0,
+      "categoryType": "inflow",
+      "categoryId": "fb_income",
+      "channel": "kiotviet",
+      "needsReview": false
+    },
+    {
+      "id": "2f8628f43d94e0bfc0adc2df14adf6bcbe71989be40d626f0d817318f89de4b9",
+      "sourceId": "ec96d0781e64d2e80cd706bfe9f0cb27ce05cdd961cbb42092aa833015751442",
+      "date": "2026-10-19",
+      "amount": 15000.0,
       "categoryType": "inflow",
       "categoryId": "fb_income",
       "channel": "kiotviet",
@@ -25459,6 +25489,16 @@
       "needsReview": false
     },
     {
+      "id": "f0efe0d89f6d11dfe36d2d255aefdbb8fb772d2e455fbfcae2e5b4c0cf17a14a",
+      "sourceId": "ec96d0781e64d2e80cd706bfe9f0cb27ce05cdd961cbb42092aa833015751442",
+      "date": "2026-10-19",
+      "amount": 15000.0,
+      "categoryType": "inflow",
+      "categoryId": "fb_income",
+      "channel": "kiotviet",
+      "needsReview": false
+    },
+    {
       "id": "f1d0ec02dc6c7b160cf104ca0f1fefa814bfe32d0124d882b6b22e040e30704f",
       "sourceId": "ec96d0781e64d2e80cd706bfe9f0cb27ce05cdd961cbb42092aa833015751442",
       "date": "2026-10-19",
@@ -25525,6 +25565,26 @@
       "amount": 49000.0,
       "categoryType": "inflow",
       "categoryId": "basketball_courts",
+      "channel": "bank_transfer",
+      "needsReview": false
+    },
+    {
+      "id": "a6bb04245640db2001591b6e071deb8f2085423eeaa4fb639e21ea24409da094",
+      "sourceId": "ec96d0781e64d2e80cd706bfe9f0cb27ce05cdd961cbb42092aa833015751442",
+      "date": "2026-10-20",
+      "amount": 15000.0,
+      "categoryType": "inflow",
+      "categoryId": "fb_income",
+      "channel": "kiotviet",
+      "needsReview": false
+    },
+    {
+      "id": "ab13a816bb5fbc5f71f00789d1d225ebd00356b9d6931404401c823fd7f3e7f1",
+      "sourceId": "ec96d0781e64d2e80cd706bfe9f0cb27ce05cdd961cbb42092aa833015751442",
+      "date": "2026-10-20",
+      "amount": 2200000.0,
+      "categoryType": "inflow",
+      "categoryId": "fb_income",
       "channel": "bank_transfer",
       "needsReview": false
     }

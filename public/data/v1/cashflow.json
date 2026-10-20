@@ -1,65 +1,65 @@
 {
   "meta": {
-    "asOf": "2026-10-19",
+    "asOf": "2026-10-20",
     "currency": "VND",
     "openingBalance": 0.0,
-    "closingBalance": 300153574.0,
+    "closingBalance": 302418574.0,
     "accountNo": "7789797968",
-    "transactionCount": 2552
+    "transactionCount": 2558
   },
   "grains": {
     "week": {
       "window": {
         "grain": "week",
         "current": {
-          "start": "2026-10-13",
-          "end": "2026-10-19"
+          "start": "2026-10-14",
+          "end": "2026-10-20"
         },
         "prior": {
-          "start": "2026-10-06",
-          "end": "2026-10-12"
+          "start": "2026-10-07",
+          "end": "2026-10-13"
         },
-        "currentLabel": "This week (Oct 13 – Oct 19, 2026)",
-        "priorLabel": "Last week (Oct 6 – Oct 12, 2026)"
+        "currentLabel": "This week (Oct 14 – Oct 20, 2026)",
+        "priorLabel": "Last week (Oct 7 – Oct 13, 2026)"
       },
       "current": {
-        "totalInflow": 28738782.0,
+        "totalInflow": 28336782.0,
         "totalOutflow": 117000.0,
-        "netCashflow": 28621782.0,
-        "bookingCount": 65,
-        "revenuePerBooking": 353942.3076923077,
-        "courtHireShare": 0.8005297510520801,
-        "fbShare": 0.19322322010724044,
+        "netCashflow": 28219782.0,
+        "bookingCount": 57,
+        "revenuePerBooking": 364407.8947368421,
+        "courtHireShare": 0.733013720471153,
+        "fbShare": 0.26065062716013415,
         "reviewCount": 3
       },
       "prior": {
-        "totalInflow": 31334500.0,
+        "totalInflow": 30340500.0,
         "totalOutflow": 101678000.0,
-        "netCashflow": -70343500.0,
-        "bookingCount": 62,
-        "revenuePerBooking": 347346.77419354836,
-        "courtHireShare": 0.6872776013659065,
-        "fbShare": 0.3098501651534251,
+        "netCashflow": -71337500.0,
+        "bookingCount": 60,
+        "revenuePerBooking": 383258.3333333333,
+        "courtHireShare": 0.7579143389199255,
+        "fbShare": 0.23911932894975363,
         "reviewCount": 3
       },
       "incomeRows": [
         {
           "id": "basketball_courts",
           "name": "Basketball Courts Income (Net)",
-          "tracked": 23006250.0,
-          "budget": 21535500.0,
-          "pct": 1.0682942118827052,
-          "remaining": 0,
-          "excess": 1470750.0
+          "tracked": 20771250.0,
+          "budget": 22995500.0,
+          "pct": 0.9032745537170316,
+          "remaining": 2224250.0,
+          "excess": 0
         },
         {
           "id": "fb_income",
           "name": "F&B Income (Net)",
-          "tracked": 5553000.0,
-          "budget": 9709000.0,
-          "pct": 0.5719435575239469,
-          "remaining": 4156000.0,
-          "excess": 0
+          "tracked": 7386000.0,
+          "budget": 7255000.0,
+          "pct": 1.0180565127498278,
+          "remaining": 0,
+          "excess": 131000.0
         },
         {
           "id": "other_income",
@@ -156,7 +156,7 @@
           "key": "2026-08",
           "label": "Aug 26",
           "inflow": 366879543.0,
-          "outflow": 182025947.0
+          "outflow": 182097947.0
         },
         {
           "key": "2026-09",
@@ -167,7 +167,7 @@
         {
           "key": "2026-10",
           "label": "Oct 26",
-          "inflow": 102115932.0,
+          "inflow": 104380932.0,
           "outflow": 110573000.0
         }
       ]
@@ -177,23 +177,23 @@
         "grain": "month",
         "current": {
           "start": "2026-10-01",
-          "end": "2026-10-19"
+          "end": "2026-10-20"
         },
         "prior": {
           "start": "2026-09-01",
-          "end": "2026-09-19"
+          "end": "2026-09-20"
         },
-        "currentLabel": "This month (Oct 1 – Oct 19, 2026)",
-        "priorLabel": "Last month (Sep 1 – Sep 19, 2026)"
+        "currentLabel": "This month (Oct 1 – Oct 20, 2026)",
+        "priorLabel": "Last month (Sep 1 – Sep 20, 2026)"
       },
       "current": {
-        "totalInflow": 102115932.0,
+        "totalInflow": 104380932.0,
         "totalOutflow": 110573000.0,
-        "netCashflow": -8457068.0,
+        "netCashflow": -6192068.0,
         "bookingCount": 203,
         "revenuePerBooking": 410982.26600985223,
-        "courtHireShare": 0.8170066939211797,
-        "fbShare": 0.18035383548181297,
+        "courtHireShare": 0.7992781670123428,
+        "fbShare": 0.19813963722799485,
         "reviewCount": 7
       },
       "prior": {
@@ -219,11 +219,11 @@
         {
           "id": "fb_income",
           "name": "F&B Income (Net)",
-          "tracked": 18417000.0,
+          "tracked": 20682000.0,
           "budget": 13767000.0,
-          "pct": 1.3377642187840488,
+          "pct": 1.5022880801917629,
           "remaining": 0,
-          "excess": 4650000.0
+          "excess": 6915000.0
         },
         {
           "id": "other_income",
@@ -329,7 +329,7 @@
           "key": "2026-08",
           "label": "Aug 26",
           "inflow": 366879543.0,
-          "outflow": 182025947.0
+          "outflow": 182097947.0
         },
         {
           "key": "2026-09",
@@ -340,7 +340,7 @@
         {
           "key": "2026-10",
           "label": "Oct 26",
-          "inflow": 102115932.0,
+          "inflow": 104380932.0,
           "outflow": 110573000.0
         }
       ]
@@ -350,24 +350,24 @@
         "grain": "year",
         "current": {
           "start": "2026-01-01",
-          "end": "2026-10-19"
+          "end": "2026-10-20"
         },
         "prior": {
           "start": "2025-01-01",
-          "end": "2025-10-19"
+          "end": "2025-10-20"
         },
-        "currentLabel": "This year (Jan 1 – Oct 19, 2026)",
-        "priorLabel": "Last year (Jan 1 – Oct 19, 2025)"
+        "currentLabel": "This year (Jan 1 – Oct 20, 2026)",
+        "priorLabel": "Last year (Jan 1 – Oct 20, 2025)"
       },
       "current": {
-        "totalInflow": 1334121322.0,
-        "totalOutflow": 1033895748.0,
-        "netCashflow": 300225574.0,
-        "bookingCount": 592,
-        "revenuePerBooking": 1058742.1452702703,
-        "courtHireShare": 0.46980386241064814,
-        "fbShare": 0.051553407374445664,
-        "reviewCount": 95
+        "totalInflow": 1336386322.0,
+        "totalOutflow": 1033967748.0,
+        "netCashflow": 302418574.0,
+        "bookingCount": 591,
+        "revenuePerBooking": 561379.6108291033,
+        "courtHireShare": 0.24826305428169446,
+        "fbShare": 0.05316090028045049,
+        "reviewCount": 97
       },
       "prior": {
         "totalInflow": 0,
@@ -383,40 +383,40 @@
         {
           "id": "other_income",
           "name": "Other Income",
-          "tracked": 638567472.0,
+          "tracked": 933567472.0,
           "budget": 0,
           "pct": 1,
           "remaining": 0,
-          "excess": 638567472.0
+          "excess": 933567472.0
         },
         {
           "id": "basketball_courts",
           "name": "Basketball Courts Income (Net)",
-          "tracked": 626775350.0,
+          "tracked": 331775350.0,
           "budget": 0,
           "pct": 1,
           "remaining": 0,
-          "excess": 626775350.0
+          "excess": 331775350.0
         },
         {
           "id": "fb_income",
           "name": "F&B Income (Net)",
-          "tracked": 68778500.0,
+          "tracked": 71043500.0,
           "budget": 0,
           "pct": 1,
           "remaining": 0,
-          "excess": 68778500.0
+          "excess": 71043500.0
         }
       ],
       "expenseRows": [
         {
           "id": "expense_misc",
           "name": "Misc",
-          "tracked": 509422748.0,
+          "tracked": 509494748.0,
           "budget": 0,
           "pct": 1,
           "remaining": 0,
-          "excess": 509422748.0
+          "excess": 509494748.0
         },
         {
           "id": "renting",
@@ -502,7 +502,7 @@
           "key": "2026-08",
           "label": "Aug 26",
           "inflow": 366879543.0,
-          "outflow": 182025947.0
+          "outflow": 182097947.0
         },
         {
           "key": "2026-09",
@@ -513,7 +513,7 @@
         {
           "key": "2026-10",
           "label": "Oct 26",
-          "inflow": 102115932.0,
+          "inflow": 104380932.0,
           "outflow": 110573000.0
         }
       ]

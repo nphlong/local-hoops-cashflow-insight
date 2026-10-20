@@ -15,31 +15,87 @@ export interface PeriodWindow {
   priorLabel: string
 }
 
+export interface PeriodSelection {
+  grain: CompareGrain
+  customRange?: DateRange | null
+}
+
 const toDate = (iso: string) => new Date(`${iso}T12:00:00`)
 
-const toIso = (d: Date) => {
+export const toIso = (d: Date) => {
   const y = d.getFullYear()
   const m = String(d.getMonth() + 1).padStart(2, '0')
   const day = String(d.getDate()).padStart(2, '0')
   return `${y}-${m}-${day}`
 }
 
-const addDays = (iso: string, days: number) => {
+export const addDays = (iso: string, days: number) => {
   const d = toDate(iso)
   d.setDate(d.getDate() + days)
   return toIso(d)
 }
 
-const formatRange = (range: DateRange) => {
+export const clampIso = (iso: string, maxIso: string) => (iso > maxIso ? maxIso : iso)
+
+export const formatRange = (range: DateRange) => {
   const a = toDate(range.start)
   const b = toDate(range.end)
   const sameYear = a.getFullYear() === b.getFullYear()
-  const left = a.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: sameYear ? undefined : 'numeric' })
-  const right = b.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' })
+  const sameMonth = sameYear && a.getMonth() === b.getMonth()
+  if (sameMonth) {
+    const month = a.toLocaleDateString('en-US', { month: 'short' })
+    return `${month} ${a.getDate()} – ${b.getDate()}, ${b.getFullYear()}`
+  }
+  const left = a.toLocaleDateString('en-US', {
+    month: 'short',
+    day: 'numeric',
+    year: sameYear ? undefined : 'numeric',
+  })
+  const right = b.toLocaleDateString('en-US', {
+    month: 'short',
+    day: 'numeric',
+    year: 'numeric',
+  })
   return `${left} – ${right}`
 }
 
+export const inclusiveDayCount = (range: DateRange) => {
+  const ms = toDate(range.end).getTime() - toDate(range.start).getTime()
+  return Math.max(1, Math.round(ms / 86400000) + 1)
+}
+
+export const priorRangeOfSameLength = (range: DateRange): DateRange => {
+  const days = inclusiveDayCount(range)
+  const priorEnd = addDays(range.start, -1)
+  const priorStart = addDays(priorEnd, -(days - 1))
+  return { start: priorStart, end: priorEnd }
+}
+
 export const inRange = (date: string, range: DateRange) => date >= range.start && date <= range.end
+
+export const windowFromCustomRange = (range: DateRange, asOf: string = AS_OF_DATE): PeriodWindow => {
+  const end = clampIso(range.end, asOf)
+  const start = range.start > end ? end : range.start
+  const current = { start, end }
+  const prior = priorRangeOfSameLength(current)
+  return {
+    grain: 'month',
+    current,
+    prior,
+    currentLabel: formatRange(current),
+    priorLabel: formatRange(prior),
+  }
+}
+
+export const resolveActiveWindow = (
+  selection: PeriodSelection,
+  asOf: string = AS_OF_DATE,
+): PeriodWindow => {
+  if (selection.customRange?.start && selection.customRange?.end) {
+    return windowFromCustomRange(selection.customRange, asOf)
+  }
+  return resolveWindow(selection.grain, asOf)
+}
 
 export const resolveWindow = (grain: CompareGrain, asOf: string = AS_OF_DATE): PeriodWindow => {
   const asOfDate = toDate(asOf)

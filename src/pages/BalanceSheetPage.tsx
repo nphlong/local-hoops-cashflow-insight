@@ -9,7 +9,7 @@ import {
   runningLedger,
   useCashflowStore,
 } from '../store/cashflowStore'
-import { inRange, resolveWindow } from '../store/periods'
+import { inRange, resolveActiveWindow } from '../store/periods'
 import { formatCurrency, formatNumber } from '../utils/currencyFormatter'
 
 const PAGE_SIZE = 100
@@ -19,7 +19,7 @@ const BalanceSheetPage: React.FC = () => {
   const [page, setPage] = useState(1)
   const q = filters.search.trim().toLowerCase()
   const ledger = runningLedger(transactions, openingBalance)
-  const window = resolveWindow(filters.grain, asOf)
+  const window = resolveActiveWindow(filters, asOf)
   const inPeriod = ledger.filter((tx) => inRange(tx.date, window.current))
   const visible = [...inPeriod].reverse().filter((tx) => {
     if (filters.type !== 'all' && tx.categoryType !== filters.type) return false
@@ -36,7 +36,7 @@ const BalanceSheetPage: React.FC = () => {
 
   useEffect(() => {
     setPage(1)
-  }, [filters.search, filters.type, filters.categoryId, filters.grain])
+  }, [filters.search, filters.type, filters.categoryId, filters.grain, filters.customRange])
   const last = ledger[ledger.length - 1]
   const periodLast = inPeriod[inPeriod.length - 1]
   const lastDate = periodLast?.date ?? last?.date ?? asOf

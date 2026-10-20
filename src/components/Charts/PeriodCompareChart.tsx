@@ -15,7 +15,7 @@ ChartJS.register(CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend)
 
 const PeriodCompareChart: React.FC = () => {
   const { transactions, filters } = useCashflowStore()
-  const compare = comparePeriods(transactions, filters.grain)
+  const compare = comparePeriods(transactions, filters)
   const { current, prior, window } = compare
 
   const data = {

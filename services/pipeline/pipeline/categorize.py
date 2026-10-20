@@ -21,6 +21,7 @@ COURT_CHANNELS = {"bank_transfer", "momo", "zalopay"}
 THANH_TOAN_SAN = re.compile(r"thanh\s+toan.*san")
 TIEN_DIEN = re.compile(r"t\s*i\s*e\s*n\s*d\s*i\s*e\s*n")
 STAFF_MEMO = re.compile(r"luong|phu\s+cap|kpi|(?<![a-z])thuong(?!\s*mai)")
+GOP_VON = re.compile(r"g\s*o\s*p\s*v\s*o\s*n")
 
 
 def _fold(text: str) -> str:
@@ -92,6 +93,8 @@ def categorize(
             return "outflow", "tax", False
         return "outflow", "expense_misc", True
 
+    if GOP_VON.search(memo):
+        return "inflow", "other_income", True
     if THANH_TOAN_SAN.search(memo) or "thue san" in memo or _divisible(credit, COURT_AMOUNTS):
         return "inflow", "basketball_courts", False
     if is_court_fb_mix(credit) or (_divisible(credit, FB_AMOUNTS) and credit <= COURT_BANK_MIN):

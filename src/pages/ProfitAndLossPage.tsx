@@ -67,7 +67,7 @@ const axisX = {
 
 const ProfitAndLossPage: React.FC = () => {
   const { transactions, filters, asOf, openingBalance } = useCashflowStore()
-  const { current, prior } = comparePeriods(transactions, filters.grain, asOf)
+  const { current, prior } = comparePeriods(transactions, filters, asOf)
 
   const series = lastTwelveMonths(transactions, asOf)
   const ledger = runningLedger(transactions, openingBalance)

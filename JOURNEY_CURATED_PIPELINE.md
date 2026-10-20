@@ -105,7 +105,7 @@ Copied monthly MB Bank files (June–October 2026) into gitignored `data/raw/`, 
 **Pipeline / categories** live in [`services/pipeline/pipeline/categorize.py`](services/pipeline/pipeline/categorize.py). Tests in [`services/pipeline/tests/test_parse_mb_bank.py`](services/pipeline/tests/test_parse_mb_bank.py).
 
 **Dashboard chrome**
-- Black floating pill navbar (Local Hoops mark, statement tabs, week/month/year, Log in placeholder). Mobile drawer mirrors the same controls.
+- Dark charcoal (`#1b1f24`) floating pill navbar matching the date picker (Local Hoops mark, statement tabs, date range, Google Log out). Mobile drawer mirrors the same controls. UI is gated by Sign in with Google; Pages JSON is still public.
 - P&L overview cards: income and mix vs prior (green up / red down); profit cards by sign.
 - Cash flow `% vs prior`: income green when over prior, expenses the inverse; 100% orange; totals bold.
 - Balance Sheet register follows the time filter; Excel import and manual-entry POC cards removed.
@@ -117,9 +117,24 @@ Year snapshot after the last recategorize pass: Courts **₫626.8M**, F&B **₫6
 
 ---
 
+## 2026-10-20 — Dark navbar, date picker, cash-flow trends
+
+- Dark charcoal floating pill navbar (`#1b1f24`) with white active-tab pill; mobile Menu drawer overlays the page (absolute, Escape / outside click) instead of pushing layout.
+- Cursor-style date range picker: presets `1d` / `7d` / `30d` / This week / Last week / This month / Last month / This year / Last year, dual-month calendar for custom ranges. Store keeps `filters.customRange`; prior period is the preceding window of the same length.
+- Cash flow yearly summary chart overlays separate income and expense trend lines on the bars.
+
+---
+
+## 2026-10-20 — Google Sign-In gate
+
+- Dashboard UI is gated behind Google Identity Services (Sign in with Google) plus `VITE_GOOGLE_ALLOWED_EMAILS`. Session lives in `sessionStorage` until the ID token expires (~1 hour).
+- This hides statement pages only. `public/data/v1/*.json` on GitHub Pages is still world-readable.
+- GCP: External OAuth consent in Testing, test users = allowlist, Web client JS origins `http://localhost:3000`, `http://127.0.0.1:3000`, `https://nphlong.github.io`. No Gmail API or client secret in the app.
+
+---
+
 ## Known gaps / deferred
 
-- Authentication
 - File naming convention and ingest cadence for new monthly statements
 - Recategorize / manual entry do not write back to SQLite
 - Occupancy / RevPAH
@@ -129,4 +144,4 @@ Year snapshot after the last recategorize pass: Courts **₫626.8M**, F&B **₫6
 
 ## Next time
 
-Auth on the Log in placeholder, persist recategorize to gold, and a file-naming convention for monthly drops. Do not overwrite this file; add a dated section or a new `JOURNEY_<PHASE>.md`.
+Persist recategorize to gold, and a file-naming convention for monthly drops. Do not overwrite this file; add a dated section or a new `JOURNEY_<PHASE>.md`.

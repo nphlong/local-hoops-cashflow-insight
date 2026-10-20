@@ -3,6 +3,9 @@ from pathlib import Path
 from openpyxl import Workbook
 
 from pipeline.categorize import categorize, detect_channel
+from pipeline.ids import row_id
+from pipeline.ingest import silver_keys
+from pipeline.parse_mb_bank import BronzeRow
 from pipeline.parse_mb_bank import parse_workbook
 
 
@@ -124,3 +127,41 @@ def test_operator_category_rules() -> None:
     assert not_staff[1] != "employees"
     not_trading = categorize("mua hang thuong mai", "AI DO", 0, 2_000_000)
     assert not_trading[1] != "employees"
+
+
+def _row(seq: int, debit: float, credit: float, ref: str) -> BronzeRow:
+    return BronzeRow(seq, "2026-08-20T08:25:35", "2026-08-20", debit, credit, None, "", "SC fee BIZ", ref)
+
+
+def test_shared_bank_ref_keeps_distinct_legs() -> None:
+    fee = _row(331, 720_000, 0, "CHG2623252H71")
+    vat = _row(332, 72_000, 0, "CHG2623252H71")
+    other = _row(10, 0, 49_000, "FTUNIQUE")
+    keys = silver_keys([vat, fee, other], "sid")
+    assert keys[331] == "CHG2623252H71"  # largest leg keeps the existing ref/id
+    assert keys[332] == "CHG2623252H71:D72000"
+    assert keys[10] == "FTUNIQUE"
+    assert row_id(keys[331], "k") != row_id(keys[332], "k")
+    again = silver_keys([fee, vat], "sid")
+    assert again == {331: "CHG2623252H71", 332: "CHG2623252H71:D72000"}
+
+
+def test_identical_legs_still_collapse() -> None:
+    keys = silver_keys([_row(1, 0, 500_000, "FTDUP"), _row(2, 0, 500_000, "FTDUP")], "sid")
+    assert keys == {1: "FTDUP", 2: "FTDUP"}
+
+
+def test_gop_von_beats_court_rules() -> None:
+    split = categorize(
+        "NGUYEN MINH HIEU CHUYEN TIEN GOP VO  N NGUYEN MINH HIEU CHUYEN TIEN GOP VO  N",
+        "NGUYEN MINH HIEU",
+        295_000_000,
+        0,
+    )
+    assert split[:2] == ("inflow", "other_income")
+    accented = categorize("Chuyển tiền góp vốn lần 2", "HA KHANH QUYNH", 75_000_000, 0)
+    assert accented[:2] == ("inflow", "other_income")
+    small = categorize("gopvon thanh toan tien san", "NGUYEN VAN A", 590_000, 0)
+    assert small[:2] == ("inflow", "other_income")
+    still_court = categorize("thanh toan tien thue san thang 9", "NGUYEN VAN A", 7_897_500, 0)
+    assert still_court[1] == "basketball_courts"

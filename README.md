@@ -11,7 +11,12 @@ npm install --legacy-peer-deps
 py -3 -m venv services/pipeline/.venv
 services/pipeline/.venv/Scripts/python -m pip install -r services/pipeline/requirements.txt
 copy .env.example .env
+copy .env.example .env.local
 ```
+
+Fill `VITE_GOOGLE_CLIENT_ID` and `VITE_GOOGLE_ALLOWED_EMAILS` in `.env.local` after creating a Web OAuth client (see comments in `.env.example`). Google Cloud: External consent, Testing, test users = allowlist, JS origins `http://localhost:3000`, `http://127.0.0.1:3000`, `https://nphlong.github.io`. Do not add Gmail scopes or the client secret.
+
+For GitHub Pages, add those two names as Actions secrets so `.github/workflows/pages.yml` can inject them at build.
 
 Drop MB Bank `.xlsx` files into `data/raw/` (gitignored), then:
 
@@ -45,7 +50,7 @@ Ledger JSON does **not** include counterparty, raw memo, or bank ref. Use `id` t
 
 ## What you see
 
-Floating black pill navbar: Local Hoops basketball mark, tabs **Profit and Loss** / **Cash flow** / **Balance Sheet**, **Week | Month | Year**, and a Log in / Log out placeholder. As-of date and opening cash come from gold meta (June–October 2026 MB Bank months, VND, as-of 2026-10-19).
+Floating charcoal pill navbar: Local Hoops basketball mark, tabs **Profit and Loss** / **Cash flow** / **Balance Sheet**, date range picker, and Google account Log out. The UI is gated behind Sign in with Google plus an email allowlist; redacted JSON on Pages is still public. As-of date and opening cash come from gold meta (June–October 2026 MB Bank months, VND, as-of 2026-10-19).
 
 Income rules (credits): court rates 39/49/59k, F&B 10/15/25k and KiotViet leftovers, bank/MoMo/ZaloPay over ₫300k and under ₫20M as courts. Expense rules (debits): rent payee, inventory vendor, `tien dien` → electricity, memo `luong` / `phu cap` / `thuong` / `kpi` → employees.
 
@@ -55,6 +60,6 @@ React 18, TypeScript, Vite, Tailwind CSS, Chart.js, Zustand, Python (`openpyxl`,
 
 ## Deferred
 
-- Login / authorization
 - Occupancy and RevPAH (need booking-hour logs)
 - Recategorize persistence on the server
+- Private hosting so `/data/v1` JSON is not world-readable on Pages

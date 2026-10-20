@@ -1,8 +1,7 @@
 import React, { useEffect, useRef } from 'react'
 import { googleConfigError, initializeGisButton } from '../../auth/googleAuth'
+import { BRAND_MARK_SRC } from '../../brand'
 import { useAuthStore } from '../../store/authStore'
-
-const MARK = `${import.meta.env.BASE_URL}brand/local-hoops-mark.jpg`
 
 const SignInScreen: React.FC = () => {
   const buttonRef = useRef<HTMLDivElement>(null)
@@ -26,7 +25,7 @@ const SignInScreen: React.FC = () => {
   return (
     <div className="signin-screen">
       <div className="signin-card">
-        <img src={MARK} alt="" className="signin-mark" />
+        <img src={BRAND_MARK_SRC} alt="" className="signin-mark" />
         <h1 className="display signin-title">Local Hoops</h1>
         <p className="signin-copy">Sign in with an allowed Google account to open the financial dashboard.</p>
         {configError ? null : <div ref={buttonRef} className="signin-gis" />}

@@ -2,9 +2,8 @@ import React, { useEffect, useRef, useState } from 'react'
 import { useAuthStore } from '../../store/authStore'
 import { useCashflowStore, type AppPage } from '../../store/cashflowStore'
 import type { CompareGrain, DateRange } from '../../store/periods'
+import { BRAND_MARK_SRC } from '../../brand'
 import DateRangePicker from './DateRangePicker'
-
-const MARK = '/brand/local-hoops-mark.jpg'
 
 const pages: { id: AppPage; label: string }[] = [
   { id: 'pnl', label: 'Profit and Loss' },
@@ -17,7 +16,7 @@ const Header: React.FC = () => {
   const { user, signOut } = useAuthStore()
   const [menuOpen, setMenuOpen] = useState(false)
   const headerRef = useRef<HTMLElement>(null)
-  const avatar = user?.picture || MARK
+  const avatar = user?.picture || BRAND_MARK_SRC
 
   useEffect(() => {
     setMenuOpen(false)
@@ -51,7 +50,7 @@ const Header: React.FC = () => {
     <header className="site-header" ref={headerRef}>
       <div className="site-nav">
         <a className="brand-lockup" href="#/" aria-label="Local Hoops financial dashboard">
-          <img src={MARK} alt="" className="brand-mark" />
+          <img src={BRAND_MARK_SRC} alt="" className="brand-mark" />
         </a>
 
         <nav className="nav-links" aria-label="Statements">
@@ -97,7 +96,7 @@ const Header: React.FC = () => {
       {menuOpen && (
         <div className="site-drawer" id="mobile-nav">
           <div className="drawer-top">
-            <img src={MARK} alt="" className="brand-mark" />
+            <img src={BRAND_MARK_SRC} alt="" className="brand-mark" />
             <button type="button" className="drawer-close" onClick={() => setMenuOpen(false)} aria-label="Close menu">
               ×
             </button>

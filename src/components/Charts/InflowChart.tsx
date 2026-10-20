@@ -12,7 +12,7 @@ ChartJS.register(ArcElement, Tooltip, Legend)
 
 const InflowChart: React.FC = () => {
   const { transactions, filters } = useCashflowStore()
-  const mix = mixByCategory(periodTransactions(transactions, filters.grain, 'current'), 'inflow')
+  const mix = mixByCategory(periodTransactions(transactions, filters, 'current'), 'inflow')
   const ids = Object.keys(mix)
   const empty = ids.length === 0
 

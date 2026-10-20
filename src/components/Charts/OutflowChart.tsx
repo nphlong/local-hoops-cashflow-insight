@@ -20,7 +20,7 @@ ChartJS.register(CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend)
 
 const OutflowChart: React.FC = () => {
   const { transactions, filters } = useCashflowStore()
-  const mix = mixByCategory(periodTransactions(transactions, filters.grain, 'current'), 'outflow')
+  const mix = mixByCategory(periodTransactions(transactions, filters, 'current'), 'outflow')
   const ids = Object.keys(mix)
   const empty = ids.length === 0
 

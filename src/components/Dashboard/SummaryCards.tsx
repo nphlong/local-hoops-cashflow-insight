@@ -13,7 +13,7 @@ const SummaryCards: React.FC = () => {
   const { transactions, filters } = useCashflowStore()
   const { current, inflowDelta, outflowDelta, netDelta, bookingDelta, window } = comparePeriods(
     transactions,
-    filters.grain,
+    filters,
   )
 
   const cells = [

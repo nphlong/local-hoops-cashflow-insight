@@ -13,13 +13,13 @@ import {
   Legend,
 } from 'chart.js'
 import { Line } from 'react-chartjs-2'
-import { AS_OF_DATE, OPENING_BALANCE } from '../data/mockCashflow'
 import {
   comparePeriods,
   runningLedger,
   useCashflowStore,
 } from '../store/cashflowStore'
 import { lastTwelveMonths } from '../store/periods'
+import { legendGap } from '../components/Charts/legendGap'
 import { formatCompactCurrency, formatPercentage } from '../utils/currencyFormatter'
 
 ChartJS.register(
@@ -49,8 +49,8 @@ const monthCutoff = (key: string, asOf: string) => {
   return `${key}-${String(day).padStart(2, '0')}`
 }
 
-const balanceOn = (ledger: { date: string; balance: number }[], iso: string) => {
-  let balance = OPENING_BALANCE
+const balanceOn = (ledger: { date: string; balance: number }[], iso: string, opening: number) => {
+  let balance = opening
   for (const row of ledger) {
     if (row.date > iso) break
     balance = row.balance
@@ -66,16 +66,16 @@ const axisX = {
 }
 
 const ProfitAndLossPage: React.FC = () => {
-  const { transactions, filters } = useCashflowStore()
-  const { current } = comparePeriods(transactions, filters.grain)
+  const { transactions, filters, asOf, openingBalance } = useCashflowStore()
+  const { current, prior } = comparePeriods(transactions, filters, asOf)
 
-  const series = lastTwelveMonths(transactions, AS_OF_DATE)
-  const ledger = runningLedger(transactions, OPENING_BALANCE)
+  const series = lastTwelveMonths(transactions, asOf)
+  const ledger = runningLedger(transactions, openingBalance)
   const balanceSeries = series.map((point) => {
-    const cutoff = monthCutoff(point.key, AS_OF_DATE)
+    const cutoff = monthCutoff(point.key, asOf)
     return {
       label: point.label,
-      balance: balanceOn(ledger, cutoff),
+      balance: balanceOn(ledger, cutoff, openingBalance),
     }
   })
 
@@ -134,7 +134,7 @@ const ProfitAndLossPage: React.FC = () => {
         grace: '8%',
         ticks: {
           ...tick,
-          callback: (v: string | number) => `$${(Number(v) / 1000).toFixed(0)}.0K`,
+          callback: (v: string | number) => formatCompactCurrency(Number(v)),
         },
         grid: { color: '#eef2f6' },
         border: { display: false },
@@ -195,13 +195,22 @@ const ProfitAndLossPage: React.FC = () => {
     ],
   }
 
+  const vsPrior = (now: number, then: number) => {
+    if (now === then) return 'pct-even'
+    return now > then ? 'pct-good' : 'pct-bad'
+  }
+  const bySign = (now: number) => {
+    if (now === 0) return 'pct-even'
+    return now > 0 ? 'pct-good' : 'pct-bad'
+  }
+
   const kpis = [
-    { label: 'Total Income', value: formatCompactCurrency(current.totalInflow) },
-    { label: 'Total Gross Profit', value: formatCompactCurrency(current.netCashflow) },
-    { label: 'Courts income mix', value: formatPercentage(current.courtHireShare) },
-    { label: 'Total Operating Profit', value: formatCompactCurrency(current.netCashflow) },
-    { label: 'F&B mix', value: formatPercentage(current.fbShare) },
-    { label: 'Total Net Profit', value: formatCompactCurrency(current.netCashflow) },
+    { label: 'Total Income', value: formatCompactCurrency(current.totalInflow), tone: vsPrior(current.totalInflow, prior.totalInflow) },
+    { label: 'Total Gross Profit', value: formatCompactCurrency(current.netCashflow), tone: bySign(current.netCashflow) },
+    { label: 'Courts income mix', value: formatPercentage(current.courtHireShare), tone: vsPrior(current.courtHireShare, prior.courtHireShare) },
+    { label: 'Total Operating Profit', value: formatCompactCurrency(current.netCashflow), tone: bySign(current.netCashflow) },
+    { label: 'F&B mix', value: formatPercentage(current.fbShare), tone: vsPrior(current.fbShare, prior.fbShare) },
+    { label: 'Total Net Profit', value: formatCompactCurrency(current.netCashflow), tone: bySign(current.netCashflow) },
   ]
 
   return (
@@ -213,7 +222,7 @@ const ProfitAndLossPage: React.FC = () => {
           {kpis.map((kpi) => (
             <article key={kpi.label} className="kpi-card">
               <p className="kpi-label">{kpi.label}</p>
-              <p className="kpi-value tabular">{kpi.value}</p>
+              <p className={`kpi-value tabular ${kpi.tone}`}>{kpi.value}</p>
             </article>
           ))}
         </div>
@@ -230,6 +239,7 @@ const ProfitAndLossPage: React.FC = () => {
           <h3 className="chart-title">Gross Profit past 12 mos</h3>
           <div className="chart-body chart-body-sm">
             <Line
+              plugins={[legendGap]}
               data={grossLine}
               options={{
                 responsive: true,
@@ -246,7 +256,7 @@ const ProfitAndLossPage: React.FC = () => {
                     grace: '8%',
                     ticks: {
                       ...tick,
-                      callback: (v: string | number) => `$${(Number(v) / 1000).toFixed(0)}.0K`,
+                      callback: (v: string | number) => formatCompactCurrency(Number(v)),
                     },
                     grid: { color: '#eef2f6' },
                     border: { display: false },
@@ -269,6 +279,7 @@ const ProfitAndLossPage: React.FC = () => {
           <h3 className="chart-title">Actual Balance Breakdown By Month</h3>
           <div className="chart-body chart-body-sm">
             <Line
+              plugins={[legendGap]}
               data={balanceArea}
               options={{
                 responsive: true,
@@ -293,7 +304,7 @@ const ProfitAndLossPage: React.FC = () => {
                     grace: '8%',
                     ticks: {
                       ...tick,
-                      callback: (v) => `$${(Number(v) / 1000).toFixed(0)}.0K`,
+                      callback: (v) => formatCompactCurrency(Number(v)),
                     },
                     grid: { color: '#eef2f6' },
                     border: { display: false },
@@ -318,6 +329,7 @@ function MixedBarLine({ data, options }: { data: unknown; options: unknown }) {
       type: 'bar',
       data: JSON.parse(JSON.stringify(data)) as never,
       options: options as never,
+      plugins: [legendGap],
     })
     const frame = requestAnimationFrame(() => chart.resize())
     const parent = node.parentElement

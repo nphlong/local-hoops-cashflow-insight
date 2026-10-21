@@ -110,7 +110,7 @@ const BalanceSheetPage: React.FC = () => {
                 : categoryOptions
               ).map((c) => (
                 <option key={c.id} value={c.id}>
-                  {c.name}
+                  {categoryName(c.id)}
                 </option>
               ))}
             </select>
@@ -148,7 +148,7 @@ const BalanceSheetPage: React.FC = () => {
                       >
                         {categoriesFor(tx.categoryType).map((c) => (
                           <option key={c.id} value={c.id}>
-                            {c.name}
+                            {categoryName(c.id)}
                           </option>
                         ))}
                       </select>

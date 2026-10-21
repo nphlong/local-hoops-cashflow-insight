@@ -22,6 +22,11 @@ THANH_TOAN_SAN = re.compile(r"thanh\s+toan.*san")
 TIEN_DIEN = re.compile(r"t\s*i\s*e\s*n\s*d\s*i\s*e\s*n")
 STAFF_MEMO = re.compile(r"luong|phu\s+cap|kpi|(?<![a-z])thuong(?!\s*mai)")
 GOP_VON = re.compile(r"g\s*o\s*p\s*v\s*o\s*n")
+COURT_PAYMENT = re.compile(
+    r"thue san|tra tien san|thanh toan san|thanh toan tien san|(?<![a-z])tien san|(?<![a-z])tt san"
+)
+OWNER_ACCOUNT = "10000567031"
+WATER_UTILITY_ACCOUNT = "112002860659"
 
 
 def _fold(text: str) -> str:
@@ -64,13 +69,59 @@ def detect_channel(counterparty: str, description: str) -> str:
     return "unknown"
 
 
+def _account_digits(account: str) -> str:
+    digits = re.findall(r"\d{6,}", account or "")
+    return digits[0] if digits else ""
+
+
+def _categorize_tlsc(
+    description: str,
+    counterparty: str,
+    credit: float,
+    debit: float,
+    counterparty_account: str,
+) -> tuple[str, str, bool]:
+    """Shared debit rules, plus The Lam court and drink credits."""
+    party = _fold(counterparty)
+    memo = _fold(description)
+    blob = f"{party} {memo}".strip()
+    account = _account_digits(counterparty_account)
+
+    if debit > 0 and credit == 0:
+        if STAFF_MEMO.search(memo) or "salary" in blob or "nhan vien" in blob:
+            return "outflow", "employees", False
+        if TIEN_DIEN.search(memo) or "electric" in blob:
+            return "outflow", "electricity", False
+        if "tien nuoc" in blob:
+            if account == WATER_UTILITY_ACCOUNT:
+                return "outflow", "water", False
+            return "outflow", "expense_misc", True
+        if "nuoc" in blob or "water" in blob:
+            return "outflow", "water", False
+        if "thue tncn" in blob or "tax" in blob:
+            return "outflow", "tax", False
+        return "outflow", "expense_misc", True
+
+    if "tien nuoc" in blob:
+        return "inflow", "fb_income", False
+    if account == OWNER_ACCOUNT and not COURT_PAYMENT.search(memo):
+        return "inflow", "other_income", False
+    if credit > 0:
+        return "inflow", "basketball_courts", False
+    return "inflow", "income_misc", True
+
+
 def categorize(
     description: str,
     counterparty: str,
     credit: float,
     debit: float,
     posted_on: str | None = None,
+    profile: str = "local-hoops",
+    counterparty_account: str = "",
 ) -> tuple[str, str, bool]:
+    if profile == "tlsc":
+        return _categorize_tlsc(description, counterparty, credit, debit, counterparty_account)
     party = _fold(counterparty)
     memo = _fold(description)
     blob = f"{party} {memo}".strip()

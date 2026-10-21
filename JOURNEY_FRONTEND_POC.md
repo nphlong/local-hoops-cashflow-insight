@@ -108,7 +108,7 @@ Adjusted the shell to match the user’s reference screens:
 2. **Cash flow** like the budget dashboard: period chips, income/expense tracked-vs-prior tables, donuts, monthly income vs expense bars. Prior period stands in for budget until a real budget table exists.
 3. **Balance Sheet** like the tracking register (not a classic assets/liabilities sheet): Date, Type, Category, Amount, Details, running Balance, Effective day, plus opening cash `$185,000`.
 
-Light paper UI (Syne + IBM Plex, navy/blue/gold) so the layout reads as a financial statement, not a night gym. Later chrome (2026-10-19) uses a floating black pill navbar and the Local Hoops mark; see [`JOURNEY_CURATED_PIPELINE.md`](JOURNEY_CURATED_PIPELINE.md).
+Light paper UI (Syne + IBM Plex, navy/blue/gold) so the layout reads as a financial statement, not a night gym. Later chrome (2026-10-19) uses a floating black pill navbar and the Local Hoops mark. On 2026-10-21 that mark became a company menu (Local Hoops and The Lam Sport Center); see [`JOURNEY_CURATED_PIPELINE.md`](JOURNEY_CURATED_PIPELINE.md).
 
 ---
 

@@ -87,25 +87,26 @@ def _fernet(key: str) -> Fernet:
     return Fernet(base64.urlsafe_b64encode(digest))
 
 
-def _unlock() -> None:
+def _unlock(db_path: Path = SQLITE_PATH, enc_path: Path = SQLITE_ENC_PATH) -> None:
     DATA_CURATED.mkdir(parents=True, exist_ok=True)
     key = sqlite_key()
-    if not key or not SQLITE_ENC_PATH.exists():
+    if not key or not enc_path.exists():
         return
-    payload = SQLITE_ENC_PATH.read_bytes()
-    SQLITE_PATH.write_bytes(_fernet(key).decrypt(payload))
+    db_path.write_bytes(_fernet(key).decrypt(enc_path.read_bytes()))
 
 
-def seal() -> None:
+def seal(db_path: Path = SQLITE_PATH, enc_path: Path = SQLITE_ENC_PATH) -> None:
     key = sqlite_key()
-    if not key or not SQLITE_PATH.exists():
+    if not key or not db_path.exists():
         return
-    SQLITE_ENC_PATH.write_bytes(_fernet(key).encrypt(SQLITE_PATH.read_bytes()))
+    enc_path.write_bytes(_fernet(key).encrypt(db_path.read_bytes()))
 
 
-def connect(path: Path | None = None) -> sqlite3.Connection:
-    _unlock()
+def connect(path: Path | None = None, enc_path: Path | None = None) -> sqlite3.Connection:
     db_path = path or SQLITE_PATH
+    enc = enc_path or SQLITE_ENC_PATH
+    if path is None or enc_path is not None:
+        _unlock(db_path, enc if enc_path is not None or path is None else SQLITE_ENC_PATH)
     db_path.parent.mkdir(parents=True, exist_ok=True)
     conn = sqlite3.connect(db_path)
     conn.row_factory = sqlite3.Row
@@ -115,13 +116,14 @@ def connect(path: Path | None = None) -> sqlite3.Connection:
 
 
 @contextmanager
-def session(path: Path | None = None) -> Iterator[sqlite3.Connection]:
-    conn = connect(path)
+def session(path: Path | None = None, enc_path: Path | None = None) -> Iterator[sqlite3.Connection]:
+    conn = connect(path, enc_path)
+    db_path = path or SQLITE_PATH
     try:
         yield conn
         conn.commit()
-        if path is None:
-            seal()
+        if path is None or enc_path is not None:
+            seal(db_path, enc_path or SQLITE_ENC_PATH)
     except Exception:
         conn.rollback()
         raise

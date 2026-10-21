@@ -7,6 +7,7 @@ import {
 } from '../../types/cashflow.types'
 import { AS_OF_DATE, MOCK_IMPORT_BATCH, MOCK_TRANSACTIONS, OPENING_BALANCE, type LedgerTransaction } from '../data/mockCashflow'
 import { loadDashboard } from '../data/loadDashboard'
+import { readStoredCompany, writeStoredCompany, type CompanyId } from '../companies'
 import {
   type CompareGrain,
   type DateRange,
@@ -71,7 +72,7 @@ export const categoryTrackRows = (
       const pct = budget === 0 ? (tracked === 0 ? 0 : 1) : tracked / budget
       return {
         id,
-        name: names.find((n) => n.id === id)?.name ?? categoryName(id),
+        name: categoryName(id),
         tracked,
         budget,
         pct,
@@ -106,6 +107,7 @@ interface CashflowState {
   openingBalance: number
   currency: string
   dataStatus: DataStatus
+  companyId: CompanyId
   page: AppPage
   filters: CashflowFilters
   importStatus: ImportStatus
@@ -115,11 +117,13 @@ interface CashflowState {
   addTransaction: (input: Omit<LedgerTransaction, 'id' | 'source'>) => void
   updateCategory: (id: string, categoryId: string, categoryType: TransactionType) => void
   simulateImport: () => Promise<void>
+  setCompany: (companyId: CompanyId) => void
   hydrateFromCurated: () => Promise<void>
   clearToast: () => void
 }
 
 export const categoryName = (id: string) => {
+  if (id === 'basketball_courts' && cashflowStore.getState().companyId === 'tlsc') return 'Court Income'
   const match = [...DEFAULT_INFLOW_CATEGORIES, ...DEFAULT_OUTFLOW_CATEGORIES].find((c) => c.id === id)
   return match?.name ?? id
 }
@@ -215,6 +219,7 @@ export const cashflowStore = createStore<CashflowState>((set, get) => ({
   openingBalance: OPENING_BALANCE,
   currency: 'VND',
   dataStatus: 'idle',
+  companyId: readStoredCompany(),
   page: 'pnl',
   filters: {
     grain: 'month',
@@ -267,10 +272,16 @@ export const cashflowStore = createStore<CashflowState>((set, get) => ({
       toast: `Imported ${fresh.length} sample rows (POC — file is not parsed).`,
     }))
   },
+  setCompany: (companyId) => {
+    if (get().companyId === companyId) return
+    writeStoredCompany(companyId)
+    set({ companyId, dataStatus: 'loading' })
+    void get().hydrateFromCurated()
+  },
   hydrateFromCurated: async () => {
     set({ dataStatus: 'loading' })
     try {
-      const loaded = await loadDashboard()
+      const loaded = await loadDashboard(get().companyId)
       if (!loaded.transactions.length) throw new Error('empty curated ledger')
       set({
         transactions: loaded.transactions,

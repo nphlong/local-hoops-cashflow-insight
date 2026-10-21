@@ -3,7 +3,7 @@ from __future__ import annotations
 import sys
 from pathlib import Path
 
-from fastapi import FastAPI
+from fastapi import FastAPI, HTTPException, Query
 from fastapi.middleware.cors import CORSMiddleware
 
 ROOT = Path(__file__).resolve().parents[2]
@@ -20,21 +20,27 @@ app.add_middleware(
 )
 
 
+def _company(company: str) -> str:
+    if company not in ("local-hoops", "tlsc"):
+        raise HTTPException(status_code=400, detail="Unknown company")
+    return company
+
+
 @app.get("/api/v1/meta")
-def meta():
-    return build_payloads(redacted=False)["meta"]
+def meta(company: str = Query(default="local-hoops")):
+    return build_payloads(redacted=False, company=_company(company))["meta"]
 
 
 @app.get("/api/v1/pnl")
-def pnl():
-    return build_payloads(redacted=False)["pnl"]
+def pnl(company: str = Query(default="local-hoops")):
+    return build_payloads(redacted=False, company=_company(company))["pnl"]
 
 
 @app.get("/api/v1/cashflow")
-def cashflow():
-    return build_payloads(redacted=False)["cashflow"]
+def cashflow(company: str = Query(default="local-hoops")):
+    return build_payloads(redacted=False, company=_company(company))["cashflow"]
 
 
 @app.get("/api/v1/ledger")
-def ledger():
-    return build_payloads(redacted=False)["ledger"]
+def ledger(company: str = Query(default="local-hoops")):
+    return build_payloads(redacted=False, company=_company(company))["ledger"]

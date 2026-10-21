@@ -79,6 +79,7 @@ class BronzeRow:
     counterparty: str
     description: str
     bank_ref: str
+    counterparty_account: str = ""
 
 
 @dataclass
@@ -89,6 +90,7 @@ class BronzeFile:
     statement_from: str | None = None
     statement_to: str | None = None
     closing_balance: float | None = None
+    opening_balance: float | None = None
     credit_total: float | None = None
     rows: list[BronzeRow] = field(default_factory=list)
 

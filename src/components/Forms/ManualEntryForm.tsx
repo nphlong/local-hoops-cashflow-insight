@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { categoriesFor, useCashflowStore } from '../../store/cashflowStore'
+import { categoriesFor, categoryName, useCashflowStore } from '../../store/cashflowStore'
 import type { TransactionType } from '../../../types/cashflow.types'
 
 const ManualEntryForm: React.FC = () => {
@@ -60,7 +60,7 @@ const ManualEntryForm: React.FC = () => {
         <select value={categoryId} onChange={(e) => setCategoryId(e.target.value)} className="w-full px-3 py-2 text-sm">
           {categoriesFor(categoryType).map((c) => (
             <option key={c.id} value={c.id}>
-              {c.name}
+              {categoryName(c.id)}
             </option>
           ))}
         </select>

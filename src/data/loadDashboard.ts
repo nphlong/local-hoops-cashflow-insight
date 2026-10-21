@@ -1,3 +1,4 @@
+import { companyById, type CompanyId } from '../companies'
 import type { LedgerTransaction } from './mockCashflow'
 
 export type Channel = 'kiotviet' | 'momo' | 'zalopay' | 'bank_transfer' | 'unknown'
@@ -72,12 +73,14 @@ async function readJson<T>(url: string): Promise<T> {
   return response.json() as Promise<T>
 }
 
-export async function loadDashboard(): Promise<LoadedDashboard> {
+export async function loadDashboard(companyId: CompanyId = 'local-hoops'): Promise<LoadedDashboard> {
+  const company = companyById(companyId)
   const source = dataSource()
   if (source === 'api') {
+    const query = `?company=${encodeURIComponent(company.id)}`
     const [meta, ledger] = await Promise.all([
-      readJson<DashboardMeta>('/api/v1/meta'),
-      readJson<LedgerFile>('/api/v1/ledger'),
+      readJson<DashboardMeta>(`/api/v1/meta${query}`),
+      readJson<LedgerFile>(`/api/v1/ledger${query}`),
     ])
     return {
       meta: ledger.meta ?? meta,
@@ -85,7 +88,7 @@ export async function loadDashboard(): Promise<LoadedDashboard> {
       source: 'api',
     }
   }
-  const prefix = staticPrefix()
+  const prefix = `${staticPrefix()}${company.dataDir ? `/${company.dataDir}` : ''}`
   const [meta, ledger] = await Promise.all([
     readJson<DashboardMeta>(`${prefix}/meta.json`),
     readJson<LedgerFile>(`${prefix}/ledger.json`),

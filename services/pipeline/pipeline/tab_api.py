@@ -3,12 +3,14 @@ from __future__ import annotations
 from pipeline.aggregate import as_ledger_rows, grain_payloads
 from pipeline.categorize import CHANNEL_LABELS
 from pipeline.db import connect
+from pipeline.paths import company_db
 
 
-def load_gold(conn=None):
+def load_gold(conn=None, company: str = "local-hoops"):
     own = conn is None
     if own:
-        conn = connect()
+        db_path, enc_path = company_db(company)
+        conn = connect(db_path, enc_path)
     try:
         meta_row = conn.execute("SELECT * FROM gold_meta WHERE id = 1").fetchone()
         if meta_row is None:
@@ -35,8 +37,8 @@ def load_gold(conn=None):
             conn.close()
 
 
-def build_payloads(redacted: bool = True) -> dict:
-    meta, gold = load_gold()
+def build_payloads(redacted: bool = True, company: str = "local-hoops") -> dict:
+    meta, gold = load_gold(company=company)
     ledger_rows = as_ledger_rows(gold)
     pnl_grains, cash_grains = grain_payloads(ledger_rows, meta["asOf"], meta["openingBalance"])
     if redacted:

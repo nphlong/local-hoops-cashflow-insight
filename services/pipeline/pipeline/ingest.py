@@ -7,7 +7,8 @@ from pipeline.config import sqlite_key
 from pipeline.db import session
 from pipeline.ids import row_id, source_id
 from pipeline.parse_mb_bank import parse_workbook
-from pipeline.paths import DATA_RAW
+from pipeline.parse_mb_pdf import parse_pdf
+from pipeline.paths import DATA_RAW, company_db
 
 
 def silver_keys(rows: list, sid: str) -> dict[int, str]:
@@ -33,18 +34,27 @@ def silver_keys(rows: list, sid: str) -> dict[int, str]:
     return keys
 
 
-def ingest_dir(raw_dir: Path | None = None) -> dict:
+def ingest_dir(raw_dir: Path | None = None, company: str = "local-hoops") -> dict:
     folder = raw_dir or DATA_RAW
-    files = sorted(folder.glob("*.xlsx"))
+    if company == "tlsc":
+        files = sorted(folder.glob("SP_*.pdf"))
+        missing = "SP_*.pdf"
+    else:
+        files = sorted(folder.glob("*.xlsx"))
+        missing = "*.xlsx"
     if not files:
-        raise FileNotFoundError(f"No .xlsx files in {folder}")
+        raise FileNotFoundError(f"No {missing} files in {folder}")
 
     key = sqlite_key()
     stats = {"files": 0, "rows": 0, "credits": 0.0, "debits": 0.0, "skipped_refs": 0}
+    profile = "tlsc" if company == "tlsc" else "local-hoops"
+    statements = []
+    db_path, enc_path = company_db(company)
 
-    with session() as conn:
+    with session(db_path, enc_path) as conn:
         for path in files:
-            bronze = parse_workbook(path)
+            bronze = parse_pdf(path) if path.suffix.lower() == ".pdf" else parse_workbook(path)
+            statements.append(bronze)
             sid = source_id(bronze.filename)
             conn.execute(
                 """
@@ -142,6 +152,8 @@ def ingest_dir(raw_dir: Path | None = None) -> dict:
                     row.credit,
                     row.debit,
                     row.posted_on,
+                    profile=profile,
+                    counterparty_account=row.counterparty_account,
                 )
                 opaque = row_id(bank_ref, key)
                 conn.execute(
@@ -191,10 +203,19 @@ def ingest_dir(raw_dir: Path | None = None) -> dict:
         ).fetchall()
         if not silver:
             raise RuntimeError("No silver rows after ingest")
-        first = silver[0]
-        opening = (first["balance_after"] or 0) - first["signed_amount"]
         last = silver[-1]
         as_of = last["posted_on"]
+        has_running_balance = any(row["balance_after"] is not None for row in silver)
+        if has_running_balance:
+            first = silver[0]
+            opening = (first["balance_after"] or 0) - first["signed_amount"]
+            closing = last["balance_after"] or opening
+        else:
+            ordered = sorted(statements, key=lambda item: item.statement_from or "")
+            opening = ordered[0].opening_balance or 0.0
+            closing = ordered[-1].closing_balance
+            if closing is None:
+                closing = opening + sum(row.credit - row.debit for item in ordered for row in item.rows)
         account = conn.execute(
             "SELECT account_no FROM bronze_files WHERE account_no IS NOT NULL LIMIT 1"
         ).fetchone()
@@ -213,7 +234,7 @@ def ingest_dir(raw_dir: Path | None = None) -> dict:
             (
                 as_of,
                 opening,
-                last["balance_after"] or opening,
+                closing,
                 account["account_no"] if account else None,
                 len(silver),
             ),

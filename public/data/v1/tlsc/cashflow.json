@@ -1,0 +1,423 @@
+{
+  "meta": {
+    "asOf": "2026-09-30",
+    "currency": "VND",
+    "openingBalance": 0.0,
+    "closingBalance": 2034357.0,
+    "accountNo": "3395880880",
+    "transactionCount": 906
+  },
+  "grains": {
+    "week": {
+      "window": {
+        "grain": "week",
+        "current": {
+          "start": "2026-09-24",
+          "end": "2026-09-30"
+        },
+        "prior": {
+          "start": "2026-09-17",
+          "end": "2026-09-23"
+        },
+        "currentLabel": "This week (Sep 24 – Sep 30, 2026)",
+        "priorLabel": "Last week (Sep 17 – Sep 23, 2026)"
+      },
+      "current": {
+        "totalInflow": 59747200.0,
+        "totalOutflow": 89267593.0,
+        "netCashflow": -29520393.0,
+        "bookingCount": 2,
+        "revenuePerBooking": 26373600.0,
+        "courtHireShare": 0.8828396979272669,
+        "fbShare": 0.0,
+        "reviewCount": 5
+      },
+      "prior": {
+        "totalInflow": 12962232.0,
+        "totalOutflow": 0,
+        "netCashflow": 12962232.0,
+        "bookingCount": 2,
+        "revenuePerBooking": 6481116.0,
+        "courtHireShare": 1.0,
+        "fbShare": 0.0,
+        "reviewCount": 0
+      },
+      "incomeRows": [
+        {
+          "id": "basketball_courts",
+          "name": "Basketball Courts Income (Net)",
+          "tracked": 52747200.0,
+          "budget": 12962232.0,
+          "pct": 4.069299176252978,
+          "remaining": 0,
+          "excess": 39784968.0
+        },
+        {
+          "id": "other_income",
+          "name": "Other Income",
+          "tracked": 7000000.0,
+          "budget": 0,
+          "pct": 1,
+          "remaining": 0,
+          "excess": 7000000.0
+        }
+      ],
+      "expenseRows": [
+        {
+          "id": "expense_misc",
+          "name": "Misc",
+          "tracked": 88728644.0,
+          "budget": 0,
+          "pct": 1,
+          "remaining": 0,
+          "excess": 88728644.0
+        },
+        {
+          "id": "water",
+          "name": "Water",
+          "tracked": 538949.0,
+          "budget": 0,
+          "pct": 1,
+          "remaining": 0,
+          "excess": 538949.0
+        }
+      ],
+      "ytdMonthly": [
+        {
+          "key": "2026-01",
+          "label": "Jan 26",
+          "inflow": 87770333.0,
+          "outflow": 88834684.0
+        },
+        {
+          "key": "2026-02",
+          "label": "Feb 26",
+          "inflow": 91220653.0,
+          "outflow": 94839338.0
+        },
+        {
+          "key": "2026-03",
+          "label": "Mar 26",
+          "inflow": 107650340.0,
+          "outflow": 104466526.0
+        },
+        {
+          "key": "2026-04",
+          "label": "Apr 26",
+          "inflow": 99410469.0,
+          "outflow": 97986951.0
+        },
+        {
+          "key": "2026-05",
+          "label": "May 26",
+          "inflow": 105970678.0,
+          "outflow": 107457982.0
+        },
+        {
+          "key": "2026-06",
+          "label": "Jun 26",
+          "inflow": 103793558.0,
+          "outflow": 102273205.0
+        },
+        {
+          "key": "2026-07",
+          "label": "Jul 26",
+          "inflow": 98999246.0,
+          "outflow": 103133094.0
+        },
+        {
+          "key": "2026-08",
+          "label": "Aug 26",
+          "inflow": 101380610.0,
+          "outflow": 100217450.0
+        },
+        {
+          "key": "2026-09",
+          "label": "Sep 26",
+          "inflow": 90772819.0,
+          "outflow": 90417593.0
+        }
+      ]
+    },
+    "month": {
+      "window": {
+        "grain": "month",
+        "current": {
+          "start": "2026-09-01",
+          "end": "2026-09-30"
+        },
+        "prior": {
+          "start": "2026-08-01",
+          "end": "2026-08-30"
+        },
+        "currentLabel": "This month (Sep 1 – Sep 30, 2026)",
+        "priorLabel": "Last month (Aug 1 – Aug 30, 2026)"
+      },
+      "current": {
+        "totalInflow": 90772819.0,
+        "totalOutflow": 90417593.0,
+        "netCashflow": 355226.0,
+        "bookingCount": 7,
+        "revenuePerBooking": 11967545.57142857,
+        "courtHireShare": 0.9228844044162603,
+        "fbShare": 0.0,
+        "reviewCount": 6
+      },
+      "prior": {
+        "totalInflow": 101380610.0,
+        "totalOutflow": 100217450.0,
+        "netCashflow": 1163160.0,
+        "bookingCount": 4,
+        "revenuePerBooking": 20095152.5,
+        "courtHireShare": 0.7928597983381634,
+        "fbShare": 0.0,
+        "reviewCount": 7
+      },
+      "incomeRows": [
+        {
+          "id": "basketball_courts",
+          "name": "Basketball Courts Income (Net)",
+          "tracked": 83772819.0,
+          "budget": 80380610.0,
+          "pct": 1.0422018320089883,
+          "remaining": 0,
+          "excess": 3392209.0
+        },
+        {
+          "id": "other_income",
+          "name": "Other Income",
+          "tracked": 7000000.0,
+          "budget": 21000000.0,
+          "pct": 0.3333333333333333,
+          "remaining": 14000000.0,
+          "excess": 0
+        }
+      ],
+      "expenseRows": [
+        {
+          "id": "expense_misc",
+          "name": "Misc",
+          "tracked": 89878644.0,
+          "budget": 93939746.0,
+          "pct": 0.9567690762118943,
+          "remaining": 4061102.0,
+          "excess": 0
+        },
+        {
+          "id": "water",
+          "name": "Water",
+          "tracked": 538949.0,
+          "budget": 907704.0,
+          "pct": 0.593749724579819,
+          "remaining": 368755.0,
+          "excess": 0
+        },
+        {
+          "id": "employees",
+          "name": "Employees",
+          "tracked": 0,
+          "budget": 5370000.0,
+          "pct": 0.0,
+          "remaining": 5370000.0,
+          "excess": 0
+        }
+      ],
+      "ytdMonthly": [
+        {
+          "key": "2026-01",
+          "label": "Jan 26",
+          "inflow": 87770333.0,
+          "outflow": 88834684.0
+        },
+        {
+          "key": "2026-02",
+          "label": "Feb 26",
+          "inflow": 91220653.0,
+          "outflow": 94839338.0
+        },
+        {
+          "key": "2026-03",
+          "label": "Mar 26",
+          "inflow": 107650340.0,
+          "outflow": 104466526.0
+        },
+        {
+          "key": "2026-04",
+          "label": "Apr 26",
+          "inflow": 99410469.0,
+          "outflow": 97986951.0
+        },
+        {
+          "key": "2026-05",
+          "label": "May 26",
+          "inflow": 105970678.0,
+          "outflow": 107457982.0
+        },
+        {
+          "key": "2026-06",
+          "label": "Jun 26",
+          "inflow": 103793558.0,
+          "outflow": 102273205.0
+        },
+        {
+          "key": "2026-07",
+          "label": "Jul 26",
+          "inflow": 98999246.0,
+          "outflow": 103133094.0
+        },
+        {
+          "key": "2026-08",
+          "label": "Aug 26",
+          "inflow": 101380610.0,
+          "outflow": 100217450.0
+        },
+        {
+          "key": "2026-09",
+          "label": "Sep 26",
+          "inflow": 90772819.0,
+          "outflow": 90417593.0
+        }
+      ]
+    },
+    "year": {
+      "window": {
+        "grain": "year",
+        "current": {
+          "start": "2026-01-01",
+          "end": "2026-09-30"
+        },
+        "prior": {
+          "start": "2025-01-01",
+          "end": "2025-09-30"
+        },
+        "currentLabel": "This year (Jan 1 – Sep 30, 2026)",
+        "priorLabel": "Last year (Jan 1 – Sep 30, 2025)"
+      },
+      "current": {
+        "totalInflow": 886968706.0,
+        "totalOutflow": 889626823.0,
+        "netCashflow": -2658117.0,
+        "bookingCount": 215,
+        "revenuePerBooking": 2763110.2604651162,
+        "courtHireShare": 0.6697741442075185,
+        "fbShare": 0.0,
+        "reviewCount": 79
+      },
+      "prior": {
+        "totalInflow": 972249262.0,
+        "totalOutflow": 962721053.0,
+        "netCashflow": 9528209.0,
+        "bookingCount": 218,
+        "revenuePerBooking": 3277441.5688073393,
+        "courtHireShare": 0.7348756023020772,
+        "fbShare": 0.0,
+        "reviewCount": 163
+      },
+      "incomeRows": [
+        {
+          "id": "basketball_courts",
+          "name": "Basketball Courts Income (Net)",
+          "tracked": 594068706.0,
+          "budget": 714482262.0,
+          "pct": 0.8314673961772896,
+          "remaining": 120413556.0,
+          "excess": 0
+        },
+        {
+          "id": "other_income",
+          "name": "Other Income",
+          "tracked": 292900000.0,
+          "budget": 257767000.0,
+          "pct": 1.1362975089906777,
+          "remaining": 0,
+          "excess": 35133000.0
+        }
+      ],
+      "expenseRows": [
+        {
+          "id": "expense_misc",
+          "name": "Misc",
+          "tracked": 840063275.0,
+          "budget": 775996846.0,
+          "pct": 1.0825601667458324,
+          "remaining": 0,
+          "excess": 64066429.0
+        },
+        {
+          "id": "employees",
+          "name": "Employees",
+          "tracked": 42960000.0,
+          "budget": 30951000.0,
+          "pct": 1.3880003877096054,
+          "remaining": 0,
+          "excess": 12009000.0
+        },
+        {
+          "id": "water",
+          "name": "Water",
+          "tracked": 6603548.0,
+          "budget": 155773207.0,
+          "pct": 0.042392065536661895,
+          "remaining": 149169659.0,
+          "excess": 0
+        }
+      ],
+      "ytdMonthly": [
+        {
+          "key": "2026-01",
+          "label": "Jan 26",
+          "inflow": 87770333.0,
+          "outflow": 88834684.0
+        },
+        {
+          "key": "2026-02",
+          "label": "Feb 26",
+          "inflow": 91220653.0,
+          "outflow": 94839338.0
+        },
+        {
+          "key": "2026-03",
+          "label": "Mar 26",
+          "inflow": 107650340.0,
+          "outflow": 104466526.0
+        },
+        {
+          "key": "2026-04",
+          "label": "Apr 26",
+          "inflow": 99410469.0,
+          "outflow": 97986951.0
+        },
+        {
+          "key": "2026-05",
+          "label": "May 26",
+          "inflow": 105970678.0,
+          "outflow": 107457982.0
+        },
+        {
+          "key": "2026-06",
+          "label": "Jun 26",
+          "inflow": 103793558.0,
+          "outflow": 102273205.0
+        },
+        {
+          "key": "2026-07",
+          "label": "Jul 26",
+          "inflow": 98999246.0,
+          "outflow": 103133094.0
+        },
+        {
+          "key": "2026-08",
+          "label": "Aug 26",
+          "inflow": 101380610.0,
+          "outflow": 100217450.0
+        },
+        {
+          "key": "2026-09",
+          "label": "Sep 26",
+          "inflow": 90772819.0,
+          "outflow": 90417593.0
+        }
+      ]
+    }
+  }
+}

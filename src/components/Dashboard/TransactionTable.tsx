@@ -6,6 +6,7 @@ import {
 } from '../../../types/cashflow.types'
 import {
   categoriesFor,
+  categoryName,
   filterTransactions,
   useCashflowStore,
 } from '../../store/cashflowStore'
@@ -53,7 +54,7 @@ const TransactionTable: React.FC = () => {
               : categoryOptions
             ).map((c) => (
               <option key={c.id} value={c.id}>
-                {c.name}
+                {categoryName(c.id)}
               </option>
             ))}
           </select>
@@ -111,7 +112,7 @@ const TransactionTable: React.FC = () => {
                     >
                       {categoriesFor(tx.categoryType).map((c) => (
                         <option key={c.id} value={c.id}>
-                          {c.name}
+                          {categoryName(c.id)}
                         </option>
                       ))}
                     </select>

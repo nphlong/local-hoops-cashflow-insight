@@ -74,7 +74,7 @@
       "date": "2025-02-20",
       "amount": 70000000.0,
       "categoryType": "inflow",
-      "categoryId": "basketball_courts",
+      "categoryId": "other_income",
       "channel": "bank_transfer",
       "needsReview": false
     },
@@ -104,7 +104,7 @@
       "date": "2025-02-20",
       "amount": 50000000.0,
       "categoryType": "inflow",
-      "categoryId": "basketball_courts",
+      "categoryId": "other_income",
       "channel": "bank_transfer",
       "needsReview": false
     },
@@ -134,7 +134,7 @@
       "date": "2025-02-24",
       "amount": 5000000.0,
       "categoryType": "inflow",
-      "categoryId": "basketball_courts",
+      "categoryId": "other_income",
       "channel": "bank_transfer",
       "needsReview": false
     },
@@ -984,7 +984,7 @@
       "date": "2025-04-10",
       "amount": 135000000.0,
       "categoryType": "inflow",
-      "categoryId": "basketball_courts",
+      "categoryId": "other_income",
       "channel": "bank_transfer",
       "needsReview": false
     },
@@ -2136,7 +2136,7 @@
       "categoryType": "outflow",
       "categoryId": "expense_misc",
       "channel": "bank_transfer",
-      "needsReview": true
+      "needsReview": false
     },
     {
       "id": "b867646078ec223553613503c4320b527dcaeacb7479c37e74e6e45c9b64c0eb",
@@ -2174,9 +2174,9 @@
       "date": "2025-06-09",
       "amount": 5435860.0,
       "categoryType": "outflow",
-      "categoryId": "expense_misc",
+      "categoryId": "electricity",
       "channel": "bank_transfer",
-      "needsReview": true
+      "needsReview": false
     },
     {
       "id": "c8886921a332bc6c7ae1c1aa2828c84546bf8648d4f5df7b66c1c721fea7a3db",
@@ -3576,7 +3576,7 @@
       "categoryType": "outflow",
       "categoryId": "expense_misc",
       "channel": "bank_transfer",
-      "needsReview": true
+      "needsReview": false
     },
     {
       "id": "38a6737f47ace728f16e2b7ca978738f93cfa85feebe54310c2be95d659b7ddf",
@@ -3634,9 +3634,9 @@
       "date": "2025-08-25",
       "amount": 68200000.0,
       "categoryType": "outflow",
-      "categoryId": "expense_misc",
+      "categoryId": "renting",
       "channel": "bank_transfer",
-      "needsReview": true
+      "needsReview": false
     },
     {
       "id": "fea76480b5d23eaf98df5330937044e468711e7c9ca81d9f776efbaa794fada7",
@@ -3644,9 +3644,9 @@
       "date": "2025-08-25",
       "amount": 6124707.0,
       "categoryType": "outflow",
-      "categoryId": "expense_misc",
+      "categoryId": "electricity",
       "channel": "bank_transfer",
-      "needsReview": true
+      "needsReview": false
     },
     {
       "id": "6b27f1f40bef16d475732dc3f99bf07a1ff9e1ae474171a81c31bde74133641e",
@@ -4106,7 +4106,7 @@
       "categoryType": "outflow",
       "categoryId": "expense_misc",
       "channel": "bank_transfer",
-      "needsReview": true
+      "needsReview": false
     },
     {
       "id": "ed93e28d9a1e3ddc408c6878c1d9ab5c4106c6e937d3ef1cf81d56bffc051536",
@@ -4714,9 +4714,9 @@
       "date": "2025-10-24",
       "amount": 68200000.0,
       "categoryType": "outflow",
-      "categoryId": "expense_misc",
+      "categoryId": "renting",
       "channel": "bank_transfer",
-      "needsReview": true
+      "needsReview": false
     },
     {
       "id": "4c0851db92d7ad81350dbb9e9be0f9983877cacbce6b793de8be79756c527ef6",
@@ -4744,9 +4744,9 @@
       "date": "2025-10-24",
       "amount": 5857101.0,
       "categoryType": "outflow",
-      "categoryId": "expense_misc",
+      "categoryId": "electricity",
       "channel": "bank_transfer",
-      "needsReview": true
+      "needsReview": false
     },
     {
       "id": "b9b862574751d803704560faa40459db7c3bafac25ffdf60b0a157515fb30ee9",
@@ -4756,7 +4756,7 @@
       "categoryType": "outflow",
       "categoryId": "expense_misc",
       "channel": "bank_transfer",
-      "needsReview": true
+      "needsReview": false
     },
     {
       "id": "d624a0e0077e62e256185ffe315be9ae660eba9278d6911c76a76c180057c010",
@@ -5314,9 +5314,9 @@
       "date": "2025-11-21",
       "amount": 68200000.0,
       "categoryType": "outflow",
-      "categoryId": "expense_misc",
+      "categoryId": "renting",
       "channel": "bank_transfer",
-      "needsReview": true
+      "needsReview": false
     },
     {
       "id": "cd04ac8a39c8922c5be1cc51d92b9fd5ea1528cc8fb4fcb736504bf37b0b7c11",
@@ -5396,7 +5396,7 @@
       "categoryType": "outflow",
       "categoryId": "expense_misc",
       "channel": "bank_transfer",
-      "needsReview": true
+      "needsReview": false
     },
     {
       "id": "70cc17a3c8228832ef988550b3e74ab0ab9cc971fa51f5ff15d49204517ec3c6",
@@ -5414,9 +5414,9 @@
       "date": "2025-11-24",
       "amount": 5921113.0,
       "categoryType": "outflow",
-      "categoryId": "expense_misc",
+      "categoryId": "electricity",
       "channel": "bank_transfer",
-      "needsReview": true
+      "needsReview": false
     },
     {
       "id": "6c8c56a259d22511bf3670256e22a6c4f035428f1618ca526d0d2ba94baa24e9",
@@ -5484,7 +5484,7 @@
       "date": "2025-12-01",
       "amount": 2154000.0,
       "categoryType": "inflow",
-      "categoryId": "basketball_courts",
+      "categoryId": "other_income",
       "channel": "bank_transfer",
       "needsReview": false
     },
@@ -5714,9 +5714,9 @@
       "date": "2025-12-23",
       "amount": 5752192.0,
       "categoryType": "outflow",
-      "categoryId": "expense_misc",
+      "categoryId": "electricity",
       "channel": "bank_transfer",
-      "needsReview": true
+      "needsReview": false
     },
     {
       "id": "61381442e2862d58628bf7a08901b597ecadf875efd15f46a033774cf94f9153",
@@ -5726,7 +5726,7 @@
       "categoryType": "outflow",
       "categoryId": "expense_misc",
       "channel": "bank_transfer",
-      "needsReview": true
+      "needsReview": false
     },
     {
       "id": "72f6db888b630af5c2573d1e9c02f9827257375a21b439fc3513fa79f5d67402",
@@ -5734,9 +5734,9 @@
       "date": "2025-12-23",
       "amount": 68200000.0,
       "categoryType": "outflow",
-      "categoryId": "expense_misc",
+      "categoryId": "renting",
       "channel": "bank_transfer",
-      "needsReview": true
+      "needsReview": false
     },
     {
       "id": "b41c868761094048440ff16701ef6e8674a7e458ba08f52940479ab6a51c63ff",
@@ -5744,7 +5744,7 @@
       "date": "2025-12-23",
       "amount": 40000000.0,
       "categoryType": "inflow",
-      "categoryId": "basketball_courts",
+      "categoryId": "other_income",
       "channel": "bank_transfer",
       "needsReview": false
     },
@@ -6106,7 +6106,7 @@
       "categoryType": "outflow",
       "categoryId": "expense_misc",
       "channel": "bank_transfer",
-      "needsReview": true
+      "needsReview": false
     },
     {
       "id": "741183da6fbbfcf80b7abcd09565b5e5a419e01b78dda02ad57ba0802d027dd0",
@@ -6124,9 +6124,9 @@
       "date": "2026-01-28",
       "amount": 5223204.0,
       "categoryType": "outflow",
-      "categoryId": "expense_misc",
+      "categoryId": "electricity",
       "channel": "bank_transfer",
-      "needsReview": true
+      "needsReview": false
     },
     {
       "id": "aabda54ae93f9b93c75ba6fde470b52d72aa2fc428c7f9667fea3d663ab28a27",
@@ -6134,7 +6134,7 @@
       "date": "2026-01-28",
       "amount": 7000000.0,
       "categoryType": "inflow",
-      "categoryId": "basketball_courts",
+      "categoryId": "other_income",
       "channel": "bank_transfer",
       "needsReview": false
     },
@@ -6144,7 +6144,7 @@
       "date": "2026-01-28",
       "amount": 50000000.0,
       "categoryType": "inflow",
-      "categoryId": "basketball_courts",
+      "categoryId": "other_income",
       "channel": "bank_transfer",
       "needsReview": false
     },
@@ -6154,7 +6154,7 @@
       "date": "2026-01-28",
       "amount": 6000000.0,
       "categoryType": "inflow",
-      "categoryId": "basketball_courts",
+      "categoryId": "other_income",
       "channel": "bank_transfer",
       "needsReview": false
     },
@@ -6164,9 +6164,9 @@
       "date": "2026-01-28",
       "amount": 68200000.0,
       "categoryType": "outflow",
-      "categoryId": "expense_misc",
+      "categoryId": "renting",
       "channel": "bank_transfer",
-      "needsReview": true
+      "needsReview": false
     },
     {
       "id": "22810610b1567f4e6ddff0238c45dfb450a9d05f27015a0e7dfe9b4bc06ce5e1",
@@ -6436,7 +6436,7 @@
       "categoryType": "outflow",
       "categoryId": "expense_misc",
       "channel": "bank_transfer",
-      "needsReview": true
+      "needsReview": false
     },
     {
       "id": "54f12e753f431bb8c25829696596642d9b8feaebcff1723d93928a2b4d82e11f",
@@ -6454,9 +6454,9 @@
       "date": "2026-02-27",
       "amount": 4220793.0,
       "categoryType": "outflow",
-      "categoryId": "expense_misc",
+      "categoryId": "electricity",
       "channel": "bank_transfer",
-      "needsReview": true
+      "needsReview": false
     },
     {
       "id": "583940d959a3bba836e8e0012235951e67aaeadcc9bae551cdc9025b84ae7276",
@@ -6474,9 +6474,9 @@
       "date": "2026-02-28",
       "amount": 79200000.0,
       "categoryType": "outflow",
-      "categoryId": "expense_misc",
+      "categoryId": "renting",
       "channel": "bank_transfer",
-      "needsReview": true
+      "needsReview": false
     },
     {
       "id": "7b9da672714bec930bfcd31cb58b0f516693f71454951c8e788168e15ebe9099",
@@ -6484,7 +6484,7 @@
       "date": "2026-02-28",
       "amount": 72000000.0,
       "categoryType": "inflow",
-      "categoryId": "basketball_courts",
+      "categoryId": "other_income",
       "channel": "bank_transfer",
       "needsReview": false
     },
@@ -6806,7 +6806,7 @@
       "categoryType": "outflow",
       "categoryId": "expense_misc",
       "channel": "bank_transfer",
-      "needsReview": true
+      "needsReview": false
     },
     {
       "id": "bdfd25aa42dcd4d87b1f05e2a5197c2ba92dde30f5708be50910c6de9546e581",
@@ -6824,9 +6824,9 @@
       "date": "2026-03-25",
       "amount": 5185419.0,
       "categoryType": "outflow",
-      "categoryId": "expense_misc",
+      "categoryId": "electricity",
       "channel": "bank_transfer",
-      "needsReview": true
+      "needsReview": false
     },
     {
       "id": "f17d3b819211c888c4ddddb44ed6f97a77ce94036ca30f45bdfa81d6f8915784",
@@ -6834,9 +6834,9 @@
       "date": "2026-03-25",
       "amount": 79200000.0,
       "categoryType": "outflow",
-      "categoryId": "expense_misc",
+      "categoryId": "renting",
       "channel": "momo",
-      "needsReview": true
+      "needsReview": false
     },
     {
       "id": "a4d9896721b215cd79f52e891096c4cd7996590f050e761a31731e912610c190",
@@ -7434,9 +7434,9 @@
       "date": "2026-04-25",
       "amount": 79200000.0,
       "categoryType": "outflow",
-      "categoryId": "expense_misc",
+      "categoryId": "renting",
       "channel": "bank_transfer",
-      "needsReview": true
+      "needsReview": false
     },
     {
       "id": "d8b683e0149256e9796d25557f883918fb3844e9a4080c1497c0bd37213e3b41",
@@ -7534,9 +7534,9 @@
       "date": "2026-05-04",
       "amount": 5978902.0,
       "categoryType": "outflow",
-      "categoryId": "expense_misc",
+      "categoryId": "electricity",
       "channel": "bank_transfer",
-      "needsReview": true
+      "needsReview": false
     },
     {
       "id": "fd5b6adcc2ec63831fa85b33ee09a0d435ad0c06b6777903c853e182ea4e9112",
@@ -7546,7 +7546,7 @@
       "categoryType": "outflow",
       "categoryId": "expense_misc",
       "channel": "bank_transfer",
-      "needsReview": true
+      "needsReview": false
     },
     {
       "id": "b02e0a900d8050c7bd80acd2803b73fa5e30b100f737de4490611711e6c88a3d",
@@ -7826,7 +7826,7 @@
       "categoryType": "outflow",
       "categoryId": "expense_misc",
       "channel": "bank_transfer",
-      "needsReview": true
+      "needsReview": false
     },
     {
       "id": "ab8fe2bd8876d106c911d9fedc230db12eaf0835f2feb46fb58712aeabca59e0",
@@ -7834,9 +7834,9 @@
       "date": "2026-05-25",
       "amount": 5717075.0,
       "categoryType": "outflow",
-      "categoryId": "expense_misc",
+      "categoryId": "electricity",
       "channel": "bank_transfer",
-      "needsReview": true
+      "needsReview": false
     },
     {
       "id": "eb015dcfa5f401e6f7a8663baaf782f2bb2072f9330ce3a303d9f73e7421a11d",
@@ -7874,9 +7874,9 @@
       "date": "2026-05-26",
       "amount": 79200000.0,
       "categoryType": "outflow",
-      "categoryId": "expense_misc",
+      "categoryId": "renting",
       "channel": "bank_transfer",
-      "needsReview": true
+      "needsReview": false
     },
     {
       "id": "68da9cda096270e64a2e1e77a74cb3bd5daf1a4d3617de1b91168086d9924253",
@@ -8416,7 +8416,7 @@
       "categoryType": "outflow",
       "categoryId": "expense_misc",
       "channel": "bank_transfer",
-      "needsReview": true
+      "needsReview": false
     },
     {
       "id": "fd16bf01dadff6199430c50cf8fc5a4097e45d1eddb21f4105f880990a28b0f9",
@@ -8444,9 +8444,9 @@
       "date": "2026-06-26",
       "amount": 79200000.0,
       "categoryType": "outflow",
-      "categoryId": "expense_misc",
+      "categoryId": "renting",
       "channel": "bank_transfer",
-      "needsReview": true
+      "needsReview": false
     },
     {
       "id": "b7c91baf2d7962712d9c785ba05af72ae9986d1ebeb1ced4a9ed6a02b77d1c05",
@@ -8454,7 +8454,7 @@
       "date": "2026-06-26",
       "amount": 76000000.0,
       "categoryType": "inflow",
-      "categoryId": "basketball_courts",
+      "categoryId": "other_income",
       "channel": "bank_transfer",
       "needsReview": false
     },
@@ -8706,7 +8706,7 @@
       "categoryType": "outflow",
       "categoryId": "expense_misc",
       "channel": "bank_transfer",
-      "needsReview": true
+      "needsReview": false
     },
     {
       "id": "cb751e7737a52d154351fb308a3109943d089be942734ec0e943bcf50e6f8ace",
@@ -8724,9 +8724,9 @@
       "date": "2026-07-24",
       "amount": 6759493.0,
       "categoryType": "outflow",
-      "categoryId": "expense_misc",
+      "categoryId": "electricity",
       "channel": "bank_transfer",
-      "needsReview": true
+      "needsReview": false
     },
     {
       "id": "fa491a3b7e362aa406b0fe72c74b257cea8cfd42c7d98b96f6994d3126a73be3",
@@ -8734,7 +8734,7 @@
       "date": "2026-07-24",
       "amount": 54000000.0,
       "categoryType": "inflow",
-      "categoryId": "basketball_courts",
+      "categoryId": "other_income",
       "channel": "bank_transfer",
       "needsReview": false
     },
@@ -8754,9 +8754,9 @@
       "date": "2026-07-28",
       "amount": 79200000.0,
       "categoryType": "outflow",
-      "categoryId": "expense_misc",
+      "categoryId": "renting",
       "channel": "bank_transfer",
-      "needsReview": true
+      "needsReview": false
     },
     {
       "id": "a874a4800a6fc7f27031831b5aa056c575b9c0b0440307e9ac4c4f4cd2c11d80",
@@ -8874,9 +8874,9 @@
       "date": "2026-08-24",
       "amount": 8019730.0,
       "categoryType": "outflow",
-      "categoryId": "expense_misc",
+      "categoryId": "electricity",
       "channel": "bank_transfer",
-      "needsReview": true
+      "needsReview": false
     },
     {
       "id": "58db815f5a459b8e0ba9785b2a2c70637ac9d0db7ac5e887824063b9f24c49aa",
@@ -8896,7 +8896,7 @@
       "categoryType": "outflow",
       "categoryId": "expense_misc",
       "channel": "bank_transfer",
-      "needsReview": true
+      "needsReview": false
     },
     {
       "id": "44f57791a5d0b415034ddfa20e51f980b6564b9714d2dc4c9419eed36c532970",
@@ -8904,9 +8904,9 @@
       "date": "2026-08-25",
       "amount": 79200000.0,
       "categoryType": "outflow",
-      "categoryId": "expense_misc",
+      "categoryId": "renting",
       "channel": "bank_transfer",
-      "needsReview": true
+      "needsReview": false
     },
     {
       "id": "6cf77b94cdf9da6a992e17cbfade5e6534c06a587626942d954a630745c82517",
@@ -8996,7 +8996,7 @@
       "categoryType": "outflow",
       "categoryId": "expense_misc",
       "channel": "bank_transfer",
-      "needsReview": true
+      "needsReview": false
     },
     {
       "id": "6a308dd01b2036453ae3e20a285d949bd688169c8416846328ed6569a2cf72a7",
@@ -9004,7 +9004,7 @@
       "date": "2026-09-25",
       "amount": 48600000.0,
       "categoryType": "inflow",
-      "categoryId": "basketball_courts",
+      "categoryId": "other_income",
       "channel": "bank_transfer",
       "needsReview": false
     },
@@ -9034,9 +9034,9 @@
       "date": "2026-09-25",
       "amount": 79200000.0,
       "categoryType": "outflow",
-      "categoryId": "expense_misc",
+      "categoryId": "renting",
       "channel": "bank_transfer",
-      "needsReview": true
+      "needsReview": false
     },
     {
       "id": "d14c5f3392013c84a6addcee404e8bf6957b170afda0ddef33cc18ed313b6dab",
@@ -9044,9 +9044,9 @@
       "date": "2026-09-25",
       "amount": 6970644.0,
       "categoryType": "outflow",
-      "categoryId": "expense_misc",
+      "categoryId": "electricity",
       "channel": "bank_transfer",
-      "needsReview": true
+      "needsReview": false
     },
     {
       "id": "485eb21622823749eb7858cfffed809ac77fa33ee8936440ca51a349a7e29071",

@@ -150,6 +150,14 @@ Browser check at http://localhost:3000/: Local Hoops P&L still shows **₫104.4M
 
 ---
 
+## 2026-10-21 — The Lam owner accounts and invoice codes
+
+Credits from counterparty accounts `10000567031` and `24976907` are Other Income unless the memo is a court payment (`thue san`, `tra tien san`, `thanh toan san`, or a close variant such as `tien san`). Matching is accent-folded, so `thuê sân` and `trả tiền sân` stay Court Income. A `tien nuoc` credit is still F&B.
+
+A debit whose memo is `TLSC TT HD … <code>` uses the ending code: `DIEN` electricity, `MB` rent, `RAC` misc, `NUOC` water. Any other ending is Misc and needs review. A wrapped `mã giao dịch trace` header is ignored so it is not read as the code. That rule runs before the general water and electricity memo checks.
+
+---
+
 ## Known gaps / deferred
 
 - File naming convention and ingest cadence for new monthly statements

@@ -26,11 +26,11 @@
         "totalInflow": 59747200.0,
         "totalOutflow": 89267593.0,
         "netCashflow": -29520393.0,
-        "bookingCount": 2,
-        "revenuePerBooking": 26373600.0,
-        "courtHireShare": 0.8828396979272669,
+        "bookingCount": 1,
+        "revenuePerBooking": 4147200.0,
+        "courtHireShare": 0.06941245782229126,
         "fbShare": 0.0,
-        "reviewCount": 5
+        "reviewCount": 2
       },
       "prior": {
         "totalInflow": 12962232.0,
@@ -44,33 +44,51 @@
       },
       "incomeRows": [
         {
-          "id": "basketball_courts",
-          "name": "Basketball Courts Income (Net)",
-          "tracked": 52747200.0,
-          "budget": 12962232.0,
-          "pct": 4.069299176252978,
-          "remaining": 0,
-          "excess": 39784968.0
-        },
-        {
           "id": "other_income",
           "name": "Other Income",
-          "tracked": 7000000.0,
+          "tracked": 55600000.0,
           "budget": 0,
           "pct": 1,
           "remaining": 0,
-          "excess": 7000000.0
+          "excess": 55600000.0
+        },
+        {
+          "id": "basketball_courts",
+          "name": "Basketball Courts Income (Net)",
+          "tracked": 4147200.0,
+          "budget": 12962232.0,
+          "pct": 0.31994489837861256,
+          "remaining": 8815032.0,
+          "excess": 0
         }
       ],
       "expenseRows": [
         {
-          "id": "expense_misc",
-          "name": "Misc",
-          "tracked": 88728644.0,
+          "id": "renting",
+          "name": "Renting",
+          "tracked": 79200000.0,
           "budget": 0,
           "pct": 1,
           "remaining": 0,
-          "excess": 88728644.0
+          "excess": 79200000.0
+        },
+        {
+          "id": "electricity",
+          "name": "Electricity",
+          "tracked": 6970644.0,
+          "budget": 0,
+          "pct": 1,
+          "remaining": 0,
+          "excess": 6970644.0
+        },
+        {
+          "id": "expense_misc",
+          "name": "Misc",
+          "tracked": 2558000.0,
+          "budget": 0,
+          "pct": 1,
+          "remaining": 0,
+          "excess": 2558000.0
         },
         {
           "id": "water",
@@ -157,11 +175,11 @@
         "totalInflow": 90772819.0,
         "totalOutflow": 90417593.0,
         "netCashflow": 355226.0,
-        "bookingCount": 7,
-        "revenuePerBooking": 11967545.57142857,
-        "courtHireShare": 0.9228844044162603,
+        "bookingCount": 6,
+        "revenuePerBooking": 5862136.5,
+        "courtHireShare": 0.38748184079201065,
         "fbShare": 0.0,
-        "reviewCount": 6
+        "reviewCount": 3
       },
       "prior": {
         "totalInflow": 101380610.0,
@@ -171,36 +189,54 @@
         "revenuePerBooking": 20095152.5,
         "courtHireShare": 0.7928597983381634,
         "fbShare": 0.0,
-        "reviewCount": 7
+        "reviewCount": 4
       },
       "incomeRows": [
         {
-          "id": "basketball_courts",
-          "name": "Basketball Courts Income (Net)",
-          "tracked": 83772819.0,
-          "budget": 80380610.0,
-          "pct": 1.0422018320089883,
-          "remaining": 0,
-          "excess": 3392209.0
-        },
-        {
           "id": "other_income",
           "name": "Other Income",
-          "tracked": 7000000.0,
+          "tracked": 55600000.0,
           "budget": 21000000.0,
-          "pct": 0.3333333333333333,
-          "remaining": 14000000.0,
+          "pct": 2.6476190476190475,
+          "remaining": 0,
+          "excess": 34600000.0
+        },
+        {
+          "id": "basketball_courts",
+          "name": "Basketball Courts Income (Net)",
+          "tracked": 35172819.0,
+          "budget": 80380610.0,
+          "pct": 0.4375784035478208,
+          "remaining": 45207791.0,
           "excess": 0
         }
       ],
       "expenseRows": [
         {
+          "id": "renting",
+          "name": "Renting",
+          "tracked": 79200000.0,
+          "budget": 79200000.0,
+          "pct": 1.0,
+          "remaining": 0.0,
+          "excess": 0.0
+        },
+        {
+          "id": "electricity",
+          "name": "Electricity",
+          "tracked": 6970644.0,
+          "budget": 8019730.0,
+          "pct": 0.8691868678870736,
+          "remaining": 1049086.0,
+          "excess": 0
+        },
+        {
           "id": "expense_misc",
           "name": "Misc",
-          "tracked": 89878644.0,
-          "budget": 93939746.0,
-          "pct": 0.9567690762118943,
-          "remaining": 4061102.0,
+          "tracked": 3708000.0,
+          "budget": 6720016.0,
+          "pct": 0.5517844005133321,
+          "remaining": 3012016.0,
           "excess": 0
         },
         {
@@ -297,51 +333,69 @@
         "totalInflow": 886968706.0,
         "totalOutflow": 889626823.0,
         "netCashflow": -2658117.0,
-        "bookingCount": 215,
-        "revenuePerBooking": 2763110.2604651162,
-        "courtHireShare": 0.6697741442075185,
+        "bookingCount": 208,
+        "revenuePerBooking": 1348407.2403846155,
+        "courtHireShare": 0.3162103737175142,
         "fbShare": 0.0,
-        "reviewCount": 79
+        "reviewCount": 53
       },
       "prior": {
         "totalInflow": 972249262.0,
         "totalOutflow": 962721053.0,
         "netCashflow": 9528209.0,
-        "bookingCount": 218,
-        "revenuePerBooking": 3277441.5688073393,
-        "courtHireShare": 0.7348756023020772,
+        "bookingCount": 214,
+        "revenuePerBooking": 2123748.887850467,
+        "courtHireShare": 0.46745446848176675,
         "fbShare": 0.0,
-        "reviewCount": 163
+        "reviewCount": 157
       },
       "incomeRows": [
         {
-          "id": "basketball_courts",
-          "name": "Basketball Courts Income (Net)",
-          "tracked": 594068706.0,
-          "budget": 714482262.0,
-          "pct": 0.8314673961772896,
-          "remaining": 120413556.0,
-          "excess": 0
-        },
-        {
           "id": "other_income",
           "name": "Other Income",
-          "tracked": 292900000.0,
-          "budget": 257767000.0,
-          "pct": 1.1362975089906777,
+          "tracked": 606500000.0,
+          "budget": 517767000.0,
+          "pct": 1.1713763140563227,
           "remaining": 0,
-          "excess": 35133000.0
+          "excess": 88733000.0
+        },
+        {
+          "id": "basketball_courts",
+          "name": "Basketball Courts Income (Net)",
+          "tracked": 280468706.0,
+          "budget": 454482262.0,
+          "pct": 0.6171169470195956,
+          "remaining": 174013556.0,
+          "excess": 0
         }
       ],
       "expenseRows": [
         {
+          "id": "renting",
+          "name": "Renting",
+          "tracked": 701800000.0,
+          "budget": 68200000.0,
+          "pct": 10.290322580645162,
+          "remaining": 0,
+          "excess": 633600000.0
+        },
+        {
           "id": "expense_misc",
           "name": "Misc",
-          "tracked": 840063275.0,
-          "budget": 775996846.0,
-          "pct": 1.0825601667458324,
+          "tracked": 90188015.0,
+          "budget": 696236279.0,
+          "pct": 0.12953650609752268,
+          "remaining": 606048264.0,
+          "excess": 0
+        },
+        {
+          "id": "electricity",
+          "name": "Electricity",
+          "tracked": 48075260.0,
+          "budget": 11560567.0,
+          "pct": 4.158555544896717,
           "remaining": 0,
-          "excess": 64066429.0
+          "excess": 36514693.0
         },
         {
           "id": "employees",

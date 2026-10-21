@@ -68,7 +68,7 @@ Local Hoops gold meta is June–October 2026 MB Bank months, VND, as-of 2026-10-
 
 Local Hoops income rules (credits): court rates 39/49/59k, F&B 10/15/25k and KiotViet leftovers, bank/MoMo/ZaloPay over ₫300k and under ₫20M as courts. Expense rules (debits): rent payee, inventory vendor, `tien dien` → electricity, memo `luong` / `phu cap` / `thuong` / `kpi` → employees.
 
-The Lam credits default to Court Income, including `thue san`. A `tien nuoc` credit is F&B. A credit from account `10000567031` is Other Income unless the memo is a court payment (`thue san`, `tra tien san`, `thanh toan san`, and close variants). Debits use the shared salary, electricity, tax, and water rules. A `tien nuoc` debit to account `112002860659` is the water bill; any other `tien nuoc` debit is Misc and needs review.
+The Lam credits default to Court Income, including `thue san`. A `tien nuoc` credit is F&B. A credit from account `10000567031` or `24976907` is Other Income unless the memo is a court payment (`thue san`, `tra tien san`, `thanh toan san`, or a close variant such as `tien san`). Accent-folded matching treats `thuê sân` and `trả tiền sân` the same way. Debits use the shared salary, electricity, tax, and water rules. A memo `TLSC TT HD … <code>` is classified by its last code: `DIEN` electricity, `MB` rent, `RAC` misc, `NUOC` water, and any other code misc. A `tien nuoc` debit to account `112002860659` is the water bill; any other `tien nuoc` debit is Misc and needs review.
 
 ## Stack
 

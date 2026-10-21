@@ -133,6 +133,23 @@ Year snapshot after the last recategorize pass: Courts **₫626.8M**, F&B **₫6
 
 ---
 
+## 2026-10-21 — Company switch for The Lam Sport Center
+
+The header mark is a company menu. Local Hoops (account `7789797968`, `public/data/v1/`) and The Lam Sport Center (account `3395880880`, `public/data/v1/tlsc/`) share the same three tabs. The choice is stored in `localStorage`. FastAPI takes `?company=local-hoops|tlsc`. Sign-in still uses the Local Hoops mark.
+
+The Lam source is MB Bank sổ phụ PDFs (`SP_*.pdf`), parsed in [`services/pipeline/pipeline/parse_mb_pdf.py`](services/pipeline/pipeline/parse_mb_pdf.py) from the text layer (per-font ToUnicode), not Excel. `CT_*` files in the same folder are ignored. Each company has its own SQLite file (`local_hoops.sqlite`, `tlsc.sqlite`). Statement opening and closing balances come from the PDF header because those files have no per-row balance. February 2025 through September 2026: 20 files, 906 gold rows, opening ₫0, closing ₫2,034,357, as-of 2026-09-30. Each month's opening plus movements matches that month's closing balance.
+
+The Lam category profile is separate from the Local Hoops court-rate rules. Credits default to Court Income (same id `basketball_courts`, label **Court Income**). Account `10000567031` without a court-payment memo (`thue san`, `tra tien san`, `thanh toan san`, and close variants) is Other Income. A `tien nuoc` credit would be F&B; none appeared. Debits keep salary, electricity, tax, and water. A `tien nuoc` debit to `112002860659` is the water utility; other `tien nuoc` debits are Misc and need review. The account number is used only during ingest and is not written to the public JSON.
+
+```bash
+services/pipeline/.venv/Scripts/python scripts/run_pipeline.py ingest --company tlsc --raw C:\path\to\src_raw
+services/pipeline/.venv/Scripts/python scripts/run_pipeline.py export-pages --company tlsc
+```
+
+Browser check at http://localhost:3000/: Local Hoops P&L still shows **₫104.4M** income and **Basketball Courts Income (Net)**. The Lam September 2026 shows **₫90.8M** income, **Court Income**, F&B mix **0%**, and the TLSC logo on all three tabs. Switching back restores Local Hoops.
+
+---
+
 ## Known gaps / deferred
 
 - File naming convention and ingest cadence for new monthly statements

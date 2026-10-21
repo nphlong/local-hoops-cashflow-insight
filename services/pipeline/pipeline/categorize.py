@@ -25,8 +25,16 @@ GOP_VON = re.compile(r"g\s*o\s*p\s*v\s*o\s*n")
 COURT_PAYMENT = re.compile(
     r"thue san|tra tien san|thanh toan san|thanh toan tien san|(?<![a-z])tien san|(?<![a-z])tt san"
 )
-OWNER_ACCOUNT = "10000567031"
+OWNER_ACCOUNTS = frozenset({"10000567031", "24976907"})
 WATER_UTILITY_ACCOUNT = "112002860659"
+HD_INVOICE = re.compile(r"\btlsc tt hd\b(.*)$")
+HD_TRACE = re.compile(r"\bma giao dich\b.*$")
+HD_CATEGORIES = {
+    "dien": "electricity",
+    "mb": "renting",
+    "rac": "expense_misc",
+    "nuoc": "water",
+}
 
 
 def _fold(text: str) -> str:
@@ -74,6 +82,24 @@ def _account_digits(account: str) -> str:
     return digits[0] if digits else ""
 
 
+def _hd_invoice(memo: str) -> tuple[str, str, bool] | None:
+    """TLSC TT HD … <code>. DIEN, MB, RAC, and NUOC are known; any other ending is Misc.
+
+    A wrapped statement header ("mã giao dịch trace") is not part of the memo.
+    """
+    match = HD_INVOICE.search(memo)
+    if not match:
+        return None
+    tail = HD_TRACE.sub("", match.group(1))
+    letters = [re.sub(r"[^a-z]", "", token) for token in tail.split()]
+    letters = [token for token in letters if token]
+    token = letters[-1] if letters else ""
+    category = HD_CATEGORIES.get(token)
+    if category:
+        return "outflow", category, False
+    return "outflow", "expense_misc", True
+
+
 def _categorize_tlsc(
     description: str,
     counterparty: str,
@@ -88,6 +114,9 @@ def _categorize_tlsc(
     account = _account_digits(counterparty_account)
 
     if debit > 0 and credit == 0:
+        invoice = _hd_invoice(memo)
+        if invoice:
+            return invoice
         if STAFF_MEMO.search(memo) or "salary" in blob or "nhan vien" in blob:
             return "outflow", "employees", False
         if TIEN_DIEN.search(memo) or "electric" in blob:
@@ -104,7 +133,7 @@ def _categorize_tlsc(
 
     if "tien nuoc" in blob:
         return "inflow", "fb_income", False
-    if account == OWNER_ACCOUNT and not COURT_PAYMENT.search(memo):
+    if account in OWNER_ACCOUNTS and not COURT_PAYMENT.search(memo):
         return "inflow", "other_income", False
     if credit > 0:
         return "inflow", "basketball_courts", False

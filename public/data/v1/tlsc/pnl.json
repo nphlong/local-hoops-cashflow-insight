@@ -13,11 +13,11 @@
         "totalInflow": 59747200.0,
         "totalOutflow": 89267593.0,
         "netCashflow": -29520393.0,
-        "bookingCount": 2,
-        "revenuePerBooking": 26373600.0,
-        "courtHireShare": 0.8828396979272669,
+        "bookingCount": 1,
+        "revenuePerBooking": 4147200.0,
+        "courtHireShare": 0.06941245782229126,
         "fbShare": 0.0,
-        "reviewCount": 5
+        "reviewCount": 2
       },
       "window": {
         "grain": "week",
@@ -198,11 +198,11 @@
         "totalInflow": 90772819.0,
         "totalOutflow": 90417593.0,
         "netCashflow": 355226.0,
-        "bookingCount": 7,
-        "revenuePerBooking": 11967545.57142857,
-        "courtHireShare": 0.9228844044162603,
+        "bookingCount": 6,
+        "revenuePerBooking": 5862136.5,
+        "courtHireShare": 0.38748184079201065,
         "fbShare": 0.0,
-        "reviewCount": 6
+        "reviewCount": 3
       },
       "window": {
         "grain": "month",
@@ -383,11 +383,11 @@
         "totalInflow": 886968706.0,
         "totalOutflow": 889626823.0,
         "netCashflow": -2658117.0,
-        "bookingCount": 215,
-        "revenuePerBooking": 2763110.2604651162,
-        "courtHireShare": 0.6697741442075185,
+        "bookingCount": 208,
+        "revenuePerBooking": 1348407.2403846155,
+        "courtHireShare": 0.3162103737175142,
         "fbShare": 0.0,
-        "reviewCount": 79
+        "reviewCount": 53
       },
       "window": {
         "grain": "year",

@@ -85,6 +85,24 @@ def test_tlsc_credit_rules() -> None:
         counterparty_account="10000567031",
     )
     assert owner_drinks == ("inflow", "fb_income", False)
+    other_owner = categorize(
+        "nop tien tk",
+        "NGUYEN THE LAM",
+        2_000_000,
+        0,
+        profile="tlsc",
+        counterparty_account="24976907",
+    )
+    assert other_owner == ("inflow", "other_income", False)
+    accented_court = categorize(
+        "trả tiền sân",
+        "NGUYEN THE LAM",
+        800_000,
+        0,
+        profile="tlsc",
+        counterparty_account="24976907",
+    )
+    assert accented_court == ("inflow", "basketball_courts", False)
 
 
 def test_tlsc_debit_rules() -> None:
@@ -112,3 +130,45 @@ def test_tlsc_debit_rules() -> None:
     assert plain == ("outflow", "expense_misc", True)
     power = categorize("thanh toan tien dien", "EVN", 0, 1_000_000, profile="tlsc")
     assert power == ("outflow", "electricity", False)
+    assert categorize("TLSC TT HD DIEN", "EVN", 0, 1_200_000, profile="tlsc") == (
+        "outflow",
+        "electricity",
+        False,
+    )
+    assert categorize("TLSC TT HD T2 MB", "CHU NHA", 0, 20_000_000, profile="tlsc") == (
+        "outflow",
+        "renting",
+        False,
+    )
+    assert categorize("TLSC TT HD RAC", "VE SINH", 0, 400_000, profile="tlsc") == (
+        "outflow",
+        "expense_misc",
+        False,
+    )
+    assert categorize(
+        "TLSC TT HD NUOC",
+        "KHAC",
+        0,
+        300_000,
+        profile="tlsc",
+        counterparty_account="9999999999",
+    ) == ("outflow", "water", False)
+    assert categorize("TLSC TT HD INTERNET", "FPT", 0, 250_000, profile="tlsc") == (
+        "outflow",
+        "expense_misc",
+        True,
+    )
+    assert categorize(
+        "TLSC TT HD 12345 DIEN - MA GIAO DICH/ TRACE 999",
+        "EVN",
+        0,
+        900_000,
+        profile="tlsc",
+    ) == ("outflow", "electricity", False)
+    assert categorize(
+        "TLSC TT HD 55 NUOC ma giao dich",
+        "KHAC",
+        0,
+        300_000,
+        profile="tlsc",
+    ) == ("outflow", "water", False)

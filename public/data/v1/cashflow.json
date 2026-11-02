@@ -1,85 +1,76 @@
 {
   "meta": {
-    "asOf": "2026-10-26",
+    "asOf": "2026-11-02",
     "currency": "VND",
     "openingBalance": 0.0,
-    "closingBalance": 327721574.0,
+    "closingBalance": 335968274.0,
     "accountNo": "7789797968",
-    "transactionCount": 2703
+    "transactionCount": 2869
   },
   "grains": {
     "week": {
       "window": {
         "grain": "week",
         "current": {
+          "start": "2026-10-27",
+          "end": "2026-11-02"
+        },
+        "prior": {
           "start": "2026-10-20",
           "end": "2026-10-26"
         },
-        "prior": {
-          "start": "2026-10-13",
-          "end": "2026-10-19"
-        },
-        "currentLabel": "This week (Oct 20 – Oct 26, 2026)",
-        "priorLabel": "Last week (Oct 13 – Oct 19, 2026)"
+        "currentLabel": "This week (Oct 27 – Nov 2, 2026)",
+        "priorLabel": "Last week (Oct 20 – Oct 26, 2026)"
       },
       "current": {
-        "totalInflow": 27518000.0,
-        "totalOutflow": 0,
-        "netCashflow": 27518000.0,
-        "bookingCount": 36,
-        "revenuePerBooking": 587388.8888888889,
-        "courtHireShare": 0.768442474017007,
-        "fbShare": 0.23155752598299295,
+        "totalInflow": 16419700.0,
+        "totalOutflow": 8936000.0,
+        "netCashflow": 7483700.0,
+        "bookingCount": 28,
+        "revenuePerBooking": 476417.85714285716,
+        "courtHireShare": 0.8124204461713673,
+        "fbShare": 0.18757955382863267,
         "reviewCount": 0
       },
       "prior": {
-        "totalInflow": 28788782.0,
-        "totalOutflow": 117000.0,
-        "netCashflow": 28671782.0,
-        "bookingCount": 65,
-        "revenuePerBooking": 353942.3076923077,
-        "courtHireShare": 0.7991394008958073,
-        "fbShare": 0.1946244200258281,
-        "reviewCount": 3
+        "totalInflow": 28281000.0,
+        "totalOutflow": 0,
+        "netCashflow": 28281000.0,
+        "bookingCount": 45,
+        "revenuePerBooking": 481866.6666666667,
+        "courtHireShare": 0.7667338495809908,
+        "fbShare": 0.23326615041900922,
+        "reviewCount": 0
       },
       "incomeRows": [
         {
           "id": "basketball_courts",
           "name": "Basketball Courts Income (Net)",
-          "tracked": 21146000.0,
-          "budget": 23006250.0,
-          "pct": 0.9191415376256452,
-          "remaining": 1860250.0,
+          "tracked": 13339700.0,
+          "budget": 21684000.0,
+          "pct": 0.6151863124884708,
+          "remaining": 8344300.0,
           "excess": 0
         },
         {
           "id": "fb_income",
           "name": "F&B Income (Net)",
-          "tracked": 6372000.0,
-          "budget": 5603000.0,
-          "pct": 1.1372479029091558,
-          "remaining": 0,
-          "excess": 769000.0
-        },
-        {
-          "id": "other_income",
-          "name": "Other Income",
-          "tracked": 0,
-          "budget": 179532.0,
-          "pct": 0.0,
-          "remaining": 179532.0,
+          "tracked": 3080000.0,
+          "budget": 6597000.0,
+          "pct": 0.46687888434136726,
+          "remaining": 3517000.0,
           "excess": 0
         }
       ],
       "expenseRows": [
         {
-          "id": "expense_misc",
-          "name": "Misc",
-          "tracked": 0,
-          "budget": 117000.0,
-          "pct": 0.0,
-          "remaining": 117000.0,
-          "excess": 0
+          "id": "inventory",
+          "name": "Inventory",
+          "tracked": 8936000.0,
+          "budget": 0,
+          "pct": 1,
+          "remaining": 0,
+          "excess": 8936000.0
         }
       ],
       "ytdMonthly": [
@@ -140,8 +131,14 @@
         {
           "key": "2026-10",
           "label": "Oct 26",
-          "inflow": 129683932.0,
+          "inflow": 145607632.0,
           "outflow": 110573000.0
+        },
+        {
+          "key": "2026-11",
+          "label": "Nov 26",
+          "inflow": 1259000.0,
+          "outflow": 8936000.0
         }
       ]
     },
@@ -149,110 +146,65 @@
       "window": {
         "grain": "month",
         "current": {
-          "start": "2026-10-01",
-          "end": "2026-10-26"
+          "start": "2026-11-01",
+          "end": "2026-11-02"
         },
         "prior": {
-          "start": "2026-09-01",
-          "end": "2026-09-26"
+          "start": "2026-10-01",
+          "end": "2026-10-02"
         },
-        "currentLabel": "This month (Oct 1 – Oct 26, 2026)",
-        "priorLabel": "Last month (Sep 1 – Sep 26, 2026)"
+        "currentLabel": "This month (Nov 1 – Nov 2, 2026)",
+        "priorLabel": "Last month (Oct 1 – Oct 2, 2026)"
       },
       "current": {
-        "totalInflow": 129683932.0,
-        "totalOutflow": 110573000.0,
-        "netCashflow": 19110932.0,
-        "bookingCount": 239,
-        "revenuePerBooking": 437553.9748953975,
-        "courtHireShare": 0.8063867156649753,
-        "fbShare": 0.1915349081179926,
-        "reviewCount": 7
+        "totalInflow": 1259000.0,
+        "totalOutflow": 8936000.0,
+        "netCashflow": -7677000.0,
+        "bookingCount": 5,
+        "revenuePerBooking": 107800.0,
+        "courtHireShare": 0.42811755361397935,
+        "fbShare": 0.5718824463860207,
+        "reviewCount": 0
       },
       "prior": {
-        "totalInflow": 119120617.0,
-        "totalOutflow": 93090298.0,
-        "netCashflow": 26030319.0,
-        "bookingCount": 193,
-        "revenuePerBooking": 506956.2176165803,
-        "courtHireShare": 0.8213737677332548,
-        "fbShare": 0.17260656062585708,
-        "reviewCount": 13
+        "totalInflow": 11801750.0,
+        "totalOutflow": 0,
+        "netCashflow": 11801750.0,
+        "bookingCount": 26,
+        "revenuePerBooking": 396605.76923076925,
+        "courtHireShare": 0.8737475374414811,
+        "fbShare": 0.12625246255851885,
+        "reviewCount": 0
       },
       "incomeRows": [
         {
-          "id": "basketball_courts",
-          "name": "Basketball Courts Income (Net)",
-          "tracked": 104575400.0,
-          "budget": 97842550.0,
-          "pct": 1.068813108407334,
-          "remaining": 0,
-          "excess": 6732850.0
-        },
-        {
           "id": "fb_income",
           "name": "F&B Income (Net)",
-          "tracked": 24839000.0,
-          "budget": 20561000.0,
-          "pct": 1.2080638101259666,
-          "remaining": 0,
-          "excess": 4278000.0
+          "tracked": 720000.0,
+          "budget": 1490000.0,
+          "pct": 0.48322147651006714,
+          "remaining": 770000.0,
+          "excess": 0
         },
         {
-          "id": "other_income",
-          "name": "Other Income",
-          "tracked": 269532.0,
-          "budget": 717067.0,
-          "pct": 0.37588119380755214,
-          "remaining": 447535.0,
+          "id": "basketball_courts",
+          "name": "Basketball Courts Income (Net)",
+          "tracked": 539000.0,
+          "budget": 10311750.0,
+          "pct": 0.05227046815525978,
+          "remaining": 9772750.0,
           "excess": 0
         }
       ],
       "expenseRows": [
         {
-          "id": "renting",
-          "name": "Renting",
-          "tracked": 84150000.0,
-          "budget": 84150000.0,
-          "pct": 1.0,
-          "remaining": 0.0,
-          "excess": 0.0
-        },
-        {
           "id": "inventory",
           "name": "Inventory",
-          "tracked": 11283000.0,
-          "budget": 1678000.0,
-          "pct": 6.724076281287247,
-          "remaining": 0,
-          "excess": 9605000.0
-        },
-        {
-          "id": "electricity",
-          "name": "Electricity",
-          "tracked": 7900000.0,
+          "tracked": 8936000.0,
           "budget": 0,
           "pct": 1,
           "remaining": 0,
-          "excess": 7900000.0
-        },
-        {
-          "id": "employees",
-          "name": "Employees",
-          "tracked": 6000000.0,
-          "budget": 0,
-          "pct": 1,
-          "remaining": 0,
-          "excess": 6000000.0
-        },
-        {
-          "id": "expense_misc",
-          "name": "Misc",
-          "tracked": 1240000.0,
-          "budget": 7262298.0,
-          "pct": 0.1707448523869442,
-          "remaining": 6022298.0,
-          "excess": 0
+          "excess": 8936000.0
         }
       ],
       "ytdMonthly": [
@@ -313,8 +265,14 @@
         {
           "key": "2026-10",
           "label": "Oct 26",
-          "inflow": 129683932.0,
+          "inflow": 145607632.0,
           "outflow": 110573000.0
+        },
+        {
+          "key": "2026-11",
+          "label": "Nov 26",
+          "inflow": 1259000.0,
+          "outflow": 8936000.0
         }
       ]
     },
@@ -323,23 +281,23 @@
         "grain": "year",
         "current": {
           "start": "2026-01-01",
-          "end": "2026-10-26"
+          "end": "2026-11-02"
         },
         "prior": {
           "start": "2025-01-01",
-          "end": "2025-10-26"
+          "end": "2025-11-02"
         },
-        "currentLabel": "This year (Jan 1 – Oct 26, 2026)",
-        "priorLabel": "Last year (Jan 1 – Oct 26, 2025)"
+        "currentLabel": "This year (Jan 1 – Nov 2, 2026)",
+        "priorLabel": "Last year (Jan 1 – Nov 2, 2025)"
       },
       "current": {
-        "totalInflow": 1361689322.0,
-        "totalOutflow": 1033967748.0,
-        "netCashflow": 327721574.0,
-        "bookingCount": 627,
-        "revenuePerBooking": 562872.966507177,
-        "courtHireShare": 0.25917905376656836,
-        "fbShare": 0.05522588654036607,
+        "totalInflow": 1378872022.0,
+        "totalOutflow": 1042903748.0,
+        "netCashflow": 335968274.0,
+        "bookingCount": 664,
+        "revenuePerBooking": 552408.2078313254,
+        "courtHireShare": 0.26601384620740387,
+        "fbShare": 0.05693458040154505,
         "reviewCount": 97
       },
       "prior": {
@@ -365,20 +323,20 @@
         {
           "id": "basketball_courts",
           "name": "Basketball Courts Income (Net)",
-          "tracked": 352921350.0,
+          "tracked": 366799050.0,
           "budget": 0,
           "pct": 1,
           "remaining": 0,
-          "excess": 352921350.0
+          "excess": 366799050.0
         },
         {
           "id": "fb_income",
           "name": "F&B Income (Net)",
-          "tracked": 75200500.0,
+          "tracked": 78505500.0,
           "budget": 0,
           "pct": 1,
           "remaining": 0,
-          "excess": 75200500.0
+          "excess": 78505500.0
         }
       ],
       "expenseRows": [
@@ -403,11 +361,11 @@
         {
           "id": "inventory",
           "name": "Inventory",
-          "tracked": 27623000.0,
+          "tracked": 36559000.0,
           "budget": 0,
           "pct": 1,
           "remaining": 0,
-          "excess": 27623000.0
+          "excess": 36559000.0
         },
         {
           "id": "electricity",
@@ -486,8 +444,14 @@
         {
           "key": "2026-10",
           "label": "Oct 26",
-          "inflow": 129683932.0,
+          "inflow": 145607632.0,
           "outflow": 110573000.0
+        },
+        {
+          "key": "2026-11",
+          "label": "Nov 26",
+          "inflow": 1259000.0,
+          "outflow": 8936000.0
         }
       ]
     }

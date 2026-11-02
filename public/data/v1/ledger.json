@@ -1,11 +1,11 @@
 {
   "meta": {
-    "asOf": "2026-10-26",
+    "asOf": "2026-11-02",
     "currency": "VND",
     "openingBalance": 0.0,
-    "closingBalance": 327721574.0,
+    "closingBalance": 335968274.0,
     "accountNo": "7789797968",
-    "transactionCount": 2703
+    "transactionCount": 2869
   },
   "transactions": [
     {
@@ -26709,10 +26709,30 @@
       "needsReview": false
     },
     {
+      "id": "0528943a6d3b3177ecb3970c2c75e859bcb726284751cd2f6be6824a046ad4e5",
+      "sourceId": "ec96d0781e64d2e80cd706bfe9f0cb27ce05cdd961cbb42092aa833015751442",
+      "date": "2026-10-26",
+      "amount": 15000.0,
+      "categoryType": "inflow",
+      "categoryId": "fb_income",
+      "channel": "kiotviet",
+      "needsReview": false
+    },
+    {
       "id": "06215ae64e952c38319487ff77fd1e685c620b90585be5b2aa35bc5de67c0c2c",
       "sourceId": "ec96d0781e64d2e80cd706bfe9f0cb27ce05cdd961cbb42092aa833015751442",
       "date": "2026-10-26",
       "amount": 15000.0,
+      "categoryType": "inflow",
+      "categoryId": "fb_income",
+      "channel": "kiotviet",
+      "needsReview": false
+    },
+    {
+      "id": "077d3a6ab6731bf4992fe00e65247af21911f85c0efbf396c9892f0d8eed3e50",
+      "sourceId": "ec96d0781e64d2e80cd706bfe9f0cb27ce05cdd961cbb42092aa833015751442",
+      "date": "2026-10-26",
+      "amount": 10000.0,
       "categoryType": "inflow",
       "categoryId": "fb_income",
       "channel": "kiotviet",
@@ -26739,6 +26759,16 @@
       "needsReview": false
     },
     {
+      "id": "0ddc1c6c2042859c1d5a2816407e90db4a01eb6275f3ac13ac83c695d9417f50",
+      "sourceId": "ec96d0781e64d2e80cd706bfe9f0cb27ce05cdd961cbb42092aa833015751442",
+      "date": "2026-10-26",
+      "amount": 49000.0,
+      "categoryType": "inflow",
+      "categoryId": "basketball_courts",
+      "channel": "kiotviet",
+      "needsReview": false
+    },
+    {
       "id": "0ee1e552914371dfa13d3b418ae6276defca4a76b8a4acdc4b61ceae9d84d36c",
       "sourceId": "ec96d0781e64d2e80cd706bfe9f0cb27ce05cdd961cbb42092aa833015751442",
       "date": "2026-10-26",
@@ -26755,6 +26785,26 @@
       "amount": 20000.0,
       "categoryType": "inflow",
       "categoryId": "fb_income",
+      "channel": "kiotviet",
+      "needsReview": false
+    },
+    {
+      "id": "27fd97d94338f3fb914eb4d0b734ca2b98a390c54e9c40fafc5d8263b5115e90",
+      "sourceId": "ec96d0781e64d2e80cd706bfe9f0cb27ce05cdd961cbb42092aa833015751442",
+      "date": "2026-10-26",
+      "amount": 25000.0,
+      "categoryType": "inflow",
+      "categoryId": "fb_income",
+      "channel": "kiotviet",
+      "needsReview": false
+    },
+    {
+      "id": "28a2255f5cde9242f32917710905561e23e036c5c0021db57854c20c93f0e83f",
+      "sourceId": "ec96d0781e64d2e80cd706bfe9f0cb27ce05cdd961cbb42092aa833015751442",
+      "date": "2026-10-26",
+      "amount": 117000.0,
+      "categoryType": "inflow",
+      "categoryId": "basketball_courts",
       "channel": "kiotviet",
       "needsReview": false
     },
@@ -26783,6 +26833,26 @@
       "sourceId": "ec96d0781e64d2e80cd706bfe9f0cb27ce05cdd961cbb42092aa833015751442",
       "date": "2026-10-26",
       "amount": 35000.0,
+      "categoryType": "inflow",
+      "categoryId": "fb_income",
+      "channel": "kiotviet",
+      "needsReview": false
+    },
+    {
+      "id": "409ef29daf7c8b5bc388fcaf694ec18d82bd7ec9c9ece17be7788979eae80e15",
+      "sourceId": "ec96d0781e64d2e80cd706bfe9f0cb27ce05cdd961cbb42092aa833015751442",
+      "date": "2026-10-26",
+      "amount": 49000.0,
+      "categoryType": "inflow",
+      "categoryId": "basketball_courts",
+      "channel": "zalopay",
+      "needsReview": false
+    },
+    {
+      "id": "4151a99c2edfb00dc4062e0c03740b8eedab33ce37c58875fedcc94cc57fb4fa",
+      "sourceId": "ec96d0781e64d2e80cd706bfe9f0cb27ce05cdd961cbb42092aa833015751442",
+      "date": "2026-10-26",
+      "amount": 15000.0,
       "categoryType": "inflow",
       "categoryId": "fb_income",
       "channel": "kiotviet",
@@ -26819,6 +26889,16 @@
       "needsReview": false
     },
     {
+      "id": "4f75ea4155db1830a2ce2213bf3aff50781c62826a3bfba7a411989b94ad7c68",
+      "sourceId": "ec96d0781e64d2e80cd706bfe9f0cb27ce05cdd961cbb42092aa833015751442",
+      "date": "2026-10-26",
+      "amount": 15000.0,
+      "categoryType": "inflow",
+      "categoryId": "fb_income",
+      "channel": "kiotviet",
+      "needsReview": false
+    },
+    {
       "id": "5f89036bf0de42311bad14c0faaf9f7cb634a98609a05ccf14b1d7d58ab19865",
       "sourceId": "ec96d0781e64d2e80cd706bfe9f0cb27ce05cdd961cbb42092aa833015751442",
       "date": "2026-10-26",
@@ -26826,6 +26906,16 @@
       "categoryType": "inflow",
       "categoryId": "fb_income",
       "channel": "kiotviet",
+      "needsReview": false
+    },
+    {
+      "id": "65770f35835ecbadd1c58701d73530385b552e0794b8fa5f437e687c0b9abd27",
+      "sourceId": "ec96d0781e64d2e80cd706bfe9f0cb27ce05cdd961cbb42092aa833015751442",
+      "date": "2026-10-26",
+      "amount": 49000.0,
+      "categoryType": "inflow",
+      "categoryId": "basketball_courts",
+      "channel": "momo",
       "needsReview": false
     },
     {
@@ -26849,6 +26939,16 @@
       "needsReview": false
     },
     {
+      "id": "6b986e8d4cdbb8ad4561b929e9c43b92368bbc6df2995daa5f00b2e08b98f293",
+      "sourceId": "ec96d0781e64d2e80cd706bfe9f0cb27ce05cdd961cbb42092aa833015751442",
+      "date": "2026-10-26",
+      "amount": 25000.0,
+      "categoryType": "inflow",
+      "categoryId": "fb_income",
+      "channel": "kiotviet",
+      "needsReview": false
+    },
+    {
       "id": "6fe36eb21926a8df10de5699894d4e6a916d00f3b7db1f6127bbdd3657e65e85",
       "sourceId": "ec96d0781e64d2e80cd706bfe9f0cb27ce05cdd961cbb42092aa833015751442",
       "date": "2026-10-26",
@@ -26856,6 +26956,16 @@
       "categoryType": "inflow",
       "categoryId": "basketball_courts",
       "channel": "bank_transfer",
+      "needsReview": false
+    },
+    {
+      "id": "7b208ea2d9a32f204b0fc34b82f617ebb7dd1f1b3505c2d888d9edaefcb1bba6",
+      "sourceId": "ec96d0781e64d2e80cd706bfe9f0cb27ce05cdd961cbb42092aa833015751442",
+      "date": "2026-10-26",
+      "amount": 39000.0,
+      "categoryType": "inflow",
+      "categoryId": "basketball_courts",
+      "channel": "kiotviet",
       "needsReview": false
     },
     {
@@ -26919,6 +27029,16 @@
       "needsReview": false
     },
     {
+      "id": "996d0af68a56b130180746021c5bdbf56ec8f4f89fc3c0a40854e9338725ef5b",
+      "sourceId": "ec96d0781e64d2e80cd706bfe9f0cb27ce05cdd961cbb42092aa833015751442",
+      "date": "2026-10-26",
+      "amount": 49000.0,
+      "categoryType": "inflow",
+      "categoryId": "basketball_courts",
+      "channel": "momo",
+      "needsReview": false
+    },
+    {
       "id": "9f01d50eadcbda0e0d6e5eb2dac105382c3bccbcc9cc923691e07b6294c32da2",
       "sourceId": "ec96d0781e64d2e80cd706bfe9f0cb27ce05cdd961cbb42092aa833015751442",
       "date": "2026-10-26",
@@ -26926,6 +27046,16 @@
       "categoryType": "inflow",
       "categoryId": "fb_income",
       "channel": "kiotviet",
+      "needsReview": false
+    },
+    {
+      "id": "a165641a2a8f63fab2eb98b1c7db6abe938a9ad6040a625f9d8f3dfcd7558e6b",
+      "sourceId": "ec96d0781e64d2e80cd706bfe9f0cb27ce05cdd961cbb42092aa833015751442",
+      "date": "2026-10-26",
+      "amount": 49000.0,
+      "categoryType": "inflow",
+      "categoryId": "basketball_courts",
+      "channel": "zalopay",
       "needsReview": false
     },
     {
@@ -26969,6 +27099,16 @@
       "needsReview": false
     },
     {
+      "id": "bc9f319d275122c4e37789167b386c7d0adf571754d25a1e27cf9ab7fed3e007",
+      "sourceId": "ec96d0781e64d2e80cd706bfe9f0cb27ce05cdd961cbb42092aa833015751442",
+      "date": "2026-10-26",
+      "amount": 25000.0,
+      "categoryType": "inflow",
+      "categoryId": "fb_income",
+      "channel": "kiotviet",
+      "needsReview": false
+    },
+    {
       "id": "c177e7c4365f06f2979b14d870bc0ee83e4fa6b2dd407009d0a42487ac73ef3f",
       "sourceId": "ec96d0781e64d2e80cd706bfe9f0cb27ce05cdd961cbb42092aa833015751442",
       "date": "2026-10-26",
@@ -26999,6 +27139,16 @@
       "needsReview": false
     },
     {
+      "id": "ca3fc76887ec5a4f7ef22f56feebc795c73adf6ac376782ea63dcdf3642c6df5",
+      "sourceId": "ec96d0781e64d2e80cd706bfe9f0cb27ce05cdd961cbb42092aa833015751442",
+      "date": "2026-10-26",
+      "amount": 30000.0,
+      "categoryType": "inflow",
+      "categoryId": "fb_income",
+      "channel": "kiotviet",
+      "needsReview": false
+    },
+    {
       "id": "ca4a8aeac180a9c3639642292c1656801308d31eca89f4e35dbcd891fadc97ed",
       "sourceId": "ec96d0781e64d2e80cd706bfe9f0cb27ce05cdd961cbb42092aa833015751442",
       "date": "2026-10-26",
@@ -27006,6 +27156,26 @@
       "categoryType": "inflow",
       "categoryId": "basketball_courts",
       "channel": "bank_transfer",
+      "needsReview": false
+    },
+    {
+      "id": "cacb92f349972857c3c36498d081d25ed50ff58790064c00f0222c090c52fae0",
+      "sourceId": "ec96d0781e64d2e80cd706bfe9f0cb27ce05cdd961cbb42092aa833015751442",
+      "date": "2026-10-26",
+      "amount": 98000.0,
+      "categoryType": "inflow",
+      "categoryId": "basketball_courts",
+      "channel": "kiotviet",
+      "needsReview": false
+    },
+    {
+      "id": "cf8fb69d79537130c1f6a541c68195e135245ca6683bbe1bdb0ec1ce8642f496",
+      "sourceId": "ec96d0781e64d2e80cd706bfe9f0cb27ce05cdd961cbb42092aa833015751442",
+      "date": "2026-10-26",
+      "amount": 15000.0,
+      "categoryType": "inflow",
+      "categoryId": "fb_income",
+      "channel": "kiotviet",
       "needsReview": false
     },
     {
@@ -27019,6 +27189,26 @@
       "needsReview": false
     },
     {
+      "id": "ddd027aa74ebce11e52571593f0d7dcffc2b86b4473d9f279ab5cf69972c924b",
+      "sourceId": "ec96d0781e64d2e80cd706bfe9f0cb27ce05cdd961cbb42092aa833015751442",
+      "date": "2026-10-26",
+      "amount": 39000.0,
+      "categoryType": "inflow",
+      "categoryId": "basketball_courts",
+      "channel": "zalopay",
+      "needsReview": false
+    },
+    {
+      "id": "e186207fd714486632874cfdcff36ff7abc73d2ccff3118e1ccf2fa2f65db43b",
+      "sourceId": "ec96d0781e64d2e80cd706bfe9f0cb27ce05cdd961cbb42092aa833015751442",
+      "date": "2026-10-26",
+      "amount": 25000.0,
+      "categoryType": "inflow",
+      "categoryId": "fb_income",
+      "channel": "kiotviet",
+      "needsReview": false
+    },
+    {
       "id": "ebb3a05b404d468cd44307209583aaf9d6a057b54982e04abad103c1eb271391",
       "sourceId": "ec96d0781e64d2e80cd706bfe9f0cb27ce05cdd961cbb42092aa833015751442",
       "date": "2026-10-26",
@@ -27029,9 +27219,1479 @@
       "needsReview": false
     },
     {
+      "id": "eff48677148d354ff3d8ebedba80fd888ee4ad5f27bade4c913f9fa68d83c318",
+      "sourceId": "ec96d0781e64d2e80cd706bfe9f0cb27ce05cdd961cbb42092aa833015751442",
+      "date": "2026-10-26",
+      "amount": 25000.0,
+      "categoryType": "inflow",
+      "categoryId": "fb_income",
+      "channel": "kiotviet",
+      "needsReview": false
+    },
+    {
       "id": "ff6a47f6feb7469891580390a6574cbec155dd47c36ca84786baef00b6f80b62",
       "sourceId": "ec96d0781e64d2e80cd706bfe9f0cb27ce05cdd961cbb42092aa833015751442",
       "date": "2026-10-26",
+      "amount": 25000.0,
+      "categoryType": "inflow",
+      "categoryId": "fb_income",
+      "channel": "kiotviet",
+      "needsReview": false
+    },
+    {
+      "id": "0a3612ef2cd6a0847ee10e39b968350136fa9f6f4e28fc91bf1eefe028d98811",
+      "sourceId": "ec96d0781e64d2e80cd706bfe9f0cb27ce05cdd961cbb42092aa833015751442",
+      "date": "2026-10-27",
+      "amount": 25000.0,
+      "categoryType": "inflow",
+      "categoryId": "fb_income",
+      "channel": "kiotviet",
+      "needsReview": false
+    },
+    {
+      "id": "0b55211569b783f0375a5d707699c0ddf4caaf193ea71a68fd0276cf06998973",
+      "sourceId": "ec96d0781e64d2e80cd706bfe9f0cb27ce05cdd961cbb42092aa833015751442",
+      "date": "2026-10-27",
+      "amount": 15000.0,
+      "categoryType": "inflow",
+      "categoryId": "fb_income",
+      "channel": "kiotviet",
+      "needsReview": false
+    },
+    {
+      "id": "29498ea3236f93d2e14026d4e24464e9a219b171ed963e8b22bb1189ee2f4516",
+      "sourceId": "ec96d0781e64d2e80cd706bfe9f0cb27ce05cdd961cbb42092aa833015751442",
+      "date": "2026-10-27",
+      "amount": 49000.0,
+      "categoryType": "inflow",
+      "categoryId": "basketball_courts",
+      "channel": "zalopay",
+      "needsReview": false
+    },
+    {
+      "id": "49902c90b1b591a654a5bcdb31670e6f800c6089aee11128b5d3b50c1b571ad1",
+      "sourceId": "ec96d0781e64d2e80cd706bfe9f0cb27ce05cdd961cbb42092aa833015751442",
+      "date": "2026-10-27",
+      "amount": 15000.0,
+      "categoryType": "inflow",
+      "categoryId": "fb_income",
+      "channel": "bank_transfer",
+      "needsReview": false
+    },
+    {
+      "id": "51c6a6c687a3a5c706daef032dc4e21d2a192e8e8d410ec4f448bf2d35838439",
+      "sourceId": "ec96d0781e64d2e80cd706bfe9f0cb27ce05cdd961cbb42092aa833015751442",
+      "date": "2026-10-27",
+      "amount": 25000.0,
+      "categoryType": "inflow",
+      "categoryId": "fb_income",
+      "channel": "kiotviet",
+      "needsReview": false
+    },
+    {
+      "id": "59fa6bb0210107b2957ac8e4b89823c074f10ad6a7bf5309cd9c385bf10dea3e",
+      "sourceId": "ec96d0781e64d2e80cd706bfe9f0cb27ce05cdd961cbb42092aa833015751442",
+      "date": "2026-10-27",
+      "amount": 45000.0,
+      "categoryType": "inflow",
+      "categoryId": "fb_income",
+      "channel": "kiotviet",
+      "needsReview": false
+    },
+    {
+      "id": "5d8c20cefc932a433262e8e8d65ab6ba453502a9f08dfee37cd9e6c49aa74bdf",
+      "sourceId": "ec96d0781e64d2e80cd706bfe9f0cb27ce05cdd961cbb42092aa833015751442",
+      "date": "2026-10-27",
+      "amount": 10000.0,
+      "categoryType": "inflow",
+      "categoryId": "fb_income",
+      "channel": "bank_transfer",
+      "needsReview": false
+    },
+    {
+      "id": "63020824eb2912c8becbcabe318c4a40f1999fc0cc457ec134c422fff038440a",
+      "sourceId": "ec96d0781e64d2e80cd706bfe9f0cb27ce05cdd961cbb42092aa833015751442",
+      "date": "2026-10-27",
+      "amount": 10000.0,
+      "categoryType": "inflow",
+      "categoryId": "fb_income",
+      "channel": "momo",
+      "needsReview": false
+    },
+    {
+      "id": "89ea4375c4da227b6dfb4bcbd74f157d8880ad0aa9e61fff5497179e286cf726",
+      "sourceId": "ec96d0781e64d2e80cd706bfe9f0cb27ce05cdd961cbb42092aa833015751442",
+      "date": "2026-10-27",
+      "amount": 15000.0,
+      "categoryType": "inflow",
+      "categoryId": "fb_income",
+      "channel": "kiotviet",
+      "needsReview": false
+    },
+    {
+      "id": "ae5e3be63a015af02717c70f3da9066411d983eded033faf52524f5b3a673b27",
+      "sourceId": "ec96d0781e64d2e80cd706bfe9f0cb27ce05cdd961cbb42092aa833015751442",
+      "date": "2026-10-27",
+      "amount": 30000.0,
+      "categoryType": "inflow",
+      "categoryId": "fb_income",
+      "channel": "kiotviet",
+      "needsReview": false
+    },
+    {
+      "id": "c44cc14da470c0cab3ee86ff3eefcc64f4bc2cad3163198015462ba7f4c8d4c5",
+      "sourceId": "ec96d0781e64d2e80cd706bfe9f0cb27ce05cdd961cbb42092aa833015751442",
+      "date": "2026-10-27",
+      "amount": 15000.0,
+      "categoryType": "inflow",
+      "categoryId": "fb_income",
+      "channel": "kiotviet",
+      "needsReview": false
+    },
+    {
+      "id": "caabcd53dafbfd23f1a466a37e0603bec983fc57b066c2c265f8f0863eaa9763",
+      "sourceId": "ec96d0781e64d2e80cd706bfe9f0cb27ce05cdd961cbb42092aa833015751442",
+      "date": "2026-10-27",
+      "amount": 25000.0,
+      "categoryType": "inflow",
+      "categoryId": "fb_income",
+      "channel": "kiotviet",
+      "needsReview": false
+    },
+    {
+      "id": "cfd9da87926a33845e616fe5149145ee89ac65a8c4c9f37074fb310ad3b9643a",
+      "sourceId": "ec96d0781e64d2e80cd706bfe9f0cb27ce05cdd961cbb42092aa833015751442",
+      "date": "2026-10-27",
+      "amount": 39000.0,
+      "categoryType": "inflow",
+      "categoryId": "basketball_courts",
+      "channel": "bank_transfer",
+      "needsReview": false
+    },
+    {
+      "id": "d04b7cf73b5f2be466f0e6735c9d3cab46fcb47a8f7c81ef43ae403d589480ae",
+      "sourceId": "ec96d0781e64d2e80cd706bfe9f0cb27ce05cdd961cbb42092aa833015751442",
+      "date": "2026-10-27",
+      "amount": 1989000.0,
+      "categoryType": "inflow",
+      "categoryId": "basketball_courts",
+      "channel": "bank_transfer",
+      "needsReview": false
+    },
+    {
+      "id": "dfb568d2908c67c63988c44dc09626681ea4e20c353bdeea632a550265a28f4c",
+      "sourceId": "ec96d0781e64d2e80cd706bfe9f0cb27ce05cdd961cbb42092aa833015751442",
+      "date": "2026-10-27",
+      "amount": 39000.0,
+      "categoryType": "inflow",
+      "categoryId": "basketball_courts",
+      "channel": "zalopay",
+      "needsReview": false
+    },
+    {
+      "id": "e2e04100dbab4990c0981b07bade6677d6af67cf04a172dced694ee6f7031802",
+      "sourceId": "ec96d0781e64d2e80cd706bfe9f0cb27ce05cdd961cbb42092aa833015751442",
+      "date": "2026-10-27",
+      "amount": 39000.0,
+      "categoryType": "inflow",
+      "categoryId": "basketball_courts",
+      "channel": "bank_transfer",
+      "needsReview": false
+    },
+    {
+      "id": "e31316221481b87167cba5adc29d13c8435191309aa8b9a9c12978a5cea25fbe",
+      "sourceId": "ec96d0781e64d2e80cd706bfe9f0cb27ce05cdd961cbb42092aa833015751442",
+      "date": "2026-10-27",
+      "amount": 10000.0,
+      "categoryType": "inflow",
+      "categoryId": "fb_income",
+      "channel": "kiotviet",
+      "needsReview": false
+    },
+    {
+      "id": "f1bed69439ca04d01464717c57fd009111ba3cb427c6fe934eaee218c44adcb0",
+      "sourceId": "ec96d0781e64d2e80cd706bfe9f0cb27ce05cdd961cbb42092aa833015751442",
+      "date": "2026-10-27",
+      "amount": 25000.0,
+      "categoryType": "inflow",
+      "categoryId": "fb_income",
+      "channel": "bank_transfer",
+      "needsReview": false
+    },
+    {
+      "id": "f882f972ceb590529716cd8ee6fbe2c94cb31a5b507e177e8f18f34678521e25",
+      "sourceId": "ec96d0781e64d2e80cd706bfe9f0cb27ce05cdd961cbb42092aa833015751442",
+      "date": "2026-10-27",
+      "amount": 49000.0,
+      "categoryType": "inflow",
+      "categoryId": "basketball_courts",
+      "channel": "kiotviet",
+      "needsReview": false
+    },
+    {
+      "id": "20d929e11991fa39aade7bd8b8229b44bb9defd729d6b2e8b6f998e317f9c728",
+      "sourceId": "ec96d0781e64d2e80cd706bfe9f0cb27ce05cdd961cbb42092aa833015751442",
+      "date": "2026-10-28",
+      "amount": 15000.0,
+      "categoryType": "inflow",
+      "categoryId": "fb_income",
+      "channel": "kiotviet",
+      "needsReview": false
+    },
+    {
+      "id": "22b30ebe87e6e5450ff15525fd05dfb0c279daf2118d78d445fb1208d300b504",
+      "sourceId": "ec96d0781e64d2e80cd706bfe9f0cb27ce05cdd961cbb42092aa833015751442",
+      "date": "2026-10-28",
+      "amount": 8669700.0,
+      "categoryType": "inflow",
+      "categoryId": "basketball_courts",
+      "channel": "bank_transfer",
+      "needsReview": false
+    },
+    {
+      "id": "2a7cc6428bc0c1cb0cbb121c78806d3012c11df0406c020d420d0c3f90585fe1",
+      "sourceId": "ec96d0781e64d2e80cd706bfe9f0cb27ce05cdd961cbb42092aa833015751442",
+      "date": "2026-10-28",
+      "amount": 15000.0,
+      "categoryType": "inflow",
+      "categoryId": "fb_income",
+      "channel": "kiotviet",
+      "needsReview": false
+    },
+    {
+      "id": "4d09eeee39a549cc1e00b28d741c42d492b33d656387208bfb1441b7c28a0b74",
+      "sourceId": "ec96d0781e64d2e80cd706bfe9f0cb27ce05cdd961cbb42092aa833015751442",
+      "date": "2026-10-28",
+      "amount": 20000.0,
+      "categoryType": "inflow",
+      "categoryId": "fb_income",
+      "channel": "bank_transfer",
+      "needsReview": false
+    },
+    {
+      "id": "73b0c1d0a097d469436f42f663f46a6106d585a5a770e386021c44f76cab90cf",
+      "sourceId": "ec96d0781e64d2e80cd706bfe9f0cb27ce05cdd961cbb42092aa833015751442",
+      "date": "2026-10-28",
+      "amount": 30000.0,
+      "categoryType": "inflow",
+      "categoryId": "fb_income",
+      "channel": "kiotviet",
+      "needsReview": false
+    },
+    {
+      "id": "7cf813d3cb0086b51d1fc7b9c2835e9215c7c22a1a245bebf7cd391478b5477a",
+      "sourceId": "ec96d0781e64d2e80cd706bfe9f0cb27ce05cdd961cbb42092aa833015751442",
+      "date": "2026-10-28",
+      "amount": 25000.0,
+      "categoryType": "inflow",
+      "categoryId": "fb_income",
+      "channel": "kiotviet",
+      "needsReview": false
+    },
+    {
+      "id": "8f56d37392e32b2289a18150868c247fa7c0231b67d4a7ea4baaadaf6b505789",
+      "sourceId": "ec96d0781e64d2e80cd706bfe9f0cb27ce05cdd961cbb42092aa833015751442",
+      "date": "2026-10-28",
+      "amount": 10000.0,
+      "categoryType": "inflow",
+      "categoryId": "fb_income",
+      "channel": "kiotviet",
+      "needsReview": false
+    },
+    {
+      "id": "9589ffef6630c577251a47078a4f9d09464004376772f95450276a03865c3d26",
+      "sourceId": "ec96d0781e64d2e80cd706bfe9f0cb27ce05cdd961cbb42092aa833015751442",
+      "date": "2026-10-28",
+      "amount": 25000.0,
+      "categoryType": "inflow",
+      "categoryId": "fb_income",
+      "channel": "kiotviet",
+      "needsReview": false
+    },
+    {
+      "id": "bbf44065a8adeaddefca02e77f4f7f0191c6c2cb559dc937959bdb751fa3bf51",
+      "sourceId": "ec96d0781e64d2e80cd706bfe9f0cb27ce05cdd961cbb42092aa833015751442",
+      "date": "2026-10-28",
+      "amount": 10000.0,
+      "categoryType": "inflow",
+      "categoryId": "fb_income",
+      "channel": "kiotviet",
+      "needsReview": false
+    },
+    {
+      "id": "d048e7fe50e11653ce0846170259d1ab3600540e4260bee53f34973a822f7dd4",
+      "sourceId": "ec96d0781e64d2e80cd706bfe9f0cb27ce05cdd961cbb42092aa833015751442",
+      "date": "2026-10-28",
+      "amount": 15000.0,
+      "categoryType": "inflow",
+      "categoryId": "fb_income",
+      "channel": "kiotviet",
+      "needsReview": false
+    },
+    {
+      "id": "d262e26ca3f57fd0e7e69a342708ce54640b51706ea832aa053a11414e71a8ab",
+      "sourceId": "ec96d0781e64d2e80cd706bfe9f0cb27ce05cdd961cbb42092aa833015751442",
+      "date": "2026-10-28",
+      "amount": 40000.0,
+      "categoryType": "inflow",
+      "categoryId": "fb_income",
+      "channel": "kiotviet",
+      "needsReview": false
+    },
+    {
+      "id": "ebdebaafe973f892c8f3697aaef1f60c158c94df74ccafd2b0a3508d5dfd09c2",
+      "sourceId": "ec96d0781e64d2e80cd706bfe9f0cb27ce05cdd961cbb42092aa833015751442",
+      "date": "2026-10-28",
+      "amount": 15000.0,
+      "categoryType": "inflow",
+      "categoryId": "fb_income",
+      "channel": "kiotviet",
+      "needsReview": false
+    },
+    {
+      "id": "0892447faf392e6b8b0e89c2f3a8da06236a7384f666bf955e85d1b6b7978d90",
+      "sourceId": "ec96d0781e64d2e80cd706bfe9f0cb27ce05cdd961cbb42092aa833015751442",
+      "date": "2026-10-29",
+      "amount": 40000.0,
+      "categoryType": "inflow",
+      "categoryId": "fb_income",
+      "channel": "kiotviet",
+      "needsReview": false
+    },
+    {
+      "id": "238f457fb8f369245c734d8a2fa0340256d5aaa2a0d48e7153368641f11b5541",
+      "sourceId": "ec96d0781e64d2e80cd706bfe9f0cb27ce05cdd961cbb42092aa833015751442",
+      "date": "2026-10-29",
+      "amount": 40000.0,
+      "categoryType": "inflow",
+      "categoryId": "fb_income",
+      "channel": "kiotviet",
+      "needsReview": false
+    },
+    {
+      "id": "40c551f1694b25ab581cb8f54656b245e84f22cee533afbb1e50e60ba541ed09",
+      "sourceId": "ec96d0781e64d2e80cd706bfe9f0cb27ce05cdd961cbb42092aa833015751442",
+      "date": "2026-10-29",
+      "amount": 49000.0,
+      "categoryType": "inflow",
+      "categoryId": "basketball_courts",
+      "channel": "bank_transfer",
+      "needsReview": false
+    },
+    {
+      "id": "47d5d10bc2acf17b9d2d22a8c62f2d013e7ff031a50b9d72118fe0f0cd77c1a3",
+      "sourceId": "ec96d0781e64d2e80cd706bfe9f0cb27ce05cdd961cbb42092aa833015751442",
+      "date": "2026-10-29",
+      "amount": 49000.0,
+      "categoryType": "inflow",
+      "categoryId": "basketball_courts",
+      "channel": "bank_transfer",
+      "needsReview": false
+    },
+    {
+      "id": "58c139c58a3dce7a0d143af6c0d1843023dcc5d20406746ce5943ab177e14ce2",
+      "sourceId": "ec96d0781e64d2e80cd706bfe9f0cb27ce05cdd961cbb42092aa833015751442",
+      "date": "2026-10-29",
+      "amount": 20000.0,
+      "categoryType": "inflow",
+      "categoryId": "fb_income",
+      "channel": "bank_transfer",
+      "needsReview": false
+    },
+    {
+      "id": "5dba0759454400b42cbdd81fb16047b8c1f82427a8b11ab7c43b0849e15fd578",
+      "sourceId": "ec96d0781e64d2e80cd706bfe9f0cb27ce05cdd961cbb42092aa833015751442",
+      "date": "2026-10-29",
+      "amount": 40000.0,
+      "categoryType": "inflow",
+      "categoryId": "fb_income",
+      "channel": "bank_transfer",
+      "needsReview": false
+    },
+    {
+      "id": "70228c9b4cfa963e20bbe78373ef44f7f719a1c2890ce2f9c6566f64f15428ca",
+      "sourceId": "ec96d0781e64d2e80cd706bfe9f0cb27ce05cdd961cbb42092aa833015751442",
+      "date": "2026-10-29",
+      "amount": 49000.0,
+      "categoryType": "inflow",
+      "categoryId": "basketball_courts",
+      "channel": "momo",
+      "needsReview": false
+    },
+    {
+      "id": "8010a1ba339125ad4c8dbc5392c3694c44868012bca81963383f5b038a00d731",
+      "sourceId": "ec96d0781e64d2e80cd706bfe9f0cb27ce05cdd961cbb42092aa833015751442",
+      "date": "2026-10-29",
+      "amount": 15000.0,
+      "categoryType": "inflow",
+      "categoryId": "fb_income",
+      "channel": "kiotviet",
+      "needsReview": false
+    },
+    {
+      "id": "8d6273188d9dbe77cbc82be22ca8d071ea0d59547926cbdb3f625a70e9b68534",
+      "sourceId": "ec96d0781e64d2e80cd706bfe9f0cb27ce05cdd961cbb42092aa833015751442",
+      "date": "2026-10-29",
+      "amount": 15000.0,
+      "categoryType": "inflow",
+      "categoryId": "fb_income",
+      "channel": "kiotviet",
+      "needsReview": false
+    },
+    {
+      "id": "d8d834b95211916f55ccc872cbfb578365c1e85892c01d8208dadfb3af6c658c",
+      "sourceId": "ec96d0781e64d2e80cd706bfe9f0cb27ce05cdd961cbb42092aa833015751442",
+      "date": "2026-10-29",
+      "amount": 25000.0,
+      "categoryType": "inflow",
+      "categoryId": "fb_income",
+      "channel": "kiotviet",
+      "needsReview": false
+    },
+    {
+      "id": "f4d8dbcbb98431d190a093d0b1770423ea6068955debdbf5ee1f7c3a588730f1",
+      "sourceId": "ec96d0781e64d2e80cd706bfe9f0cb27ce05cdd961cbb42092aa833015751442",
+      "date": "2026-10-29",
+      "amount": 70000.0,
+      "categoryType": "inflow",
+      "categoryId": "fb_income",
+      "channel": "kiotviet",
+      "needsReview": false
+    },
+    {
+      "id": "460a7a0d86a5ab276e08e6abf78226e61ddc391921f6974dfe6c9fc8f1d4f0ee",
+      "sourceId": "ec96d0781e64d2e80cd706bfe9f0cb27ce05cdd961cbb42092aa833015751442",
+      "date": "2026-10-30",
+      "amount": 49000.0,
+      "categoryType": "inflow",
+      "categoryId": "basketball_courts",
+      "channel": "bank_transfer",
+      "needsReview": false
+    },
+    {
+      "id": "4887f6432fc013a5f3fb278f5ea0ad81a1e08220d1a154b895478592e04c175f",
+      "sourceId": "ec96d0781e64d2e80cd706bfe9f0cb27ce05cdd961cbb42092aa833015751442",
+      "date": "2026-10-30",
+      "amount": 196000.0,
+      "categoryType": "inflow",
+      "categoryId": "basketball_courts",
+      "channel": "bank_transfer",
+      "needsReview": false
+    },
+    {
+      "id": "50dbf1661ee570b7363f0c97a702b880b3da3b0e7824e69e2494e46390200147",
+      "sourceId": "ec96d0781e64d2e80cd706bfe9f0cb27ce05cdd961cbb42092aa833015751442",
+      "date": "2026-10-30",
+      "amount": 15000.0,
+      "categoryType": "inflow",
+      "categoryId": "fb_income",
+      "channel": "kiotviet",
+      "needsReview": false
+    },
+    {
+      "id": "5c8a3678e6e5229a0398db6bebfb70760a98a1695f9754583c32049a76f6f7f0",
+      "sourceId": "ec96d0781e64d2e80cd706bfe9f0cb27ce05cdd961cbb42092aa833015751442",
+      "date": "2026-10-30",
+      "amount": 10000.0,
+      "categoryType": "inflow",
+      "categoryId": "fb_income",
+      "channel": "kiotviet",
+      "needsReview": false
+    },
+    {
+      "id": "78b78e5d20c17be2490b01f67334abe0ff0468d5509e6df7f5e9ef64422c4056",
+      "sourceId": "ec96d0781e64d2e80cd706bfe9f0cb27ce05cdd961cbb42092aa833015751442",
+      "date": "2026-10-30",
+      "amount": 350000.0,
+      "categoryType": "inflow",
+      "categoryId": "fb_income",
+      "channel": "kiotviet",
+      "needsReview": false
+    },
+    {
+      "id": "7fb0f3d06164b78b8b52bc6c292c53aabb4f6ed115023073070f93c64e662223",
+      "sourceId": "ec96d0781e64d2e80cd706bfe9f0cb27ce05cdd961cbb42092aa833015751442",
+      "date": "2026-10-30",
+      "amount": 15000.0,
+      "categoryType": "inflow",
+      "categoryId": "fb_income",
+      "channel": "kiotviet",
+      "needsReview": false
+    },
+    {
+      "id": "81823c8e9310c6be60e1fb2731e7c303d1e9daaa9139042671031a8e4bdf4ed8",
+      "sourceId": "ec96d0781e64d2e80cd706bfe9f0cb27ce05cdd961cbb42092aa833015751442",
+      "date": "2026-10-30",
+      "amount": 25000.0,
+      "categoryType": "inflow",
+      "categoryId": "fb_income",
+      "channel": "kiotviet",
+      "needsReview": false
+    },
+    {
+      "id": "8cf286c5b6c7de3bab2db5466df858533eb1effb45c9cba4591ddf8a4d42bcb3",
+      "sourceId": "ec96d0781e64d2e80cd706bfe9f0cb27ce05cdd961cbb42092aa833015751442",
+      "date": "2026-10-30",
+      "amount": 30000.0,
+      "categoryType": "inflow",
+      "categoryId": "fb_income",
+      "channel": "kiotviet",
+      "needsReview": false
+    },
+    {
+      "id": "8e8bdec56a28629e1d9a54c2b56e0e3c5d274d54d09020a22717dabc78517dfe",
+      "sourceId": "ec96d0781e64d2e80cd706bfe9f0cb27ce05cdd961cbb42092aa833015751442",
+      "date": "2026-10-30",
+      "amount": 10000.0,
+      "categoryType": "inflow",
+      "categoryId": "fb_income",
+      "channel": "kiotviet",
+      "needsReview": false
+    },
+    {
+      "id": "90e725ecea09151eddebde662294be606df2f914574dbbbd5cfb3b2522b2be2d",
+      "sourceId": "ec96d0781e64d2e80cd706bfe9f0cb27ce05cdd961cbb42092aa833015751442",
+      "date": "2026-10-30",
+      "amount": 15000.0,
+      "categoryType": "inflow",
+      "categoryId": "fb_income",
+      "channel": "kiotviet",
+      "needsReview": false
+    },
+    {
+      "id": "bdc55952db762791d2870eea297ea8c3c9bbee0cd441f8290c869f7195081418",
+      "sourceId": "ec96d0781e64d2e80cd706bfe9f0cb27ce05cdd961cbb42092aa833015751442",
+      "date": "2026-10-30",
+      "amount": 15000.0,
+      "categoryType": "inflow",
+      "categoryId": "fb_income",
+      "channel": "kiotviet",
+      "needsReview": false
+    },
+    {
+      "id": "c2465aecbf88a8188b1167f39a5ee6bb7a2eed53d1bbb9c3d00352ce8c14542b",
+      "sourceId": "ec96d0781e64d2e80cd706bfe9f0cb27ce05cdd961cbb42092aa833015751442",
+      "date": "2026-10-30",
+      "amount": 15000.0,
+      "categoryType": "inflow",
+      "categoryId": "fb_income",
+      "channel": "kiotviet",
+      "needsReview": false
+    },
+    {
+      "id": "c803497d88378fa122eaf2ebe2a02e2bf61cf793c4a1ac5219ddecd5c7b86f9a",
+      "sourceId": "ec96d0781e64d2e80cd706bfe9f0cb27ce05cdd961cbb42092aa833015751442",
+      "date": "2026-10-30",
+      "amount": 20000.0,
+      "categoryType": "inflow",
+      "categoryId": "fb_income",
+      "channel": "kiotviet",
+      "needsReview": false
+    },
+    {
+      "id": "d7c85ba7948b6a666554b50f2b67f2ac7471d251b328b70485370bb381ead409",
+      "sourceId": "ec96d0781e64d2e80cd706bfe9f0cb27ce05cdd961cbb42092aa833015751442",
+      "date": "2026-10-30",
+      "amount": 25000.0,
+      "categoryType": "inflow",
+      "categoryId": "fb_income",
+      "channel": "kiotviet",
+      "needsReview": false
+    },
+    {
+      "id": "e9ed3731fdc3af96df69817db8be2c1ded06fca175a817bee9118c0aa00f3b48",
+      "sourceId": "ec96d0781e64d2e80cd706bfe9f0cb27ce05cdd961cbb42092aa833015751442",
+      "date": "2026-10-30",
+      "amount": 50000.0,
+      "categoryType": "inflow",
+      "categoryId": "fb_income",
+      "channel": "kiotviet",
+      "needsReview": false
+    },
+    {
+      "id": "fb75184ae867c0a27d32439c09a4dc8ee7416e4063fa6055b0dae6f40771341f",
+      "sourceId": "ec96d0781e64d2e80cd706bfe9f0cb27ce05cdd961cbb42092aa833015751442",
+      "date": "2026-10-30",
+      "amount": 10000.0,
+      "categoryType": "inflow",
+      "categoryId": "fb_income",
+      "channel": "kiotviet",
+      "needsReview": false
+    },
+    {
+      "id": "04433c349cf1836edc5a29ab860db56f9d46d866caccccc8f0693e5c870cb745",
+      "sourceId": "ec96d0781e64d2e80cd706bfe9f0cb27ce05cdd961cbb42092aa833015751442",
+      "date": "2026-10-31",
+      "amount": 15000.0,
+      "categoryType": "inflow",
+      "categoryId": "fb_income",
+      "channel": "kiotviet",
+      "needsReview": false
+    },
+    {
+      "id": "06389d3dfc3b881036f93ffa88aeb7a3fb8017049972e98ccceb7cedc13723dd",
+      "sourceId": "ec96d0781e64d2e80cd706bfe9f0cb27ce05cdd961cbb42092aa833015751442",
+      "date": "2026-10-31",
+      "amount": 800000.0,
+      "categoryType": "inflow",
+      "categoryId": "basketball_courts",
+      "channel": "bank_transfer",
+      "needsReview": false
+    },
+    {
+      "id": "0d6c2e90569c0161b6af0439f29ceee342f6650ce119b3542e517e2e1b39b0c8",
+      "sourceId": "ec96d0781e64d2e80cd706bfe9f0cb27ce05cdd961cbb42092aa833015751442",
+      "date": "2026-10-31",
+      "amount": 20000.0,
+      "categoryType": "inflow",
+      "categoryId": "fb_income",
+      "channel": "kiotviet",
+      "needsReview": false
+    },
+    {
+      "id": "130bb53b2a4488f1aab675e3a98436805a43a89a4513572f491677798c01187c",
+      "sourceId": "ec96d0781e64d2e80cd706bfe9f0cb27ce05cdd961cbb42092aa833015751442",
+      "date": "2026-10-31",
+      "amount": 49000.0,
+      "categoryType": "inflow",
+      "categoryId": "basketball_courts",
+      "channel": "momo",
+      "needsReview": false
+    },
+    {
+      "id": "1ce1bdad4716d2648b2bf1e4cb34f07ce2ed7696d82c61ba5947bd0782b9241f",
+      "sourceId": "ec96d0781e64d2e80cd706bfe9f0cb27ce05cdd961cbb42092aa833015751442",
+      "date": "2026-10-31",
+      "amount": 45000.0,
+      "categoryType": "inflow",
+      "categoryId": "fb_income",
+      "channel": "kiotviet",
+      "needsReview": false
+    },
+    {
+      "id": "1d8cb687530c049b65245b4bc35eb15a22d57007566d95cff09de656202af12a",
+      "sourceId": "ec96d0781e64d2e80cd706bfe9f0cb27ce05cdd961cbb42092aa833015751442",
+      "date": "2026-10-31",
+      "amount": 25000.0,
+      "categoryType": "inflow",
+      "categoryId": "fb_income",
+      "channel": "kiotviet",
+      "needsReview": false
+    },
+    {
+      "id": "1dd8e4c10370db6a18cc54466f80ea3e5fedd23fb244d05938b4a31b8f11af5e",
+      "sourceId": "ec96d0781e64d2e80cd706bfe9f0cb27ce05cdd961cbb42092aa833015751442",
+      "date": "2026-10-31",
+      "amount": 25000.0,
+      "categoryType": "inflow",
+      "categoryId": "fb_income",
+      "channel": "kiotviet",
+      "needsReview": false
+    },
+    {
+      "id": "24f482f17a50faf64a73d5fe8ef46b0a1b212a9aae521db75a3ebadfd43f9bdc",
+      "sourceId": "ec96d0781e64d2e80cd706bfe9f0cb27ce05cdd961cbb42092aa833015751442",
+      "date": "2026-10-31",
+      "amount": 25000.0,
+      "categoryType": "inflow",
+      "categoryId": "fb_income",
+      "channel": "kiotviet",
+      "needsReview": false
+    },
+    {
+      "id": "2b0575ebfdf1b5b7bdadf27dd815f7ae1e40aa7de24e51a5856e278ccc26caf2",
+      "sourceId": "ec96d0781e64d2e80cd706bfe9f0cb27ce05cdd961cbb42092aa833015751442",
+      "date": "2026-10-31",
+      "amount": 15000.0,
+      "categoryType": "inflow",
+      "categoryId": "fb_income",
+      "channel": "kiotviet",
+      "needsReview": false
+    },
+    {
+      "id": "2eec9bed755a8f4895c77f72023e9a2cf5a2f08ad66b787ac20f9fb7768f6008",
+      "sourceId": "ec96d0781e64d2e80cd706bfe9f0cb27ce05cdd961cbb42092aa833015751442",
+      "date": "2026-10-31",
+      "amount": 10000.0,
+      "categoryType": "inflow",
+      "categoryId": "fb_income",
+      "channel": "kiotviet",
+      "needsReview": false
+    },
+    {
+      "id": "30efee82b7a31439b22a03362328b4e7ffe8154b03492b0eb27475e250f3a067",
+      "sourceId": "ec96d0781e64d2e80cd706bfe9f0cb27ce05cdd961cbb42092aa833015751442",
+      "date": "2026-10-31",
+      "amount": 15000.0,
+      "categoryType": "inflow",
+      "categoryId": "fb_income",
+      "channel": "kiotviet",
+      "needsReview": false
+    },
+    {
+      "id": "346ef11e4ceaed3cfede4c6405e9f5b7ff337c8d3ea10f63726409155de1721a",
+      "sourceId": "ec96d0781e64d2e80cd706bfe9f0cb27ce05cdd961cbb42092aa833015751442",
+      "date": "2026-10-31",
+      "amount": 10000.0,
+      "categoryType": "inflow",
+      "categoryId": "fb_income",
+      "channel": "kiotviet",
+      "needsReview": false
+    },
+    {
+      "id": "3505ada5176c866273bea981b92be6c8c6e10e5e83303e8a3fb15a327088ec1f",
+      "sourceId": "ec96d0781e64d2e80cd706bfe9f0cb27ce05cdd961cbb42092aa833015751442",
+      "date": "2026-10-31",
+      "amount": 245000.0,
+      "categoryType": "inflow",
+      "categoryId": "basketball_courts",
+      "channel": "bank_transfer",
+      "needsReview": false
+    },
+    {
+      "id": "42204d5d29e142e3d6ff4ac08c65dc129c806be76bf4b87ce217b3ed6c8e8d52",
+      "sourceId": "ec96d0781e64d2e80cd706bfe9f0cb27ce05cdd961cbb42092aa833015751442",
+      "date": "2026-10-31",
+      "amount": 30000.0,
+      "categoryType": "inflow",
+      "categoryId": "fb_income",
+      "channel": "kiotviet",
+      "needsReview": false
+    },
+    {
+      "id": "46e45621f6c378f93bd094ccc188a5404fee1de4e8e4ac675b6434af8d2d776b",
+      "sourceId": "ec96d0781e64d2e80cd706bfe9f0cb27ce05cdd961cbb42092aa833015751442",
+      "date": "2026-10-31",
+      "amount": 25000.0,
+      "categoryType": "inflow",
+      "categoryId": "fb_income",
+      "channel": "kiotviet",
+      "needsReview": false
+    },
+    {
+      "id": "49714ae6cc1995f4657a29ead7e7e787eae86947b1383ab27dfef2d7f719a3a4",
+      "sourceId": "ec96d0781e64d2e80cd706bfe9f0cb27ce05cdd961cbb42092aa833015751442",
+      "date": "2026-10-31",
+      "amount": 15000.0,
+      "categoryType": "inflow",
+      "categoryId": "fb_income",
+      "channel": "kiotviet",
+      "needsReview": false
+    },
+    {
+      "id": "5597d63df447c21d9e88b8b77fe2207ecd0cc3a3d0bfc2201a25e019dd8bb205",
+      "sourceId": "ec96d0781e64d2e80cd706bfe9f0cb27ce05cdd961cbb42092aa833015751442",
+      "date": "2026-10-31",
+      "amount": 15000.0,
+      "categoryType": "inflow",
+      "categoryId": "fb_income",
+      "channel": "kiotviet",
+      "needsReview": false
+    },
+    {
+      "id": "56deda1e2add0a0e9e0f9db431cefcf6c2ab6a2a21b6799c95bf071a98677209",
+      "sourceId": "ec96d0781e64d2e80cd706bfe9f0cb27ce05cdd961cbb42092aa833015751442",
+      "date": "2026-10-31",
+      "amount": 30000.0,
+      "categoryType": "inflow",
+      "categoryId": "fb_income",
+      "channel": "kiotviet",
+      "needsReview": false
+    },
+    {
+      "id": "5f0bdab19dd60c9c18c17d393298fe71eabc17f7ae95851cb660a8fbf53f225d",
+      "sourceId": "ec96d0781e64d2e80cd706bfe9f0cb27ce05cdd961cbb42092aa833015751442",
+      "date": "2026-10-31",
+      "amount": 49000.0,
+      "categoryType": "inflow",
+      "categoryId": "basketball_courts",
+      "channel": "bank_transfer",
+      "needsReview": false
+    },
+    {
+      "id": "601a3e988e5f7a225e375ebbd043df771aa69f88f3709abe0e0804fbb5bb9a49",
+      "sourceId": "ec96d0781e64d2e80cd706bfe9f0cb27ce05cdd961cbb42092aa833015751442",
+      "date": "2026-10-31",
+      "amount": 49000.0,
+      "categoryType": "inflow",
+      "categoryId": "basketball_courts",
+      "channel": "kiotviet",
+      "needsReview": false
+    },
+    {
+      "id": "65a275bd79a378fb6e66785940337154bfa9049daa336f9a0d73581a019629ab",
+      "sourceId": "ec96d0781e64d2e80cd706bfe9f0cb27ce05cdd961cbb42092aa833015751442",
+      "date": "2026-10-31",
+      "amount": 49000.0,
+      "categoryType": "inflow",
+      "categoryId": "basketball_courts",
+      "channel": "zalopay",
+      "needsReview": false
+    },
+    {
+      "id": "733d16b94cf9309c669bc3d18dfbf28866f41785439f28faa23eacc2033c001c",
+      "sourceId": "ec96d0781e64d2e80cd706bfe9f0cb27ce05cdd961cbb42092aa833015751442",
+      "date": "2026-10-31",
+      "amount": 98000.0,
+      "categoryType": "inflow",
+      "categoryId": "basketball_courts",
+      "channel": "kiotviet",
+      "needsReview": false
+    },
+    {
+      "id": "776764235444b08ec9b2b3c8dcffe15ca36a8c8345e721e1c2acea6f9ffd5ca0",
+      "sourceId": "ec96d0781e64d2e80cd706bfe9f0cb27ce05cdd961cbb42092aa833015751442",
+      "date": "2026-10-31",
+      "amount": 15000.0,
+      "categoryType": "inflow",
+      "categoryId": "fb_income",
+      "channel": "kiotviet",
+      "needsReview": false
+    },
+    {
+      "id": "7d1c26ed9ed93b50e470cbfd6cc9bd5cd2136f3b4f86f2047084dcc25bb3e2bf",
+      "sourceId": "ec96d0781e64d2e80cd706bfe9f0cb27ce05cdd961cbb42092aa833015751442",
+      "date": "2026-10-31",
+      "amount": 49000.0,
+      "categoryType": "inflow",
+      "categoryId": "basketball_courts",
+      "channel": "bank_transfer",
+      "needsReview": false
+    },
+    {
+      "id": "7e057f20ac6d9aca56bf566ae64af798dd68e1bdf09328b45b54747489d2f148",
+      "sourceId": "ec96d0781e64d2e80cd706bfe9f0cb27ce05cdd961cbb42092aa833015751442",
+      "date": "2026-10-31",
+      "amount": 10000.0,
+      "categoryType": "inflow",
+      "categoryId": "fb_income",
+      "channel": "kiotviet",
+      "needsReview": false
+    },
+    {
+      "id": "877c6654c246496605a587ff792a1857e08b5f087f11f9d08074a0c9c90316c3",
+      "sourceId": "ec96d0781e64d2e80cd706bfe9f0cb27ce05cdd961cbb42092aa833015751442",
+      "date": "2026-10-31",
+      "amount": 15000.0,
+      "categoryType": "inflow",
+      "categoryId": "fb_income",
+      "channel": "kiotviet",
+      "needsReview": false
+    },
+    {
+      "id": "8a2f14b63c4adc0b21436ea7ce2774d9408528f4395feee627d2bc35008a5162",
+      "sourceId": "ec96d0781e64d2e80cd706bfe9f0cb27ce05cdd961cbb42092aa833015751442",
+      "date": "2026-10-31",
+      "amount": 15000.0,
+      "categoryType": "inflow",
+      "categoryId": "fb_income",
+      "channel": "kiotviet",
+      "needsReview": false
+    },
+    {
+      "id": "8d6e8060c7e6eb955e88c5b61527bbaea1d711d9312450e2d41a64226e072688",
+      "sourceId": "ec96d0781e64d2e80cd706bfe9f0cb27ce05cdd961cbb42092aa833015751442",
+      "date": "2026-10-31",
+      "amount": 15000.0,
+      "categoryType": "inflow",
+      "categoryId": "fb_income",
+      "channel": "kiotviet",
+      "needsReview": false
+    },
+    {
+      "id": "920a284a4d0e36085a5fc5f9f889c076bb9da96edf2262bd541deaa474ac7bca",
+      "sourceId": "ec96d0781e64d2e80cd706bfe9f0cb27ce05cdd961cbb42092aa833015751442",
+      "date": "2026-10-31",
+      "amount": 15000.0,
+      "categoryType": "inflow",
+      "categoryId": "fb_income",
+      "channel": "kiotviet",
+      "needsReview": false
+    },
+    {
+      "id": "974a2c831d04f557741496af9a6ff11a1ed7b1cbcd08570103f9b2e91852a63f",
+      "sourceId": "ec96d0781e64d2e80cd706bfe9f0cb27ce05cdd961cbb42092aa833015751442",
+      "date": "2026-10-31",
+      "amount": 10000.0,
+      "categoryType": "inflow",
+      "categoryId": "fb_income",
+      "channel": "kiotviet",
+      "needsReview": false
+    },
+    {
+      "id": "97e6b7e46826e0abb679d3d1b2a51d143f078b49cf75e5ed198a72af14f893ac",
+      "sourceId": "ec96d0781e64d2e80cd706bfe9f0cb27ce05cdd961cbb42092aa833015751442",
+      "date": "2026-10-31",
+      "amount": 15000.0,
+      "categoryType": "inflow",
+      "categoryId": "fb_income",
+      "channel": "kiotviet",
+      "needsReview": false
+    },
+    {
+      "id": "9f59ec11939f2376424e2102f79032ef5535794e3d237652c8167d1e9e849b2e",
+      "sourceId": "ec96d0781e64d2e80cd706bfe9f0cb27ce05cdd961cbb42092aa833015751442",
+      "date": "2026-10-31",
+      "amount": 15000.0,
+      "categoryType": "inflow",
+      "categoryId": "fb_income",
+      "channel": "kiotviet",
+      "needsReview": false
+    },
+    {
+      "id": "a3e29ca9836847a26a71ae8e117e5f14a4f674275066ff413eebba729ceca2d7",
+      "sourceId": "ec96d0781e64d2e80cd706bfe9f0cb27ce05cdd961cbb42092aa833015751442",
+      "date": "2026-10-31",
+      "amount": 49000.0,
+      "categoryType": "inflow",
+      "categoryId": "basketball_courts",
+      "channel": "kiotviet",
+      "needsReview": false
+    },
+    {
+      "id": "af87afc160fc495e440c8a1e7eb2e26e6c9d9d6903fe1c626f060b3d8fca5b02",
+      "sourceId": "ec96d0781e64d2e80cd706bfe9f0cb27ce05cdd961cbb42092aa833015751442",
+      "date": "2026-10-31",
+      "amount": 25000.0,
+      "categoryType": "inflow",
+      "categoryId": "fb_income",
+      "channel": "kiotviet",
+      "needsReview": false
+    },
+    {
+      "id": "b81f1d9c66977df05fc8b11bed449e66c3a6906ac3b105ee00111f4be3cd6b1e",
+      "sourceId": "ec96d0781e64d2e80cd706bfe9f0cb27ce05cdd961cbb42092aa833015751442",
+      "date": "2026-10-31",
+      "amount": 49000.0,
+      "categoryType": "inflow",
+      "categoryId": "basketball_courts",
+      "channel": "kiotviet",
+      "needsReview": false
+    },
+    {
+      "id": "c31a8a15f5de92cd6fce5879c49ad62c38edcc76d4a7e3391fb3625955e535e5",
+      "sourceId": "ec96d0781e64d2e80cd706bfe9f0cb27ce05cdd961cbb42092aa833015751442",
+      "date": "2026-10-31",
+      "amount": 15000.0,
+      "categoryType": "inflow",
+      "categoryId": "fb_income",
+      "channel": "kiotviet",
+      "needsReview": false
+    },
+    {
+      "id": "d091a0e110007680d0c9da858a2ab0851c60f5b22de5e5637ba700f50294d7bf",
+      "sourceId": "ec96d0781e64d2e80cd706bfe9f0cb27ce05cdd961cbb42092aa833015751442",
+      "date": "2026-10-31",
+      "amount": 15000.0,
+      "categoryType": "inflow",
+      "categoryId": "fb_income",
+      "channel": "kiotviet",
+      "needsReview": false
+    },
+    {
+      "id": "d6009e90e82000c81b5bcaa37c2f4871deda755096852dc6d2fcf4e10babd96d",
+      "sourceId": "ec96d0781e64d2e80cd706bfe9f0cb27ce05cdd961cbb42092aa833015751442",
+      "date": "2026-10-31",
+      "amount": 15000.0,
+      "categoryType": "inflow",
+      "categoryId": "fb_income",
+      "channel": "kiotviet",
+      "needsReview": false
+    },
+    {
+      "id": "d769584e7d1ed1bdeda37b23921056c4bdc0d57beb2539e013ccafcf4d847900",
+      "sourceId": "ec96d0781e64d2e80cd706bfe9f0cb27ce05cdd961cbb42092aa833015751442",
+      "date": "2026-10-31",
+      "amount": 25000.0,
+      "categoryType": "inflow",
+      "categoryId": "fb_income",
+      "channel": "kiotviet",
+      "needsReview": false
+    },
+    {
+      "id": "db6fe3c1b0b115e90a4e01c34934d120580956ba824420e3b69a3c3a0e01eb16",
+      "sourceId": "ec96d0781e64d2e80cd706bfe9f0cb27ce05cdd961cbb42092aa833015751442",
+      "date": "2026-10-31",
+      "amount": 350000.0,
+      "categoryType": "inflow",
+      "categoryId": "fb_income",
+      "channel": "kiotviet",
+      "needsReview": false
+    },
+    {
+      "id": "e281662e1b27ee96117a4e36ff4dd5074ddb6b92f96a53adfb3a0252a3d0d97d",
+      "sourceId": "ec96d0781e64d2e80cd706bfe9f0cb27ce05cdd961cbb42092aa833015751442",
+      "date": "2026-10-31",
+      "amount": 10000.0,
+      "categoryType": "inflow",
+      "categoryId": "fb_income",
+      "channel": "kiotviet",
+      "needsReview": false
+    },
+    {
+      "id": "e4810a08148248075265f7472214009c765f0b2ca21f5a2f13d104c95e4ec4db",
+      "sourceId": "ec96d0781e64d2e80cd706bfe9f0cb27ce05cdd961cbb42092aa833015751442",
+      "date": "2026-10-31",
+      "amount": 10000.0,
+      "categoryType": "inflow",
+      "categoryId": "fb_income",
+      "channel": "kiotviet",
+      "needsReview": false
+    },
+    {
+      "id": "ed3ccb56381a4cc1b3e920991dba8460f522c40fab1674b71bc26f772719c8ab",
+      "sourceId": "ec96d0781e64d2e80cd706bfe9f0cb27ce05cdd961cbb42092aa833015751442",
+      "date": "2026-10-31",
+      "amount": 15000.0,
+      "categoryType": "inflow",
+      "categoryId": "fb_income",
+      "channel": "kiotviet",
+      "needsReview": false
+    },
+    {
+      "id": "f04ed2616c04fc802f764d05bcd66cf35414cb981ad03d1ea7eab2c500e47414",
+      "sourceId": "ec96d0781e64d2e80cd706bfe9f0cb27ce05cdd961cbb42092aa833015751442",
+      "date": "2026-10-31",
+      "amount": 25000.0,
+      "categoryType": "inflow",
+      "categoryId": "fb_income",
+      "channel": "kiotviet",
+      "needsReview": false
+    },
+    {
+      "id": "f6931dc6d221ddbfd1d5c0033e41df304844496e269cc500445cbbae1572a2f1",
+      "sourceId": "ec96d0781e64d2e80cd706bfe9f0cb27ce05cdd961cbb42092aa833015751442",
+      "date": "2026-10-31",
+      "amount": 25000.0,
+      "categoryType": "inflow",
+      "categoryId": "fb_income",
+      "channel": "kiotviet",
+      "needsReview": false
+    },
+    {
+      "id": "fc2358be45c4d7f33cecc6a3fc85c71f17033950e54576caf4901cbc7106b162",
+      "sourceId": "ec96d0781e64d2e80cd706bfe9f0cb27ce05cdd961cbb42092aa833015751442",
+      "date": "2026-10-31",
+      "amount": 15000.0,
+      "categoryType": "inflow",
+      "categoryId": "fb_income",
+      "channel": "kiotviet",
+      "needsReview": false
+    },
+    {
+      "id": "fda084b64899b11c1168921ae6d27763dcdb913cc251a6aae41fc6d0b18a3b74",
+      "sourceId": "ec96d0781e64d2e80cd706bfe9f0cb27ce05cdd961cbb42092aa833015751442",
+      "date": "2026-10-31",
+      "amount": 15000.0,
+      "categoryType": "inflow",
+      "categoryId": "fb_income",
+      "channel": "kiotviet",
+      "needsReview": false
+    },
+    {
+      "id": "fe10bfb46ac57a0661540fabe46af834635039036f9eb9da534046e21f2abb5b",
+      "sourceId": "ec96d0781e64d2e80cd706bfe9f0cb27ce05cdd961cbb42092aa833015751442",
+      "date": "2026-10-31",
+      "amount": 49000.0,
+      "categoryType": "inflow",
+      "categoryId": "basketball_courts",
+      "channel": "kiotviet",
+      "needsReview": false
+    },
+    {
+      "id": "00357774d5ab7a1ab181b77bddbf5b18c9bcad4efd5bc0103b2b5aed6783cd64",
+      "sourceId": "5f002042304b59fcab52a9f6d4f1cb74a62c8ed8b1861af33af1ffd5ca99e5fe",
+      "date": "2026-11-02",
+      "amount": 98000.0,
+      "categoryType": "inflow",
+      "categoryId": "basketball_courts",
+      "channel": "kiotviet",
+      "needsReview": false
+    },
+    {
+      "id": "014f2cacd1f67f05a1843f94117eacd17e178e32aa9470a80191e31e297dc095",
+      "sourceId": "5f002042304b59fcab52a9f6d4f1cb74a62c8ed8b1861af33af1ffd5ca99e5fe",
+      "date": "2026-11-02",
+      "amount": 25000.0,
+      "categoryType": "inflow",
+      "categoryId": "fb_income",
+      "channel": "kiotviet",
+      "needsReview": false
+    },
+    {
+      "id": "03be02661b43d5cfc817efb17821cb2ac8519269c44b68fbbdbf29c903a7af08",
+      "sourceId": "5f002042304b59fcab52a9f6d4f1cb74a62c8ed8b1861af33af1ffd5ca99e5fe",
+      "date": "2026-11-02",
+      "amount": 35000.0,
+      "categoryType": "inflow",
+      "categoryId": "fb_income",
+      "channel": "kiotviet",
+      "needsReview": false
+    },
+    {
+      "id": "0d4a38625a30872bc8347f0fd88d4fda3c081644e640f12d7b080a8b37d74c36",
+      "sourceId": "5f002042304b59fcab52a9f6d4f1cb74a62c8ed8b1861af33af1ffd5ca99e5fe",
+      "date": "2026-11-02",
+      "amount": 10000.0,
+      "categoryType": "inflow",
+      "categoryId": "fb_income",
+      "channel": "kiotviet",
+      "needsReview": false
+    },
+    {
+      "id": "0e0ec19958d81f7790c98afeaa0b601d8d07b8ba3c0706d6c4e8d50f71c41547",
+      "sourceId": "5f002042304b59fcab52a9f6d4f1cb74a62c8ed8b1861af33af1ffd5ca99e5fe",
+      "date": "2026-11-02",
+      "amount": 10000.0,
+      "categoryType": "inflow",
+      "categoryId": "fb_income",
+      "channel": "kiotviet",
+      "needsReview": false
+    },
+    {
+      "id": "184b03bb2422e82de786de38940a55b03a3027e9ecbf873a3bb51a9835f51bfd",
+      "sourceId": "5f002042304b59fcab52a9f6d4f1cb74a62c8ed8b1861af33af1ffd5ca99e5fe",
+      "date": "2026-11-02",
+      "amount": 25000.0,
+      "categoryType": "inflow",
+      "categoryId": "fb_income",
+      "channel": "kiotviet",
+      "needsReview": false
+    },
+    {
+      "id": "291557132e98530166d77497954293cbe415f8d1a608f442ca45b3cd10abceb9",
+      "sourceId": "ec96d0781e64d2e80cd706bfe9f0cb27ce05cdd961cbb42092aa833015751442",
+      "date": "2026-11-02",
+      "amount": 15000.0,
+      "categoryType": "inflow",
+      "categoryId": "fb_income",
+      "channel": "kiotviet",
+      "needsReview": false
+    },
+    {
+      "id": "2d11df703cf232b719b76e2061c7f82bc7df02be10ccddb838ba9fdbc1bdc7b0",
+      "sourceId": "5f002042304b59fcab52a9f6d4f1cb74a62c8ed8b1861af33af1ffd5ca99e5fe",
+      "date": "2026-11-02",
+      "amount": 98000.0,
+      "categoryType": "inflow",
+      "categoryId": "basketball_courts",
+      "channel": "bank_transfer",
+      "needsReview": false
+    },
+    {
+      "id": "39ef045c794edeb98a3c72813c93aeba589b7dc06bbddf582d91ca92577398fe",
+      "sourceId": "5f002042304b59fcab52a9f6d4f1cb74a62c8ed8b1861af33af1ffd5ca99e5fe",
+      "date": "2026-11-02",
+      "amount": 15000.0,
+      "categoryType": "inflow",
+      "categoryId": "fb_income",
+      "channel": "kiotviet",
+      "needsReview": false
+    },
+    {
+      "id": "3af5b2a43c1806d1d491ddfae3ffc581216e7e01476ff2e02552041212bea40a",
+      "sourceId": "5f002042304b59fcab52a9f6d4f1cb74a62c8ed8b1861af33af1ffd5ca99e5fe",
+      "date": "2026-11-02",
+      "amount": 98000.0,
+      "categoryType": "inflow",
+      "categoryId": "basketball_courts",
+      "channel": "momo",
+      "needsReview": false
+    },
+    {
+      "id": "40ffd7eb04c942170d2698756fc3f5f7bc11441ebc386595d86b69891a9711a9",
+      "sourceId": "5f002042304b59fcab52a9f6d4f1cb74a62c8ed8b1861af33af1ffd5ca99e5fe",
+      "date": "2026-11-02",
+      "amount": 25000.0,
+      "categoryType": "inflow",
+      "categoryId": "fb_income",
+      "channel": "kiotviet",
+      "needsReview": false
+    },
+    {
+      "id": "49543b58fe3ffca9fd4c4c6d8ae8cf6f0caa558d96f50688a0881784d5fb8d77",
+      "sourceId": "5f002042304b59fcab52a9f6d4f1cb74a62c8ed8b1861af33af1ffd5ca99e5fe",
+      "date": "2026-11-02",
+      "amount": 196000.0,
+      "categoryType": "inflow",
+      "categoryId": "basketball_courts",
+      "channel": "zalopay",
+      "needsReview": false
+    },
+    {
+      "id": "50a67336ffe6763f55152b4a68bea6240bb390d5fb78469f46ff59240d321a11",
+      "sourceId": "5f002042304b59fcab52a9f6d4f1cb74a62c8ed8b1861af33af1ffd5ca99e5fe",
+      "date": "2026-11-02",
+      "amount": 15000.0,
+      "categoryType": "inflow",
+      "categoryId": "fb_income",
+      "channel": "kiotviet",
+      "needsReview": false
+    },
+    {
+      "id": "578b76d8203371e6bf11295c45e2098c310b9f573f8ec11e81474ac8cebcdbf1",
+      "sourceId": "5f002042304b59fcab52a9f6d4f1cb74a62c8ed8b1861af33af1ffd5ca99e5fe",
+      "date": "2026-11-02",
+      "amount": 15000.0,
+      "categoryType": "inflow",
+      "categoryId": "fb_income",
+      "channel": "kiotviet",
+      "needsReview": false
+    },
+    {
+      "id": "5efaea9b7389b4039113d67dd9e6a1c6ff194c61dafc402db2c2da250424c350",
+      "sourceId": "5f002042304b59fcab52a9f6d4f1cb74a62c8ed8b1861af33af1ffd5ca99e5fe",
+      "date": "2026-11-02",
+      "amount": 15000.0,
+      "categoryType": "inflow",
+      "categoryId": "fb_income",
+      "channel": "kiotviet",
+      "needsReview": false
+    },
+    {
+      "id": "624fa1470feac13be07222f7eae101d89a10297f79e3f447cb7602e0c3eabad2",
+      "sourceId": "5f002042304b59fcab52a9f6d4f1cb74a62c8ed8b1861af33af1ffd5ca99e5fe",
+      "date": "2026-11-02",
+      "amount": 25000.0,
+      "categoryType": "inflow",
+      "categoryId": "fb_income",
+      "channel": "kiotviet",
+      "needsReview": false
+    },
+    {
+      "id": "666154c1c75de58813a3de434e466249e56298495a7c2c2023bb7adfbe8b0dc8",
+      "sourceId": "ec96d0781e64d2e80cd706bfe9f0cb27ce05cdd961cbb42092aa833015751442",
+      "date": "2026-11-02",
+      "amount": 25000.0,
+      "categoryType": "inflow",
+      "categoryId": "fb_income",
+      "channel": "kiotviet",
+      "needsReview": false
+    },
+    {
+      "id": "7dacd38fb80f2dc083bc46f06349826455337a5ee921a3918ebebcdde9974849",
+      "sourceId": "5f002042304b59fcab52a9f6d4f1cb74a62c8ed8b1861af33af1ffd5ca99e5fe",
+      "date": "2026-11-02",
+      "amount": 30000.0,
+      "categoryType": "inflow",
+      "categoryId": "fb_income",
+      "channel": "kiotviet",
+      "needsReview": false
+    },
+    {
+      "id": "87331a0221d63cd1a94ba9328ea50edf4b15b39bd162b5c912196a1f1ba59f22",
+      "sourceId": "5f002042304b59fcab52a9f6d4f1cb74a62c8ed8b1861af33af1ffd5ca99e5fe",
+      "date": "2026-11-02",
+      "amount": 15000.0,
+      "categoryType": "inflow",
+      "categoryId": "fb_income",
+      "channel": "kiotviet",
+      "needsReview": false
+    },
+    {
+      "id": "94de325ec73e69afdea6bcaa31fdc0a5b669cc2b1e61657ad903d4ffba99bb1f",
+      "sourceId": "5f002042304b59fcab52a9f6d4f1cb74a62c8ed8b1861af33af1ffd5ca99e5fe",
+      "date": "2026-11-02",
+      "amount": 50000.0,
+      "categoryType": "inflow",
+      "categoryId": "fb_income",
+      "channel": "kiotviet",
+      "needsReview": false
+    },
+    {
+      "id": "97c52615f4df163851dab3b65fdeefb60b910f31c912af423c1bffe2b6bc606c",
+      "sourceId": "5f002042304b59fcab52a9f6d4f1cb74a62c8ed8b1861af33af1ffd5ca99e5fe",
+      "date": "2026-11-02",
+      "amount": 15000.0,
+      "categoryType": "inflow",
+      "categoryId": "fb_income",
+      "channel": "kiotviet",
+      "needsReview": false
+    },
+    {
+      "id": "9b49a9ea43403b44e1e2ce5220dac79b1ccca518ddd9e043452cb55a487492ef",
+      "sourceId": "5f002042304b59fcab52a9f6d4f1cb74a62c8ed8b1861af33af1ffd5ca99e5fe",
+      "date": "2026-11-02",
+      "amount": 10000.0,
+      "categoryType": "inflow",
+      "categoryId": "fb_income",
+      "channel": "kiotviet",
+      "needsReview": false
+    },
+    {
+      "id": "a774c6040721f262c79eb745060ef9f847224f220297dc44d230342eabd781c3",
+      "sourceId": "5f002042304b59fcab52a9f6d4f1cb74a62c8ed8b1861af33af1ffd5ca99e5fe",
+      "date": "2026-11-02",
+      "amount": 25000.0,
+      "categoryType": "inflow",
+      "categoryId": "fb_income",
+      "channel": "kiotviet",
+      "needsReview": false
+    },
+    {
+      "id": "a80bfa15514e48449a4bec97f8825667c45b43eca89e709df28b1d97a5f887f3",
+      "sourceId": "5f002042304b59fcab52a9f6d4f1cb74a62c8ed8b1861af33af1ffd5ca99e5fe",
+      "date": "2026-11-02",
+      "amount": 15000.0,
+      "categoryType": "inflow",
+      "categoryId": "fb_income",
+      "channel": "kiotviet",
+      "needsReview": false
+    },
+    {
+      "id": "adcfe4c797e51a4a77e7d4573012a5ee64c0eb8f45cb3a09f9d9d4723845c5c8",
+      "sourceId": "5f002042304b59fcab52a9f6d4f1cb74a62c8ed8b1861af33af1ffd5ca99e5fe",
+      "date": "2026-11-02",
+      "amount": 25000.0,
+      "categoryType": "inflow",
+      "categoryId": "fb_income",
+      "channel": "kiotviet",
+      "needsReview": false
+    },
+    {
+      "id": "ae8b17333abf8699c4c60acfdc4dfac9bbb12a74f6efd64407708eaa56fa881c",
+      "sourceId": "ec96d0781e64d2e80cd706bfe9f0cb27ce05cdd961cbb42092aa833015751442",
+      "date": "2026-11-02",
+      "amount": 35000.0,
+      "categoryType": "inflow",
+      "categoryId": "fb_income",
+      "channel": "kiotviet",
+      "needsReview": false
+    },
+    {
+      "id": "b6a9fb95dcf29de38777de54b6e88703e22463eca39540004fcf27357bb45c62",
+      "sourceId": "5f002042304b59fcab52a9f6d4f1cb74a62c8ed8b1861af33af1ffd5ca99e5fe",
+      "date": "2026-11-02",
+      "amount": 25000.0,
+      "categoryType": "inflow",
+      "categoryId": "fb_income",
+      "channel": "kiotviet",
+      "needsReview": false
+    },
+    {
+      "id": "c7d6e46b6ce1d32d3d3cdebece0651e15fa3ac5591435a84a40fe15326bd25a1",
+      "sourceId": "5f002042304b59fcab52a9f6d4f1cb74a62c8ed8b1861af33af1ffd5ca99e5fe",
+      "date": "2026-11-02",
+      "amount": 15000.0,
+      "categoryType": "inflow",
+      "categoryId": "fb_income",
+      "channel": "kiotviet",
+      "needsReview": false
+    },
+    {
+      "id": "cc4b18bf6148bf5208687df23b4b05019118adeb2189ba8f2780a19361c1533d",
+      "sourceId": "5f002042304b59fcab52a9f6d4f1cb74a62c8ed8b1861af33af1ffd5ca99e5fe",
+      "date": "2026-11-02",
+      "amount": 49000.0,
+      "categoryType": "inflow",
+      "categoryId": "basketball_courts",
+      "channel": "bank_transfer",
+      "needsReview": false
+    },
+    {
+      "id": "cd1f2cefe4c490f8f3a7e29c9435648ef2a902e3b438adb1462e6604d104a7a8",
+      "sourceId": "5f002042304b59fcab52a9f6d4f1cb74a62c8ed8b1861af33af1ffd5ca99e5fe",
+      "date": "2026-11-02",
+      "amount": 25000.0,
+      "categoryType": "inflow",
+      "categoryId": "fb_income",
+      "channel": "kiotviet",
+      "needsReview": false
+    },
+    {
+      "id": "cfad8f9ffecbdb34c2b0460bbe706112a7eeb35176ee93bc5004c768d841a186",
+      "sourceId": "5f002042304b59fcab52a9f6d4f1cb74a62c8ed8b1861af33af1ffd5ca99e5fe",
+      "date": "2026-11-02",
+      "amount": 10000.0,
+      "categoryType": "inflow",
+      "categoryId": "fb_income",
+      "channel": "kiotviet",
+      "needsReview": false
+    },
+    {
+      "id": "dc251ce35fc1cbcce9325541a9509c4ce7f295dfbf231cd5c3c929c3d72bb131",
+      "sourceId": "5f002042304b59fcab52a9f6d4f1cb74a62c8ed8b1861af33af1ffd5ca99e5fe",
+      "date": "2026-11-02",
+      "amount": 15000.0,
+      "categoryType": "inflow",
+      "categoryId": "fb_income",
+      "channel": "kiotviet",
+      "needsReview": false
+    },
+    {
+      "id": "e65dbae920237eaa5a4a6fc920ef14360b8c1b0e94c76c64ff4f2e37b4bbb481",
+      "sourceId": "5f002042304b59fcab52a9f6d4f1cb74a62c8ed8b1861af33af1ffd5ca99e5fe",
+      "date": "2026-11-02",
+      "amount": 50000.0,
+      "categoryType": "inflow",
+      "categoryId": "fb_income",
+      "channel": "kiotviet",
+      "needsReview": false
+    },
+    {
+      "id": "e7a37b0942a50d20d1eeb17952e4ace85dac24d655dad216e5d8388cfe96da1e",
+      "sourceId": "5f002042304b59fcab52a9f6d4f1cb74a62c8ed8b1861af33af1ffd5ca99e5fe",
+      "date": "2026-11-02",
+      "amount": 25000.0,
+      "categoryType": "inflow",
+      "categoryId": "fb_income",
+      "channel": "kiotviet",
+      "needsReview": false
+    },
+    {
+      "id": "e928c85384f4b47f4edfedf24bb3f288598bf452ecd36aa617708cf098f3e21e",
+      "sourceId": "5f002042304b59fcab52a9f6d4f1cb74a62c8ed8b1861af33af1ffd5ca99e5fe",
+      "date": "2026-11-02",
+      "amount": 10000.0,
+      "categoryType": "inflow",
+      "categoryId": "fb_income",
+      "channel": "kiotviet",
+      "needsReview": false
+    },
+    {
+      "id": "e9a59374c3182e38a9580d3d5744d2a1584255adee70dd3e9b5c75d5ef023d08",
+      "sourceId": "5f002042304b59fcab52a9f6d4f1cb74a62c8ed8b1861af33af1ffd5ca99e5fe",
+      "date": "2026-11-02",
+      "amount": 10000.0,
+      "categoryType": "inflow",
+      "categoryId": "fb_income",
+      "channel": "kiotviet",
+      "needsReview": false
+    },
+    {
+      "id": "ecdb00f1973638927dd523ba9f429a8ac7036c9e7ef972f0bba4a9105b5892cb",
+      "sourceId": "5f002042304b59fcab52a9f6d4f1cb74a62c8ed8b1861af33af1ffd5ca99e5fe",
+      "date": "2026-11-02",
+      "amount": 25000.0,
+      "categoryType": "inflow",
+      "categoryId": "fb_income",
+      "channel": "kiotviet",
+      "needsReview": false
+    },
+    {
+      "id": "f973ebef3a0c5322622f059b2545b9c1983af553e9de5cbf1a131b70dc291df3",
+      "sourceId": "5f002042304b59fcab52a9f6d4f1cb74a62c8ed8b1861af33af1ffd5ca99e5fe",
+      "date": "2026-11-02",
+      "amount": 10000.0,
+      "categoryType": "inflow",
+      "categoryId": "fb_income",
+      "channel": "kiotviet",
+      "needsReview": false
+    },
+    {
+      "id": "fc89450ca8f08089c015aa3e88f50a54115dd1650fb063e3537cc8baa2898c3d",
+      "sourceId": "5f002042304b59fcab52a9f6d4f1cb74a62c8ed8b1861af33af1ffd5ca99e5fe",
+      "date": "2026-11-02",
+      "amount": 8936000.0,
+      "categoryType": "outflow",
+      "categoryId": "inventory",
+      "channel": "bank_transfer",
+      "needsReview": false
+    },
+    {
+      "id": "fd946a2812b7a5e12b60a22b31cda916a88e21be2f0d39fea1c69492386f8305",
+      "sourceId": "5f002042304b59fcab52a9f6d4f1cb74a62c8ed8b1861af33af1ffd5ca99e5fe",
+      "date": "2026-11-02",
       "amount": 25000.0,
       "categoryType": "inflow",
       "categoryId": "fb_income",

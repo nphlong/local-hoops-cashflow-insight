@@ -1,36 +1,36 @@
 {
   "meta": {
-    "asOf": "2026-11-02",
+    "asOf": "2026-11-09",
     "currency": "VND",
     "openingBalance": 0.0,
-    "closingBalance": 335968274.0,
+    "closingBalance": 319718924.0,
     "accountNo": "7789797968",
-    "transactionCount": 2869
+    "transactionCount": 3025
   },
   "grains": {
     "week": {
       "kpis": {
-        "totalInflow": 16419700.0,
-        "totalOutflow": 8936000.0,
-        "netCashflow": 7483700.0,
-        "bookingCount": 28,
-        "revenuePerBooking": 476417.85714285716,
-        "courtHireShare": 0.8124204461713673,
-        "fbShare": 0.18757955382863267,
-        "reviewCount": 0
+        "totalInflow": 50028400.0,
+        "totalOutflow": 90440250.0,
+        "netCashflow": -40411850.0,
+        "bookingCount": 21,
+        "revenuePerBooking": 2088423.8095238095,
+        "courtHireShare": 0.8766400684411254,
+        "fbShare": 0.12301013024602026,
+        "reviewCount": 6
       },
       "window": {
         "grain": "week",
         "current": {
+          "start": "2026-11-03",
+          "end": "2026-11-09"
+        },
+        "prior": {
           "start": "2026-10-27",
           "end": "2026-11-02"
         },
-        "prior": {
-          "start": "2026-10-20",
-          "end": "2026-10-26"
-        },
-        "currentLabel": "This week (Oct 27 – Nov 2, 2026)",
-        "priorLabel": "Last week (Oct 20 – Oct 26, 2026)"
+        "currentLabel": "This week (Nov 3 – Nov 9, 2026)",
+        "priorLabel": "Last week (Oct 27 – Nov 2, 2026)"
       },
       "lastTwelveMonths": [
         {
@@ -102,8 +102,8 @@
         {
           "key": "2026-11",
           "label": "Nov 26",
-          "inflow": 1259000.0,
-          "outflow": 8936000.0
+          "inflow": 75449900.0,
+          "outflow": 99376250.0
         }
       ],
       "cashOnHand": [
@@ -187,35 +187,35 @@
         {
           "key": "2026-11",
           "label": "Nov 26",
-          "inflow": 1259000.0,
-          "outflow": 8936000.0,
-          "cashOnHand": 335968274.0
+          "inflow": 75449900.0,
+          "outflow": 99376250.0,
+          "cashOnHand": 319718924.0
         }
       ]
     },
     "month": {
       "kpis": {
-        "totalInflow": 1259000.0,
-        "totalOutflow": 8936000.0,
-        "netCashflow": -7677000.0,
-        "bookingCount": 5,
-        "revenuePerBooking": 107800.0,
-        "courtHireShare": 0.42811755361397935,
-        "fbShare": 0.5718824463860207,
-        "reviewCount": 0
+        "totalInflow": 75449900.0,
+        "totalOutflow": 99376250.0,
+        "netCashflow": -23926350.0,
+        "bookingCount": 29,
+        "revenuePerBooking": 2358289.6551724137,
+        "courtHireShare": 0.9064346009736262,
+        "fbShare": 0.09316115727124887,
+        "reviewCount": 7
       },
       "window": {
         "grain": "month",
         "current": {
           "start": "2026-11-01",
-          "end": "2026-11-02"
+          "end": "2026-11-09"
         },
         "prior": {
           "start": "2026-10-01",
-          "end": "2026-10-02"
+          "end": "2026-10-09"
         },
-        "currentLabel": "This month (Nov 1 – Nov 2, 2026)",
-        "priorLabel": "Last month (Oct 1 – Oct 2, 2026)"
+        "currentLabel": "This month (Nov 1 – Nov 9, 2026)",
+        "priorLabel": "Last month (Oct 1 – Oct 9, 2026)"
       },
       "lastTwelveMonths": [
         {
@@ -287,8 +287,8 @@
         {
           "key": "2026-11",
           "label": "Nov 26",
-          "inflow": 1259000.0,
-          "outflow": 8936000.0
+          "inflow": 75449900.0,
+          "outflow": 99376250.0
         }
       ],
       "cashOnHand": [
@@ -372,35 +372,35 @@
         {
           "key": "2026-11",
           "label": "Nov 26",
-          "inflow": 1259000.0,
-          "outflow": 8936000.0,
-          "cashOnHand": 335968274.0
+          "inflow": 75449900.0,
+          "outflow": 99376250.0,
+          "cashOnHand": 319718924.0
         }
       ]
     },
     "year": {
       "kpis": {
-        "totalInflow": 1378872022.0,
-        "totalOutflow": 1042903748.0,
-        "netCashflow": 335968274.0,
-        "bookingCount": 664,
-        "revenuePerBooking": 552408.2078313254,
-        "courtHireShare": 0.26601384620740387,
-        "fbShare": 0.05693458040154505,
-        "reviewCount": 97
+        "totalInflow": 1453062922.0,
+        "totalOutflow": 1133343998.0,
+        "netCashflow": 319718924.0,
+        "bookingCount": 686,
+        "revenuePerBooking": 624854.8833819242,
+        "courtHireShare": 0.2949978583239907,
+        "fbShare": 0.06249866996468581,
+        "reviewCount": 104
       },
       "window": {
         "grain": "year",
         "current": {
           "start": "2026-01-01",
-          "end": "2026-11-02"
+          "end": "2026-11-09"
         },
         "prior": {
           "start": "2025-01-01",
-          "end": "2025-11-02"
+          "end": "2025-11-09"
         },
-        "currentLabel": "This year (Jan 1 – Nov 2, 2026)",
-        "priorLabel": "Last year (Jan 1 – Nov 2, 2025)"
+        "currentLabel": "This year (Jan 1 – Nov 9, 2026)",
+        "priorLabel": "Last year (Jan 1 – Nov 9, 2025)"
       },
       "lastTwelveMonths": [
         {
@@ -472,8 +472,8 @@
         {
           "key": "2026-11",
           "label": "Nov 26",
-          "inflow": 1259000.0,
-          "outflow": 8936000.0
+          "inflow": 75449900.0,
+          "outflow": 99376250.0
         }
       ],
       "cashOnHand": [
@@ -557,9 +557,9 @@
         {
           "key": "2026-11",
           "label": "Nov 26",
-          "inflow": 1259000.0,
-          "outflow": 8936000.0,
-          "cashOnHand": 335968274.0
+          "inflow": 75449900.0,
+          "outflow": 99376250.0,
+          "cashOnHand": 319718924.0
         }
       ]
     }
